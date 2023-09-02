@@ -1,11 +1,11 @@
 import React from 'react';
 
-function App() {
+function login() {
   return (
     <div >
-      Meu app
+      Tela de Login
     </div>
   );
 }
 
-export default App;
+export default login;

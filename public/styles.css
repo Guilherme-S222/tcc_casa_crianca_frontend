@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+html{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+};
+
+body{
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+
+};
+
+h1{
+  font-size: 100px;
+};
+h2{
+  font-size: 75px;
+};
+h3{
+  font-size: 50px;
+};
+
+@media (max-width: 320px){
+
+};
+@media (max-width: 768px){
+
+};
+@media (max-width: 1024px){
+
+};
