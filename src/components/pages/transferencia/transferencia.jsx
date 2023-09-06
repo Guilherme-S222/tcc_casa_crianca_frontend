@@ -1,6 +1,6 @@
 import React from 'react';
 
-function transferencia() {
+function Transferencia() {
   return (
     <div >
       Tela de Transferência
@@ -8,4 +8,4 @@ function transferencia() {
   );
 }
 
-export default transferencia;
+export default Transferencia;

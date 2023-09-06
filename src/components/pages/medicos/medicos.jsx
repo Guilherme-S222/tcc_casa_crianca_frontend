@@ -1,6 +1,6 @@
 import React from 'react';
 
-function medicos() {
+function Medicos() {
   return (
     <div >
       Tela de Médicos
@@ -8,4 +8,4 @@ function medicos() {
   );
 }
 
-export default medicos;
+export default Medicos;

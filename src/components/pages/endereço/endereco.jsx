@@ -1,6 +1,6 @@
 import React from 'react';
 
-function endereco() {
+function Endereco() {
   return (
     <div >
       Tela de Endereço
@@ -8,4 +8,4 @@ function endereco() {
   );
 }
 
-export default endereco;
+export default Endereco;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function usuarios() {
+function Usuarios() {
   return (
     <div >
       Tela de Usuários
@@ -8,4 +8,4 @@ function usuarios() {
   );
 }
 
-export default usuarios;
+export default Usuarios;

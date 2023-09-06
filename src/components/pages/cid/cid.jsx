@@ -1,6 +1,6 @@
 import React from 'react';
 
-function cid() {
+function Cid() {
   return (
     <div >
       Tela de CID
@@ -8,4 +8,4 @@ function cid() {
   );
 }
 
-export default cid;
+export default Cid;

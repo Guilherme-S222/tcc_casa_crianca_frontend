@@ -1,6 +1,6 @@
 import React from 'react';
 
-function prorrogacao() {
+function Prorrogacao() {
   return (
     <div >
       Tela de Prorrogação
@@ -8,4 +8,4 @@ function prorrogacao() {
   );
 }
 
-export default prorrogacao;
+export default Prorrogacao;

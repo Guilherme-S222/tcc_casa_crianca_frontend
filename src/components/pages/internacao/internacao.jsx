@@ -1,6 +1,6 @@
 import React from 'react';
 
-function internação() {
+function Internação() {
   return (
     <div >
       Tela de Internação
@@ -8,4 +8,4 @@ function internação() {
   );
 }
 
-export default internação;
+export default Internação;
