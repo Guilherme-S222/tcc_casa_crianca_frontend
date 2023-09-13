@@ -7,7 +7,7 @@ function Home() {
   return (
     <div >
       <Header/>
-      Home do Site
+        Home do Site
       <Footer/>
     </div>
   );

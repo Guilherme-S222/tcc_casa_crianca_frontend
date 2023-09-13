@@ -7,10 +7,8 @@ function Header() {
     <header>
       <div >
         <nav className='navbar'>
-          Início
-          Cadastro
-          Pesquisa
-          Login
+          <a href='#'>Início</a>
+          
         </nav>
       </div>
     </header>
