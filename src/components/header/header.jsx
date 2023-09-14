@@ -1,16 +1,19 @@
 import React from 'react';
+import { GiHealthNormal } from "react-icons/gi";
 
 import './header.css';
 
 function Header() {
   return (
     <header>
-      <div >
-        <nav className='navbar'>
-          <a href='#'>Início</a>
-          
-        </nav>
-      </div>
+      <nav className="containerNav">
+        <div className='menu'>
+          <div className='logoMenu'>
+            <GiHealthNormal className="icon" id="logo" />
+            <label for="" id="titulo">Casa da Criança</label>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }

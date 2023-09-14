@@ -1,21 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-};
-body {
+
+.icon{
+  width: 5vh;
+  height: 5vh;
+  margin: 1vh;
+  padding: 1vh;
+}
+#titulo{
+  font-size: 5vh;
   font-family: Roboto, sans-serif;
-  font-size: 2vh;
-
-
-};
-.navbar{
-  font-size: 2vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 15px;
-  background-color: bisque;
-
+  justify-content: center;
 };
