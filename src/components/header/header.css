@@ -1,15 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-
-.icon{
-  width: 5vh;
-  height: 5vh;
-  margin: 1vh;
-  padding: 1vh;
+.containerNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAFAFA;
+  color: #06a180;
+  border-bottom: 0.4rem solid #06a180;
+  font-size: 4.4rem;
 }
-#titulo{
-  font-size: 5vh;
-  font-family: Roboto, sans-serif;
+
+.containerNav .menu {
+  max-width: 1168px; /* largura útil + 20 px esq e 20px dir; */
+  height: 8.0rem;
+  padding: 0.3rem 2rem 0.4rem 2rem;
+  font-size: 1.9rem;
   align-items: center;
   justify-content: center;
-};
+  display: flex;
+}
+
+.containerNav .menu .icon {
+  color: #06a180;
+  font-size: 4.4rem;
+  user-select: none;
+  /* margin: 0 2rem */
+}
+
+#titulo {
+  user-select: none;
+  margin: 0 1rem;
+}
+
+/* #mIco {
+  display: none;
+} */
+
+.containerNav .menu .menuGrande {
+  display: flex;
+}
+
+.containerNav .menu .menuGrande a {
+  border: 0.4rem solid #FAFAFA;
+  width: 10rem;
+  height: 6rem;
+  background-color: #FAFAFA;
+  color: #06a180;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.containerNav .menu .menuGrande a:hover {
+  border: 0.4rem solid #06a180;
+  color: #06a180;
+}
+
+.containerNav .menu .menuGrande a.active {
+  background-color: #06a180;
+  border: 0.4rem solid #06a180;
+  color: #FAFAFA;
+}
+
+.containerNav .menu .logoNome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerNav .menu .menuMobile a {
+  display: none;
+}
+
+.containerNav .menuMobileExpandidon {
+  display: none;
+}
+
+.containerNav .menuMobileExpandidos a {
+  display: none;
+  border: 0.4rem solid #FAFAFA;
+  width: 100%;
+  height: 4rem;
+  background-color: #FAFAFA;
+  color: #06a180;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.containerNav .menuMobileExpandidos a:hover {
+  border: 0.4rem solid #06a180;
+  color: #06a180;
+}
+
+.containerNav .menuMobileExpandidos a.active {
+  background-color: #06a180;
+  border: 0.4rem solid #06a180;
+  color: #FAFAFA;
+}
+
+
+.containerNav .menuMobile a {
+  background-color: #FAFAFA;
+  color: #06a180;
+  text-decoration: none;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menuSair {
+  display: flex;
+  border: 0.4rem solid #FAFAFA;
+  background-color: #FAFAFA;
+  color: #06a180;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 940px) {
+  .containerNav {
+      flex-direction: column;
+  }
+  .containerNav .menu {
+      width: 88%;
+      justify-content: space-between;
+  }
+  .containerNav .menu .menuGrande {
+      display: none;
+  }
+  .containerNav .menu .menuMobile a {
+      display: flex;
+  }
+
+}
+
+@media screen and (max-width: 940px) {
+  .containerNav .menuMobileExpandidos {
+      display: flex;
+      flex-direction: column;
+      width: 92%;
+  }
+}

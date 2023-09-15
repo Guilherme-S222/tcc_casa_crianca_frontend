@@ -2,22 +2,23 @@ import React from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
-function Home() {
+
+function Contato() {
   return (
     <div >
-      <Header pag={'Home'}/>
+      <Header pag={'Contato'}/>
         <p
           style={{
             margin: '10rem',
             textAlign: 'center',
             fontSize: '3rem'
-        }}
+          }}
         >
-        Home do Site
+        Contato
         </p>
       <Footer/>
     </div>
   );
 }
 
-export default Home;
+export default Contato;

@@ -18,6 +18,8 @@ import CadTransferencia from './pages/transferencia/CadTransferencia';
 import Usuarios from './pages/usuarios/Usuarios';
 import CadUsuarios from './pages/usuarios/CadUsuarios';
 import Login from './pages/usuarios/Login';
+import Contato from './pages/home/Contato';
+
 
 function App() {
   return (
@@ -41,6 +43,7 @@ function App() {
         <Route path='/usuarios' element={<Usuarios/>} />
         <Route path='/cadusuarios' element={<CadUsuarios/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/contato' element={<Contato/>} />
       </Routes>
     </BrowserRouter>
   );

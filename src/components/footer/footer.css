@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* Rodapé */
+.rodape {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1128px;
+  border-radius: 2rem;
+  width: 96%;
+}
+
+.rodape p {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  color: #000000;
+}
+
+.rodape .social {
+  /* margin: 0 auto; */
+  color: #FAFAFA;
+  background-color: #06a180;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1128px;
+  border-radius: 2rem;
+}
+
+.rodape .social img {
+  width: 3rem;
+  margin: 2rem 6rem;
+}
