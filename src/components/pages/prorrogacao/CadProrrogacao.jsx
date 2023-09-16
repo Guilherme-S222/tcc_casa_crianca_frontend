@@ -1,9 +1,21 @@
 import React from 'react';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 function CadProrrogacao() {
   return (
     <div >
-      Tela de Cadastro de Prorrogação
+      <Header pag={'CadProrrogacao'}/>
+        <p
+          style={{
+          margin: '10rem',
+          textAlign: 'center',
+          fontSize: '3rem'
+        }}
+        >
+        Cadastro de Prorrogação
+        </p>
+      <Footer/>
     </div>
   );
 }

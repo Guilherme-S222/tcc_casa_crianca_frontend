@@ -1,9 +1,21 @@
 import React from 'react';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 function Usuarios() {
   return (
     <div >
-      Tela de Usuários
+      <Header pag={'Usuarios'}/>
+        <p
+          style={{
+          margin: '10rem',
+          textAlign: 'center',
+          fontSize: '3rem'
+        }}
+        >
+        Tela de Usuários
+        </p>
+      <Footer/>
     </div>
   );
 }

@@ -1,9 +1,21 @@
 import React from 'react';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 function CadInternacao() {
   return (
     <div >
-      Tela de Cadastro de Internação
+      <Header pag={'CadIntercacao'}/>
+        <p
+          style={{
+          margin: '10rem',
+          textAlign: 'center',
+          fontSize: '3rem'
+        }}
+        >
+        Cadastro de Internação
+        </p>
+      <Footer/>
     </div>
   );
 }

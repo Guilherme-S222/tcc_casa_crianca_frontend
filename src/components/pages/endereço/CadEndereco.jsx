@@ -1,9 +1,21 @@
 import React from 'react';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 function CadEndereco() {
   return (
     <div >
-      Tela de Cadastro de Endereço
+      <Header pag={'CadEndereco'}/>
+        <p
+          style={{
+          margin: '10rem',
+          textAlign: 'center',
+          fontSize: '3rem'
+        }}
+        >
+        Cadastro de Endereço
+        </p>
+      <Footer/>
     </div>
   );
 }

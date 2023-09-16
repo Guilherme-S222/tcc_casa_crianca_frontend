@@ -1,9 +1,21 @@
 import React from 'react';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
 
 function Transferencia() {
   return (
     <div >
-      Tela de Transferência
+      <Header pag={'Transferencia'}/>
+        <p
+          style={{
+          margin: '10rem',
+          textAlign: 'center',
+          fontSize: '3rem'
+        }}
+        >
+        Tela de Transferência
+        </p>
+      <Footer/>
     </div>
   );
 }

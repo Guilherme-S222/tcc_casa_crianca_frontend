@@ -55,6 +55,8 @@
   font-size: 1.6rem;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 1rem;
+
 }
 
 .containerNav .menu .menuGrande a:hover {
