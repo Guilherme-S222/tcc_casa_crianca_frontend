@@ -15,12 +15,11 @@ import promo3 from '../../../images/promo3.png';
 import promo4 from '../../../images/promo4.png';
 import local from '../../../images/local.jpg';
 
-import prod1 from '../../../images/temp/fritas.jpg';
-import prod2 from '../../../images/temp/hamburger-batata.jpg';
-import prod3 from '../../../images/temp/lanche1.jpg';
-import prod4 from '../../../images/temp/suco2.jpg';
-import prod5 from '../../../images/temp/suco-laranja.jpg';
-import prod6 from '../../../images/temp/sorvete.jpg';
+import eco from '../../../images/temp/ecoterapia.jpg';
+import hidro from '../../../images/temp/hidroterapia.jpg';
+import cino from '../../../images/temp/cinoterapia.jpg';
+import snoe from '../../../images/temp/snoezelen.jpg';
+
 
 function Slider (){
   return (
@@ -32,17 +31,18 @@ function Slider (){
     infiniteLoop={true}
     interval={5000}
     >
+      {/* CAROUSEL */}
       <div>
-        <img src={promo1} alt="promoção 1" />
+        <img src={promo1} alt="ecoterapia" />
       </div>
       <div>
-        <img src={promo2} alt="promoção 2" />
+        <img src={promo2} alt="hidroterapia" />
       </div>
       <div>
-        <img src={promo3} alt="promoção 3" />
+        <img src={promo3} alt="cinoterapia" />
       </div>
       <div>
-        <img src={promo4} alt="promoção 4" />
+        <img src={promo4} alt="snoezelen" />
       </div>
     </Carousel>
   )
@@ -55,15 +55,15 @@ function Home() {
 
         <Slider />
 
+        {/* FOTO DO LOCAL  */}
         <main class="principal">
-          {/* Info local  */}
           <img className="imagemLocal" src={local} alt="Imagem do local"/>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi consequuntur quas numquam ullam fuga voluptas? Sunt, soluta beatae fugit ipsa eos quam ratione explicabo voluptates blanditiis, suscipit repellendus voluptatem. Hic quasi consequuntur quas numquam ullam fuga voluptas? Sunt, soluta beatae fugit ipsa eos quam ratione explicabo voluptates blanditiis, suscipit repellendus voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi consequuntur quas numquam ullam fuga voluptas! Hic quasi consequuntur quas numquam ullam fuga voluptas...
           </p>
         </main>
 
         <div class="tipos">
-          {/* Tipos de produto  */}
+          {/* TIPOS DE PRODUTOS  */}
           <FaChild className="icon" id="logo" />
           <FaBriefcaseMedical className="icon" id="logo" />
           <FaChildReaching className="icon" id="logo" />
@@ -71,49 +71,34 @@ function Home() {
           <FaBookMedical className="icon" id="logo" />
         </div>
 
+        {/* CARDS */}
         <div class="produtos">
           {/* Alguns produtos */}
           <div class="cardProd">
             <div class="controlImg">
-              <img src={prod1} alt=""/>
+              <img src={eco} alt=""/>
             </div>
-            <span class="descricao">Lanche</span>
-            
+            <span class="descricao">Equoterapia</span>
+
           </div>
           <div class="cardProd">
             <div class="controlImg">
-              <img src={prod2} alt=""/>
+              <img src={hidro} alt=""/>
             </div>
-            <span class="descricao">Lanche</span>
-            
+            <span class="descricao">Hidroterapia</span>
+
           </div>
           <div class="cardProd">
             <div class="controlImg">
-              <img src={prod3} alt=""/>
+              <img src={cino} alt=""/>
             </div>
-            <span class="descricao">Lanche</span>
-            
+            <span class="descricao">Cinoterapia</span>
           </div>
           <div class="cardProd">
             <div class="controlImg">
-              <img src={prod4} alt=""/>
+              <img src={snoe} alt=""/>
             </div>
-            <span class="descricao">Lanche</span>
-            
-          </div>
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={prod5} alt=""/>
-            </div>
-            <span class="descricao">Lanche</span>
-            
-          </div>
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={prod6} alt=""/>
-            </div>
-            <span class="descricao">Lanche</span>
-            
+            <span class="descricao">Snoezelen</span>
           </div>
         </div>
       <Footer/>
