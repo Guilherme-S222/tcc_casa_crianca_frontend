@@ -12,7 +12,11 @@
   /*height: 5rem;*/
 }
 .carousel {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  border: 0.4rem solid #06a180;
+  border-radius: 2rem;
 }
 /* MAIN */
 .principal {
@@ -27,13 +31,16 @@
   display: flex;
 }
 .imagemLocal {
-  width: 50%;
+  width: 45%;
   border-radius: 2rem;
   margin: 1rem;
 }
 .principal p {
+  display: flex;
   font-size: 1.8rem;
-  margin: 1rem;
+  margin: 3rem;
+  text-align: justify;
+  align-items: center;
 }
 /* Tipos */
 .tipos {
@@ -52,7 +59,7 @@
   cursor: pointer;
 }
 
-/*PRODUTOS*/
+PRODUTOS
 .container {
   display: flex;
   align-items: center;
@@ -74,69 +81,4 @@
   max-width: 1128px;
   border-radius: 2rem;
   flex-wrap: wrap;
-}
-/* CARD */
-.produtos .cardProd {
-  width: 20%;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0.4rem solid #06a180;
-  border-radius: 2rem;
-  overflow: hidden;
-  background-color: #06a180;
-  margin: 1rem 1rem;
-}
-.container .icon {
-  font-size: 3rem;
-}
-#titulo {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.container .titulo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-#valor {
-  font-size: 2rem;
-}
-.container img {
-  width: 50%;
-  border-radius: 2rem;
-}
-.container span {
-  display: block;
-  margin: 1rem;
-  text-align: center;
-}
-.produtos .cardProd .controlImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 80%;
-  padding-bottom: 0.4rem;
-};
-.produtos .cardProd .controlImg img {
-  max-width: 100%;
-  width: 100%;
-};
-.produtos .cardProd img {
-  width: 100%;
-  height: 100%;
-}
-.produtos .cardProd span {
-  background-color: #FAFAFA;
-  width: 100%;
-  text-align: center;
-  font-size: 1.6rem;
-  padding: 0.1rem;
-}
-.produtos .cardProd .descricao {
-  font-weight: bold;
 }

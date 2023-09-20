@@ -8,6 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
+import CardProd from './cardProd';
 
 import promo1 from '../../../images/promo1.png';
 import promo2 from '../../../images/promo2.png';
@@ -15,7 +16,7 @@ import promo3 from '../../../images/promo3.png';
 import promo4 from '../../../images/promo4.png';
 import local from '../../../images/local.jpg';
 
-import eco from '../../../images/temp/ecoterapia.jpg';
+import equo from '../../../images/temp/ecoterapia.jpg';
 import hidro from '../../../images/temp/hidroterapia.jpg';
 import cino from '../../../images/temp/cinoterapia.jpg';
 import snoe from '../../../images/temp/snoezelen.jpg';
@@ -58,8 +59,7 @@ function Home() {
         {/* FOTO DO LOCAL  */}
         <main class="principal">
           <img className="imagemLocal" src={local} alt="Imagem do local"/>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi consequuntur quas numquam ullam fuga voluptas? Sunt, soluta beatae fugit ipsa eos quam ratione explicabo voluptates blanditiis, suscipit repellendus voluptatem. Hic quasi consequuntur quas numquam ullam fuga voluptas? Sunt, soluta beatae fugit ipsa eos quam ratione explicabo voluptates blanditiis, suscipit repellendus voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi consequuntur quas numquam ullam fuga voluptas! Hic quasi consequuntur quas numquam ullam fuga voluptas...
-          </p>
+          <p>A Casa da Criança é uma instituição filantrópica destinada aos cuidados de crianças e adolescentes com necessidades especiais. Está localizada à Rua João José Sabongi, 495 - Vila das Industrias na cidade de Tupã/SP. Com atendimento: 2.ª à 6.ª feira das 08:00 às 18:00 horas </p>
         </main>
 
         <div class="tipos">
@@ -74,32 +74,42 @@ function Home() {
         {/* CARDS */}
         <div class="produtos">
           {/* Alguns produtos */}
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={eco} alt=""/>
-            </div>
-            <span class="descricao">Equoterapia</span>
-
-          </div>
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={hidro} alt=""/>
-            </div>
-            <span class="descricao">Hidroterapia</span>
-
-          </div>
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={cino} alt=""/>
-            </div>
-            <span class="descricao">Cinoterapia</span>
-          </div>
-          <div class="cardProd">
-            <div class="controlImg">
-              <img src={snoe} alt=""/>
-            </div>
-            <span class="descricao">Snoezelen</span>
-          </div>
+          <CardProd
+            produto={
+              {
+                img:equo,
+                txtAltImg:'equoterapia',
+                nome:'Equoterapia',
+              }
+            }
+          />
+          <CardProd
+            produto={
+              {
+                img:hidro,
+                txtAltImg:'hidroterapia',
+                nome:'Hidroterapia',
+              }
+            }
+          />
+          <CardProd
+            produto={
+              {
+                img:cino,
+                txtAltImg:'cinoterapia',
+                nome:'Cinoterapia',
+              }
+            }
+          />
+          <CardProd
+            produto={
+              {
+                img:snoe,
+                txtAltImg:'snoezelen',
+                nome:'Snoezelen',
+              }
+            }
+          />
         </div>
       <Footer/>
     </div>

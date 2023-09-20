@@ -29,7 +29,7 @@
 
 #titulo {
   user-select: none;
-  margin: 0 1rem;
+  margin: 2rem;
 }
 
 /* #mIco {
@@ -56,6 +56,7 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 1rem;
+  margin: 1rem;
 
 }
 
