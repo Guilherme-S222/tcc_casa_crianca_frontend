@@ -1,18 +1,57 @@
 .contatos{
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 15rem auto;
+  margin: 5rem auto;
   max-width: 1100px;
+  gap:50px;
+  font-family: Roboto, sans-serif;
+
 }
 .contatoH1{
-  font-size: 2.5rem;
+  font-size: 3.0rem;
   margin: 2rem;
+  font-family: Roboto, sans-serif;
+
 
 }
 .contatoP{
-  font-size: 1.5rem;
+  font-size: 2.0rem;
+}
+.contatoIcons{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  font-size: 1.3rem;
+  margin: auto;
+  max-width: 600px;
+  gap: 20px;
 
+}
+.contatoLocal{
+  padding: 2rem;
+  align-items: center;
+  text-align: center;
+  background-color: #06a180;
+  border-radius: 1rem;
+  font-family: Roboto, sans-serif;
+  color: white;
+
+}
+.contatoTel{
+  padding: 2rem;
+  align-items: center;
+  text-align: center;
+  background-color: #06a180;
+  border-radius: 1rem;
+  font-family: Roboto, sans-serif;
+  color: white;
+
+
+}
+.icon{
+  font-size: 3rem;
+  color: white;
 }
