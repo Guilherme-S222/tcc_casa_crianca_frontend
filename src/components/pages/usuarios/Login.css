@@ -1,0 +1,70 @@
+.containerLog{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid 0.4rem #06a180;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  color:#06a180;
+  width: 92%;
+  max-width: 1100px;
+  font-size: 3rem;
+  font-family: Roboto, sans-serif;
+}
+.form{
+  padding: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form input{
+  border: 2px solid #06a180;
+  display: flex;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  width: 100%;
+  max-width: 50rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+.form input:focus{
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+.form .info{
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  justify-content: space-between;
+}
+.form .info a{
+  margin-bottom: 1rem;
+  background-color: #FAFAFA;
+  color:#06a180;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.form button{
+  background-color: #06a180;
+  border: 2px solid black;
+  color:white;
+  font-size: 1.4rem;
+  width: 40%;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.botao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ico{
+  font-size: 2rem;
+  cursor: pointer;
+}

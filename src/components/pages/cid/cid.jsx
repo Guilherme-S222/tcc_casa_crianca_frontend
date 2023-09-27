@@ -28,8 +28,8 @@ function Cid({ Cid }) {
         </p>
 
         <div key={cid.cid_id}>
-          <span>{cid.cid_cid}</span>
-          <span>{cid.cid_descri}</span>
+          <p>{cid.cid_cid}</p>
+          <p>{cid.cid_descri}</p>
         </div>
 
       <Footer/>

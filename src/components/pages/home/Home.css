@@ -37,10 +37,12 @@
 }
 .principal p {
   display: flex;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   margin: 3rem;
   text-align: justify;
   align-items: center;
+  font-family: Roboto, sans-serif;
+
 }
 /* Tipos */
 .tipos {
@@ -73,6 +75,7 @@ PRODUTOS
   color: #06a180;
   width: 92%;
   max-width: 1100px;
+
 }
 .produtos {
   margin: 1rem auto;
@@ -81,4 +84,6 @@ PRODUTOS
   max-width: 1128px;
   border-radius: 2rem;
   flex-wrap: wrap;
+  font-family: Roboto, sans-serif;
+
 }
