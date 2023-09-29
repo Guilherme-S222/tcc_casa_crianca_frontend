@@ -39,7 +39,7 @@ function Header({pag}) {
         <div className='menu'>
           <div className='logoMenu'>
             <FaHandsHoldingChild className="icon" id="logo" />
-            <label for="" id="titulo">Casa da Criança</label>
+            <label for="" className="titulo" id="titulo">Casa da Criança</label>
           </div>
           <div className="menuGrande">
             <Link to='/' className={pag === 'Home' ? 'active' : ''}>Home</Link>

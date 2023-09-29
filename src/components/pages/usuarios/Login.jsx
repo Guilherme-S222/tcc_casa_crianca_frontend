@@ -70,7 +70,7 @@ function LoginUsu() {
             /*value={senha}*/
           />
           <div className='info'>
-            <Link to='/CadUsuarios'>Não tenho cadastro!</Link>
+            <Link to='/CadUsuarios'>Não tenho cadastro</Link>
             <a href="#">Esqueci o e-mail</a>
           </div>
           <button type="submit" className='botao'><MdLogin className='ico' />Entrar</button>

@@ -30,8 +30,11 @@
 }
 
 #titulo {
+  margin-right: 5rem;
+  margin-left: 1rem;
   user-select: none;
-  margin: 2rem;
+  font-size: 2.5rem;
+
 }
 
 /* #mIco {
@@ -73,7 +76,7 @@
   color: #FAFAFA;
 }
 
-.containerNav .menu .logoNome {
+.containerNav .menu .logoMenu {
   display: flex;
   align-items: center;
   justify-content: center;
