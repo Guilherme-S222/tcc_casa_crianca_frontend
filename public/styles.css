@@ -26,8 +26,14 @@ h3{
 @media (max-width: 320px){
 
 };
-@media (max-width: 768px){
-
+@media screen and (max-width: 768px){
+  .principal {
+    flex-direction: row;
+    align-items: center;
+  }
+  .imagemLocal {
+    max-width: 100%;
+  }
 };
 @media (max-width: 1024px){
 

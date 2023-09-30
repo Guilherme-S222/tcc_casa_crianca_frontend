@@ -62,7 +62,7 @@ function Home() {
           <p>A Casa da Criança é uma instituição filantrópica destinada aos cuidados de crianças e adolescentes com necessidades especiais. Está localizada à Rua João José Sabongi, 495 - Vila das Industrias na cidade de Tupã/SP. Com atendimento: 2.ª à 6.ª feira das 08:00 às 18:00 horas </p>
         </main>
 
-        <div class="tipos">
+        <div className="tipos">
           {/* TIPOS DE PRODUTOS  */}
           <FaChild className="icon" id="logo" />
           <FaBriefcaseMedical className="icon" id="logo" />

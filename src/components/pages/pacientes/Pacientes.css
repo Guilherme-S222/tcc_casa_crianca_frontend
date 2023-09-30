@@ -1,0 +1,15 @@
+.pacientesList{
+  max-width: 1128px;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border: 0.2rem solid black;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin: 1rem 1rem;
+}
+/* parei aqui */

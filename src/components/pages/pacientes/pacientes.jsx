@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import './Pacientes.css';
+
 function Pacientes() {
   return (
     <div >
       <Header pag={'Pacientes'}/>
-        <p
-          style={{
-          margin: '10rem',
-          textAlign: 'center',
-          fontSize: '3rem'
-        }}
-        >
-        Tela de Pacientes
-        </p>
+        <div className='pacientesList'>
+          <span className='pacientesInfo'>
+            Paciente 1
+          </span>
+        </div>
       <Footer/>
     </div>
   );

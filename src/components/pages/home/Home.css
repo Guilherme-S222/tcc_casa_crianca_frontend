@@ -87,3 +87,25 @@ PRODUTOS
   font-family: Roboto, sans-serif;
 
 }
+@media screen and (max-width: 768px){
+  .principal {
+    flex-direction: column;
+    align-items: center;
+  }
+  .imagemLocal {
+    max-width: 100%;
+  }
+  .tipos {
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .tipos .icon {
+    font-size: 3rem;
+    margin: 2rem;
+    cursor: pointer;
+  }
+};
+@media screen and (max-width: 481px){
+
+};
