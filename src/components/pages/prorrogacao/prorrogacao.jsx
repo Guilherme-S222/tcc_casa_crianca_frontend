@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 function Prorrogacao() {
+
+  const [prorrogacao, setProrrogacao] = useState (
+    [
+      {
+        "prorrog_id" : "",
+	      "prorrog_data" : "",
+	      "intern_id_prorrog" : "",
+	      "user_id_prorrog" : "",
+	      "medic_crm_prorrog" : ""
+      },
+    ]
+  );
+
   return (
     <div >
       <Header pag={'Prorrogacao'}/>

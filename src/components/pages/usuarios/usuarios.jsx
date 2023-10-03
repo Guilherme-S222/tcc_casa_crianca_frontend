@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 function Usuarios() {
+
+  const [usuarios, setUsuarios] = useState (
+    [
+      {
+        "user_id": 1,
+        "user_nome": "joao",
+        "user_senha": "senha123",
+        "insti_id_user": 1
+      },
+    ]
+  );
   return (
     <div >
       <Header pag={'Usuarios'}/>

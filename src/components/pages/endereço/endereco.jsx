@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 function Endereco({ Endereco }) {
 
-  //parei aqui
   const [endereco, setEndereco] = useState (
     [
       {
@@ -17,7 +16,7 @@ function Endereco({ Endereco }) {
         "enderec_cep": "12345678",
         "enderec_estado": "SP",
         "pct_pront_enderec": 1
-      }
+      },
     ]
   );
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
@@ -10,7 +10,7 @@ function Cid({ Cid }) {
         "cid_id": 1,
         "cid_cid": "A01",
         "cid_descri": "Febre tifoide"
-      }
+      },
     ]
   );
 
@@ -26,12 +26,16 @@ function Cid({ Cid }) {
         >
         Tela de CID
         </p>
+        {/* PAREI AQUI */}
+        {/* <div className='cid'>
+          {
+            cid.map(
+              cid => {
 
-        <div key={cid.cid_id}>
-          <p>{cid.cid_cid}</p>
-          <p>{cid.cid_descri}</p>
-        </div>
-
+              },
+            )
+          };
+        </div> */}
       <Footer/>
     </div>
   );
