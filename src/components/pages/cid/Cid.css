@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.tituloCid{
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  max-width: 1090px;
+  font-size: 2.5rem;
+  font-family: Roboto;
+}
+.cidContainer{
+  margin: 1rem auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  font-family: Roboto;
+  max-width: 1090px;
+  border: solid 0.2rem #06a180;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.cid{
+  font-size: 1.4rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  border: solid 0.2rem #06a180;
+  border-radius: 1rem;
+}
