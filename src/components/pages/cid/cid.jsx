@@ -48,6 +48,16 @@ function Cid({ Cid }) {
         "cid_cid": "I10",
         "cid_descri": "Hipertensão essencial"
       },
+      {
+        "cid_id": 9,
+        "cid_cid": "J44",
+        "cid_descri": "Doença pulmonar obst crônica"
+      },
+      {
+        "cid_id": 10,
+        "cid_cid": "K21",
+        "cid_descri": "Doença do refluxo gastro"
+      }
     ]
   );
 
@@ -57,52 +67,15 @@ function Cid({ Cid }) {
       <h1 className='tituloCid'>
         Lista de CID
       </h1>
-
-
       <div className='cidContainer'>
-        <div className='cid'>
-          <span className='id'>{cid.cid_id}</span>
-          <span className='cod'>{cid.cid_cid}</span>
-          <span className='descri'>{cid.cid_descri}</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 2</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 3</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 4</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 5</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 6</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 7</span>
-          <span className='descri'>Descrição:</span>
-        </div>
-        <div className='cid'>
-          <span className='id'>ID:</span>
-          <span className='cod'>CID 8</span>
-          <span className='descri'>Descrição:</span>
-        </div>
+        {cid.map(item => (
+          <div className='cid' key={item.cid_id}>
+            <span className='id'>ID: {item.cid_id}</span>
+            <span className='cod'>CID: {item.cid_cid}</span>
+            <span className='descri'>Descrição: {item.cid_descri}</span>
+          </div>
+        ))}
       </div>
-
-
       <Footer />
     </div>
   );
