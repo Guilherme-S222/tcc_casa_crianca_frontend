@@ -2,6 +2,9 @@ import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import "../listar_modelo/listar.css";
+
+
 function Prorrogacao() {
 
   const [prorrogacao, setProrrogacao] = useState (

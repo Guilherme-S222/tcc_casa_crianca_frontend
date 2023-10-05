@@ -2,7 +2,7 @@ import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
-import "./Cid.css";
+import "../listar_modelo/listar.css";
 
 function Cid({ Cid }) {
 
@@ -64,15 +64,15 @@ function Cid({ Cid }) {
   return (
     <div >
       <Header pag={'Cid'} />
-      <h1 className='tituloCid'>
+      <h1 className='listarTitulo'>
         Lista de CID
       </h1>
-      <div className='cidContainer'>
+      <div className='listarContainer'>
         {cid.map(item => (
-          <div className='cid' key={item.cid_id}>
-            <span className='id'>ID: {item.cid_id}</span>
-            <span className='cod'>CID: {item.cid_cid}</span>
-            <span className='descri'>Descrição: {item.cid_descri}</span>
+          <div className='listarDiv' key={item.cid_id}>
+            <span className='item'>ID: {item.cid_id}</span>
+            <span className='item'>CID: {item.cid_cid}</span>
+            <span className='item'>Descrição: {item.cid_descri}</span>
           </div>
         ))}
       </div>
