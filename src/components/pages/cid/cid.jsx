@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; //adicionar hook useState
+import React, { useState, Button } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
@@ -64,9 +64,13 @@ function Cid({ Cid }) {
   return (
     <div >
       <Header pag={'Cid'} />
-      <h1 className='listarTitulo'>
-        Lista de CID
-      </h1>
+      <div className='listarTitulo'>
+        <h1>
+          Lista de CID
+        </h1>
+        {/* PAREI AQUI */}
+        <button src="./CadCid.jsx" className='button' type="button">Cadastrar</button>
+      </div>
       <div className='listarContainer'>
         {cid.map(item => (
           <div className='listarDiv' key={item.cid_id}>

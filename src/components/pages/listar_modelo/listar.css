@@ -3,10 +3,28 @@
 .listarTitulo{
   margin: 2rem auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 1090px;
   font-size: 2.5rem;
   font-family: Roboto;
+
+
+}
+.listarTitulo .button{
+  color: #06a180;
+  background-color: ghostwhite;
+  border: solid 0.2rem #06a180;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  height: 3rem;
+  width: 10rem;
+
+}
+.listarTitulo .button:hover{
+  background-color: #06a180;
+  color: white;
+  animation-delay: 100s;
+
 }
 .listarContainer{
   margin: 1rem auto;
