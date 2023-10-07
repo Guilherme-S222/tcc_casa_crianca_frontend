@@ -3,6 +3,7 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
+import { Link } from 'react-router-dom';
 
 function Cid({ Cid }) {
 
@@ -68,8 +69,9 @@ function Cid({ Cid }) {
         <h1>
           Lista de CID
         </h1>
-        {/* PAREI AQUI */}
-        <button src="./CadCid.jsx" className='button' type="button">Cadastrar</button>
+      </div>
+      <div className='botoesDiv'>
+        <Link to='/cadcid'><button className='buttonCad' type="button">Cadastrar</button></Link>
       </div>
       <div className='listarContainer'>
         {cid.map(item => (
@@ -77,6 +79,7 @@ function Cid({ Cid }) {
             <span className='item'>ID: {item.cid_id}</span>
             <span className='item'>CID: {item.cid_cid}</span>
             <span className='item'>Descrição: {item.cid_descri}</span>
+            <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
           </div>
         ))}
       </div>

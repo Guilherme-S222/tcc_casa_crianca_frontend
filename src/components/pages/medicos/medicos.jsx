@@ -3,6 +3,8 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
+import { Link } from 'react-router-dom';
+
 
 
 function Medicos() {
@@ -88,6 +90,9 @@ function Medicos() {
       <h1 className='listarTitulo'>
         Listar Médicos
       </h1>
+      <div className='botoesDiv'>
+        <button src="./CadCid.jsx" className='buttonCad' type="button">Cadastrar</button>
+      </div>
       <div className='listarContainer'>
         {medicos.map(item => (
           <div className='listarDiv' key={item.medic_crm}>
@@ -96,6 +101,7 @@ function Medicos() {
             <span className='item'>CPF: {item.medic_cpf}</span>
             <span className='item'>Especialidade: {item.medic_especi}</span>
             <span className='item'>Telefone: {item.medic_tel}</span>
+            <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
           </div>
         ))}
       </div>

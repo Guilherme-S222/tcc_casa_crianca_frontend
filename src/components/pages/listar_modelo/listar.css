@@ -1,30 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .listarTitulo{
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1090px;
   font-size: 2.5rem;
   font-family: Roboto;
-
-
+  border: solid 0.3rem #06a180;
+  border-radius: 1rem;
+  padding: 1rem;
 }
-.listarTitulo .button{
+.botoesDiv{
+  margin: 1rem auto;
+  display: flex;
+  justify-content: right;
+  max-width: 1090px;
+}
+.buttonCad{
   color: #06a180;
   background-color: ghostwhite;
   border: solid 0.2rem #06a180;
   border-radius: 0.5rem;
   font-size: 1.4rem;
   height: 3rem;
-  width: 10rem;
-
+  width: 8rem;
+  margin: 1rem;
 }
-.listarTitulo .button:hover{
+.buttonCad:hover{
   background-color: #06a180;
   color: white;
   animation-delay: 100s;
 
+}
+.buttonEdt{
+  color: #06a180;
+  background-color: ghostwhite;
+  border: solid 0.2rem #06a180;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  height: 2rem;
+  width: 4rem;
+  margin: 0.5rem;
+}
+.buttonEdt:hover{
+  background-color: #06a180;
+  color: white;
+  animation-delay: 100s;
+}
+.buttonViz{
+  color: #06a180;
+  background-color: ghostwhite;
+  border: solid 0.2rem #06a180;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  height: 2rem;
+  width: 6rem;
+  margin: 0.5rem;
+}
+.buttonViz:hover{
+  background-color: #06a180;
+  color: white;
+  animation-delay: 100s;
+}
+.buttonExc{
+  color: #06a180;
+  background-color: ghostwhite;
+  border: solid 0.2rem #06a180;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  height: 2rem;
+  width: 6rem;
+  margin: 0.5rem;
+}
+.buttonExc:hover{
+  background-color: #f31d1d;
+  color: white;
+  animation-delay: 100s;
+  border: solid 0.2rem black;
+}
+.link{
+  text-decoration: none;
+  color: #06a180;
+}
+.link:hover{
+  text-decoration: none;
+  color: white;
 }
 .listarContainer{
   margin: 1rem auto;

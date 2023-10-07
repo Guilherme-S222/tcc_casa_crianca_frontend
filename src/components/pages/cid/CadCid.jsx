@@ -5,8 +5,14 @@ import Cid from "./Cid";
 
 function CadCid() {
   return (
-    <div >
-      <Cid/>
+    <div>
+      <Header />
+      <div className='listarTitulo'>
+        <h1>
+          Cadastro de CID
+        </h1>
+      </div>
+      <Footer />
     </div>
   );
 }

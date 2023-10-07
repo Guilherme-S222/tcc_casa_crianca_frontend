@@ -3,6 +3,8 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
+import { Link } from 'react-router-dom';
+
 
 
 import './Pacientes.css';
@@ -115,6 +117,9 @@ function Pacientes() {
       <h1 className='listarTitulo'>
         Listar Pacientes
       </h1>
+      <div className='botoesDiv'>
+        <Link to='/cadpacientes'><button className='buttonCad' type="button">Cadastrar</button></Link>
+      </div>
       <div className='listarContainer'>
         {pacientes.map(item => (
           <div className='listarDiv' key={item.pct_pront}>
@@ -135,6 +140,13 @@ function Pacientes() {
             <span className='item'>Data de Expedição: {item.pct_dataexp}</span>
             <span className='item'>Orgão Emissor: {item.pct_orgemissor}</span>
             <span className='item'>Data do Cadastro: {item.pct_dtcad}</span>
+            <div>
+              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
+              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
+
+            </div>
+
           </div>
         ))}
       </div>
