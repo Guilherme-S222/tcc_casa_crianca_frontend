@@ -91,7 +91,7 @@ function Medicos() {
         Listar Médicos
       </h1>
       <div className='botoesDiv'>
-        <button src="./CadCid.jsx" className='buttonCad' type="button">Cadastrar</button>
+        <Link to='/cadmedicos'><button className='buttonCad' type="button">Cadastrar</button></Link>
       </div>
       <div className='listarContainer'>
         {medicos.map(item => (
@@ -101,7 +101,11 @@ function Medicos() {
             <span className='item'>CPF: {item.medic_cpf}</span>
             <span className='item'>Especialidade: {item.medic_especi}</span>
             <span className='item'>Telefone: {item.medic_tel}</span>
-            <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+            <div>
+              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
+              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
+            </div>
           </div>
         ))}
       </div>

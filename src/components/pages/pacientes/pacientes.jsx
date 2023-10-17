@@ -144,7 +144,6 @@ function Pacientes() {
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
               <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
               <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
-
             </div>
 
           </div>

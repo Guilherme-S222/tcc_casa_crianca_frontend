@@ -15,10 +15,10 @@
   margin: 2rem;
   font-family: Roboto, sans-serif;
 
-
 }
 .contatoP{
   font-size: 2.0rem;
+
 }
 .contatoIcons{
   display: grid;
@@ -40,6 +40,10 @@
   color: white;
 
 }
+.contatoLocal p {
+  margin: 0.4rem;
+
+}
 .contatoTel{
   padding: 2rem;
   align-items: center;
@@ -49,7 +53,9 @@
   font-family: Roboto, sans-serif;
   color: white;
 
-
+}
+.contatoTel p {
+  margin: 0.5rem;
 }
 .icon{
   font-size: 3rem;

@@ -18,18 +18,14 @@ function Usuarios() {
     ]
   );
   return (
-    <div >
-      <Header pag={'Usuarios'}/>
-        <p
-          style={{
-          margin: '10rem',
-          textAlign: 'center',
-          fontSize: '3rem'
-        }}
-        >
-        Tela de Usuários
-        </p>
-      <Footer/>
+    <div>
+      <Header />
+        <div className='listarTitulo'>
+          <h1>
+            Tela de Usuários
+          </h1>
+        </div>
+      <Footer />
     </div>
   );
 }

@@ -4,18 +4,14 @@ import Footer from '../../footer/footer';
 
 function CadUsuarios() {
   return (
-    <div >
-      <Header pag={'CadUsuarios'}/>
-        <p
-          style={{
-          margin: '10rem',
-          textAlign: 'center',
-          fontSize: '3rem'
-        }}
-        >
-        Cadastro de Usuários
-        </p>
-      <Footer/>
+    <div>
+      <Header />
+        <div className='listarTitulo'>
+          <h1>
+            Cadastro de Usuários
+          </h1>
+        </div>
+      <Footer />
     </div>
   );
 }
