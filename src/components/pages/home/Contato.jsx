@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import "../listar_modelo/listar.css";
 import { FaPhoneAlt, FaSearchLocation } from "react-icons/fa";
 
 import './Contato.css';
@@ -15,7 +16,7 @@ function Contato() {
         <div className='contatos'>
           <h1 className='contatoH1'>Contatos</h1>
           <p className='contatoP'>
-            Use nosso formulário de contato para todas as solicitações de informações ou entre em contato conosco diretamente usando as informações de contato abaixo. Sinta-se à vontade para entrar em contato conosco via e-mail ou telefone
+            Use nosso formulário de contato para todas as solicitações de informações ou entre em contato conosco diretamente usando as informações de contato abaixo. Sinta-se à vontade para entrar em contato conosco via e-mail ou telefone.
           </p>
         </div>
 
