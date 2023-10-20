@@ -11,6 +11,13 @@ function CadPacientes() {
               Cadastro de Pacientes
             </h1>
           </div>
+          <div className='cadForm'>
+            <form action="">
+              <input
+                type="text"
+              />
+            </form>
+          </div>
         <Footer />
     </div>
   );
