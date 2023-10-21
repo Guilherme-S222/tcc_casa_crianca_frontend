@@ -71,7 +71,8 @@ function LoginUsu() {
           />
           <div className='info'>
             <Link to='/CadUsuarios'>Não tenho cadastro</Link>
-            <a href="#">Esqueci o e-mail</a>
+            <Link to='#'>Esqueci o email</Link>
+            <Link to='../menu'>*/</Link>
           </div>
           <button type="submit" className='botao'><MdLogin className='ico' />Entrar</button>
         </form>

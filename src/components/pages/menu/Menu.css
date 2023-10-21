@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.navbar {
+  margin: 1.5rem auto;
+  padding: 0.5rem;
+  display: flex;
+  overflow: hidden;
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  max-width: 1110px;
+  border: solid 0.3rem #06a180;
+  border-radius: 0.5rem;
+  justify-content: center;
+
+}
+.navbar .link {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  color: #06a180;
+  outline: none;
+  padding: 14px 16px;
+  margin: 0;
+  background-color: inherit;
+  font-family: inherit;
+}
+.navbar .link:hover, .dropdown:hover .dropbtn {
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+.dropcontent {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0.5rem;
+}
+.dropcontent .link{
+  float: none;
+  color: #06a180;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 1.1rem;
+
+}
+.dropcontent .link:hover {
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+.dropdown:hover .dropcontent {
+  display: block;
+}
+.menuimg {
+  display: flex;
+  justify-content: center;
+  color:#06a17f3f;
+  font-size: 20rem;
+  margin: 5rem;
+}
+.dropbtn .sair {
+  text-decoration: none;
+  color: #06a180;
+}
+
