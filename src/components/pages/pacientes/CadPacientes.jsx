@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import '../pacientes/CadPacientes.css';
+
 function CadPacientes() {
   return (
     <div>
@@ -11,11 +13,59 @@ function CadPacientes() {
               Cadastro de Pacientes
             </h1>
           </div>
-          <div className='cadForm'>
-            <form action="">
-              <input
-                type="text"
-              />
+          <div className='divForm'>
+            <form className='cadForm'>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="pct_pront" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="pct_pront" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
+              <label className='lblForm'>
+                Prontuário: <input className='inputForm' name="" />
+              </label>
             </form>
           </div>
         <Footer />

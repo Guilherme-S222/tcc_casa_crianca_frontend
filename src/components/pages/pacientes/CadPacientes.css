@@ -1,0 +1,22 @@
+.cadForm {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 1100px;
+  align-items: left;
+  border: solid #06a180 0.2rem;
+  border-radius: 2rem;
+  font-family: "Roboto", sans-serif;
+
+}
+.lblForm {
+  margin: 1rem;
+  font-size: 1.5rem;
+
+}
+.inputForm {
+  background-color: #f0f0f0;
+  width: 65rem;
+
+}
