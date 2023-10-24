@@ -2,19 +2,25 @@ import React from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import construcao from '../../../images/construcao.png';
+
+
 function CadTransferencia() {
   return (
     <div >
       <Header pag={'CadTransferencia'}/>
-        <p
+      <div>
+        <img 
+          className='construcao' 
+          src={construcao} 
+          alt="pagina em construção"
           style={{
-          margin: '10rem',
-          textAlign: 'center',
-          fontSize: '3rem'
-        }}
-        >
-        Cadastro de Transferência
-        </p>
+            display: 'flex',
+            margin: '5rem auto',
+            width: '15rem',
+          }}
+        />
+      </div>
       <Footer/>
     </div>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
+import { Link } from 'react-router-dom';
+
 
 import '../pacientes/CadPacientes.css';
 
@@ -15,58 +17,42 @@ function CadPacientes() {
           </div>
           <div className='divForm'>
             <form className='cadForm'>
+
               <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="pct_pront" />
+                Prontuário: 
+                <input 
+                className='inputForm' 
+                type='text' 
+                name="pct_pront"
+                placeholder= "Digite o prontuário"
+                />
               </label>
               <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="pct_pront" />
+                Nome do Paciente: 
+                <input 
+                className='inputForm' 
+                type='text' 
+                name="pct_nome"
+                placeholder= "Digite o nome do paciente"
+                />
               </label>
               <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
+                ... 
+                <input 
+                className='inputForm' 
+                type='text' 
+                name="pct_..."
+                placeholder= "Digite o ...."
+                />
               </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
-              <label className='lblForm'>
-                Prontuário: <input className='inputForm' name="" />
-              </label>
+
+              <div className='divbtn'>
+                <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+                <button type="submit" className='cadbtn' >Cadastrar</button>
+              </div>
+
             </form>
+
           </div>
         <Footer />
     </div>

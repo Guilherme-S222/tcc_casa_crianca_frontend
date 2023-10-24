@@ -2,6 +2,9 @@ import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import { Link } from 'react-router-dom';
+
+
 import "../listar_modelo/listar.css";
 
 
@@ -63,6 +66,9 @@ function Internação() {
       <h1 className='listarTitulo'>
         Listar Internações
       </h1>
+      <div className='botoesDiv'>
+        <Link to='/cadinternacao'><button className='buttonCad' type="button">Cadastrar</button></Link>
+      </div>
       <div className='listarContainer'>
         {internacao.map(item => (
           <div className='listarDiv' key={item.intern_id}>
@@ -72,6 +78,11 @@ function Internação() {
             <span className='item'>Crm do Médico: {item.medic_crm_intern}</span>
             <span className='item'>Usuário: {item.user_id_intern}</span>
             <span className='item'>Prontuário do Paciente: {item.pct_pront_intern}</span>
+            <div>
+              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
+              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
+            </div>
           </div>
         ))}
       </div>

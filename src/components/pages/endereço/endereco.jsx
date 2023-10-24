@@ -2,6 +2,8 @@ import React, { useState } from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
+import { Link } from 'react-router-dom';
+
 import "../listar_modelo/listar.css";
 
 
@@ -73,6 +75,9 @@ function Endereco({ Endereco }) {
       <h1 className='listarTitulo'>
         Listar Endereços
       </h1>
+      <div className='botoesDiv'>
+        <Link to='/cadendereco'><button className='buttonCad' type="button">Cadastrar</button></Link>
+      </div>
       <div className='listarContainer'>
         {endereco.map(item => (
           <div className='listarDiv' key={item.enderec_id}>

@@ -1,13 +1,13 @@
-.cadForm {
+.divForm {
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
   padding: 1rem;
   max-width: 1100px;
-  align-items: left;
   border: solid #06a180 0.2rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   font-family: "Roboto", sans-serif;
+
 
 }
 .lblForm {
@@ -17,6 +17,45 @@
 }
 .inputForm {
   background-color: #f0f0f0;
-  width: 65rem;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: #06a180 solid 2px;
+  border-radius: 0.5rem;
 
 }
+.divbtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+.cadbtn {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: #06a180 solid 2px;
+  border-radius: 0.5rem;
+  
+}
+.cadbtn:hover {
+  background-color: #06a180;
+  color: white;
+}
+.cancbtn {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: #06a180 solid 2px;
+  border-radius: 0.5rem;
+
+}
+.cancbtn:hover {
+  background-color: red;
+  border: red solid 2px;
+  color: white;
+}
+
+
+

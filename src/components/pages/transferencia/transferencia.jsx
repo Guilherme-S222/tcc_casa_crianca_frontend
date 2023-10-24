@@ -4,6 +4,7 @@ import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
 
+import construcao from '../../../images/construcao.png';
 
 function Transferencia() {
 
@@ -21,15 +22,18 @@ function Transferencia() {
   return (
     <div >
       <Header pag={'Transferencia'}/>
-        <p
+      <div>
+        <img 
+          className='construcao' 
+          src={construcao} 
+          alt="pagina em construção"
           style={{
-          margin: '10rem',
-          textAlign: 'center',
-          fontSize: '3rem'
-        }}
-        >
-        Tela de Transferência
-        </p>
+            display: 'flex',
+            margin: '5rem auto',
+            width: '15rem',
+          }}
+        />
+      </div>
       <Footer/>
     </div>
   );
