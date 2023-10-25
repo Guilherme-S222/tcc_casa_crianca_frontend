@@ -38,12 +38,14 @@ function CadPacientes() {
   //handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
   function handleSubmit(event){
     event.preventDefault(); //Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
-    cadastrar();
+    cadastrar(); //A função cadastrar() é chamada quando o evento de envio é tratado. 
   }
 
   async function cadastrar(event){
+    //Isso declara a função cadastrar. A função é declarada como async, o que significa que ela pode conter operações assíncronas, como chamadas de API, e pode usar a palavra-chave await para aguardar a conclusão dessas operações. Ela aceita um argumento event, que geralmente é um objeto de evento associado a um evento de formulário (por exemplo, um envio de formulário).
 
     try {
+      //Nesta seção, um objeto dados é criado. Esse objeto contém uma série de campos que estão relacionados a informações do formulário. 
       const dados = {
         pct_pront,
         pct_cpf,
@@ -65,24 +67,27 @@ function CadPacientes() {
       }
 
       // API
-      const response = await api.post('#####', dados);
+      const response = await api.post('#####', dados); //Nesta parte, uma chamada assíncrona de API é feita usando o objeto api. O código usa await para esperar a conclusão da chamada antes de continuar. A URL da API para a qual a solicitação é enviada é '#####' (que deve ser substituída pela URL real da API). Os dados do formulário (dados) são enviados no corpo da solicitação.
 
-      if (response.data.confirma == true){
+      if (response.data.confirma == true){ 
+        ////Aqui, o código verifica a resposta da API. Se a propriedade confirma no objeto de dados da resposta for true, o código dentro desse bloco será executado. Isso sugere que a API confirmou com sucesso o cadastro.
+        
         const objLogado = {
           "id": response.data.id,
           "nome": response.data.nome,
           "acesso": response.data.tipo
-        };
-
+        }; 
+        
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
+        ////Dentro do bloco de código acima, um objeto objLogado é criado com informações da resposta da API, como o id, nome e tipo. Essas informações são armazenadas localmente usando o localStorage. Isso permite que o usuário seja "logado" ou suas informações sejam armazenadas no navegador para uso futuro.
 
-        navigate('/');
+        navigate('/'); //Se o cadastro for confirmado com sucesso pela API, o código usa a função navigate para redirecionar o usuário para a rota /. Isso provavelmente representa o redirecionamento para a página principal ou alguma outra ação após o login bem-sucedido.
 
       } else {
-        alert('Erro: ' + response.data.message)
+        alert('Erro: ' + response.data.message) //O bloco else trata o cenário em que a API não confirma o cadastro com confirma igual a true. Um alerta é exibido com a mensagem de erro da API ou uma mensagem de erro padrão.
       }
-    } catch (error){
+    } catch (error){ //O bloco catch trata exceções que podem ocorrer durante a chamada da API. Ele verifica se há um objeto de resposta de erro e exibe a mensagem de erro, ou exibe o erro em si se não houver uma resposta de erro específica.
       if (error.response){
         alert(error.response.data.message);
       } else {
@@ -109,8 +114,8 @@ function CadPacientes() {
                   className='inputForm'
                   type='text'
                   placeholder= "Digite o prontuário"
-                  onChange={v => setpct_pront(v.target.value)}
-                  value={pct_pront}
+                  onChange={v => setpct_pront(v.target.value)} /* O atributo onChange especifica uma função a ser executada sempre que o valor do campo de entrada for alterado. Quando o usuário digita algo no campo, a função anônima definida aqui é chamada. Essa função obtém o valor digitado (v.target.value) e o passa para a função setpct_pront. Presumivelmente, a função setpct_pront é usada para atualizar o estado do componente com o valor do campo de entrada. */
+                  value={pct_pront} /* O atributo value está vinculado à variável de estado pct_pront. Isso significa que o valor exibido no campo de entrada é determinado pelo valor atual da variável pct_pront. Se a variável de estado for atualizada, o campo de entrada será re-renderizado com o novo valor. */
                 />
               </label>
               <label className='lblForm'>
