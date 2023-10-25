@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'; //Esta linha de código está importando o módulo React e a função useState de dentro do módulo react. O React é uma biblioteca amplamente usada para criar interfaces de usuário (UI) em JavaScript, e useState é um hook do React que permite adicionar estado a componentes funcionais.
+import { Link, useNavigate } from 'react-router-dom'; //Aqui, o código está importando os módulos Link e useNavigate do módulo react-router-dom. O react-router-dom é uma biblioteca que permite criar roteamento em aplicativos React. O Link é usado para criar links de navegação entre páginas, e useNavigate é uma função que permite a navegação programática em seu aplicativo.
 
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
+import Header from '../../header/header'; //Essa linha de código está importando o componente Header que é um componente que representa a parte superior de uma página da web, como um cabeçalho.
+import Footer from '../../footer/footer'; //Essa linha de código está importando o componente Footer que é um componente que representa a parte inferior de uma página da web, como um rodapé.
 
-import '../pacientes/CadPacientes.css';
+import '../pacientes/CadPacientes.css'; //Esta linha está importando um arquivo CSS localizado no diretório.
 
-import api from '../../services/api';
+import api from '../../services/api'; //Aqui, o código está importando um módulo api de um diretório. Esse módulo api provavelmente contém funções ou configurações relacionadas a chamadas de API, que podem ser usadas para fazer solicitações HTTP para um servidor.
 
 function CadPacientes() {
 
   //informações que serão cadastradas
-  let navigate = useNavigate();
+  
+  let navigate = useNavigate(); //é uma função disponível no React Router que é usada para obter uma função de navegação. Essa função de navegação pode ser usada para realizar a transição entre diferentes rotas (páginas) em um aplicativo React que utiliza o React Router para o roteamento.
+
+  //pct_pront é uma variável de estado que está sendo inicializada com um valor vazio, ''. Esta variável de estado é usada para armazenar um valor que pode ser modificado e rastreado dentro do componente.
+  //setpct_pront é uma função que você pode usar para atualizar o valor da variável de estado pct_pront. Geralmente, ao chamar essa função com um novo valor como argumento, você atualiza o estado, o que pode acionar a re-renderização do componente com base no novo valor.
+  //O uso típico disso é para rastrear informações em um componente React. Por exemplo, você pode usar pct_pront para rastrear o valor de um campo de entrada em um formulário e setpct_pront para atualizar esse valor quando o usuário interage com o campo de entrada.
   const [pct_pront, setpct_pront] = useState('');
   const [pct_cpf, setpct_cpf] = useState('');
   const [pct_nome, setpct_nome] = useState('');
@@ -30,8 +35,9 @@ function CadPacientes() {
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
 
+  //handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
   function handleSubmit(event){
-    event.preventDefault();
+    event.preventDefault(); //Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
     cadastrar();
   }
 
