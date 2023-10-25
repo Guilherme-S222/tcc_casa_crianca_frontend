@@ -11,7 +11,7 @@ import api from '../../services/api'; //Aqui, o código está importando um mód
 function CadPacientes() {
 
   //informações que serão cadastradas
-  
+
   let navigate = useNavigate(); //é uma função disponível no React Router que é usada para obter uma função de navegação. Essa função de navegação pode ser usada para realizar a transição entre diferentes rotas (páginas) em um aplicativo React que utiliza o React Router para o roteamento.
 
   //pct_pront é uma variável de estado que está sendo inicializada com um valor vazio, ''. Esta variável de estado é usada para armazenar um valor que pode ser modificado e rastreado dentro do componente.
@@ -38,14 +38,14 @@ function CadPacientes() {
   //handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
   function handleSubmit(event){
     event.preventDefault(); //Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
-    cadastrar(); //A função cadastrar() é chamada quando o evento de envio é tratado. 
+    cadastrar(); //A função cadastrar() é chamada quando o evento de envio é tratado.
   }
 
   async function cadastrar(event){
     //Isso declara a função cadastrar. A função é declarada como async, o que significa que ela pode conter operações assíncronas, como chamadas de API, e pode usar a palavra-chave await para aguardar a conclusão dessas operações. Ela aceita um argumento event, que geralmente é um objeto de evento associado a um evento de formulário (por exemplo, um envio de formulário).
 
     try {
-      //Nesta seção, um objeto dados é criado. Esse objeto contém uma série de campos que estão relacionados a informações do formulário. 
+      //Nesta seção, um objeto dados é criado. Esse objeto contém uma série de campos que estão relacionados a informações do formulário.
       const dados = {
         pct_pront,
         pct_cpf,
@@ -69,18 +69,18 @@ function CadPacientes() {
       // API
       const response = await api.post('#####', dados); //Nesta parte, uma chamada assíncrona de API é feita usando o objeto api. O código usa await para esperar a conclusão da chamada antes de continuar. A URL da API para a qual a solicitação é enviada é '#####' (que deve ser substituída pela URL real da API). Os dados do formulário (dados) são enviados no corpo da solicitação.
 
-      if (response.data.confirma == true){ 
+      if (response.data.confirma == true){
         ////Aqui, o código verifica a resposta da API. Se a propriedade confirma no objeto de dados da resposta for true, o código dentro desse bloco será executado. Isso sugere que a API confirmou com sucesso o cadastro.
-        
+
         const objLogado = {
           "id": response.data.id,
           "nome": response.data.nome,
           "acesso": response.data.tipo
-        }; 
-        
+        };
+
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
-        ////Dentro do bloco de código acima, um objeto objLogado é criado com informações da resposta da API, como o id, nome e tipo. Essas informações são armazenadas localmente usando o localStorage. Isso permite que o usuário seja "logado" ou suas informações sejam armazenadas no navegador para uso futuro.
+        //Dentro do bloco de código acima, um objeto objLogado é criado com informações da resposta da API, como o id, nome e tipo. Essas informações são armazenadas localmente usando o localStorage. Isso permite que o usuário seja "logado" ou suas informações sejam armazenadas no navegador para uso futuro.
 
         navigate('/'); //Se o cadastro for confirmado com sucesso pela API, o código usa a função navigate para redirecionar o usuário para a rota /. Isso provavelmente representa o redirecionamento para a página principal ou alguma outra ação após o login bem-sucedido.
 
