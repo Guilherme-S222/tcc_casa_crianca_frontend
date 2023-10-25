@@ -12,8 +12,16 @@
 }
 .lblForm {
   margin: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
+}
+.lblFormAposent {
+  margin: 1px;
+  padding: 15px;
+  font-size: 1.3rem;
+  border: #06a180 solid 2px;
+  border-radius: 1rem;
+  background-color: #f0f0f0;
 }
 .inputForm {
   background-color: #f0f0f0;
@@ -26,6 +34,15 @@
   border-radius: 0.5rem;
 
 }
+.inputcheckbox {
+  margin: 2rem;
+  padding: 2rem;
+  height: 1rem;
+  width: 1.5rem;
+  border: #06a180 solid 0.2rem;
+  background-color: #f0f0f0;
+}
+
 .divbtn {
   display: flex;
   flex-direction: row;
@@ -37,7 +54,7 @@
   font-size: 1rem;
   border: #06a180 solid 2px;
   border-radius: 0.5rem;
-  
+
 }
 .cadbtn:hover {
   background-color: #06a180;

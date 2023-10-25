@@ -23,9 +23,9 @@ function Transferencia() {
     <div >
       <Header pag={'Transferencia'}/>
       <div>
-        <img 
-          className='construcao' 
-          src={construcao} 
+        <img
+          className='construcao'
+          src={construcao}
           alt="pagina em construção"
           style={{
             display: 'flex',

@@ -11,7 +11,7 @@ import './Pacientes.css';
 
 function Pacientes() {
 
-  const [pacientes, setPacientes] = useState (
+  const [pacientes] = useState (
     [
       {
         "pct_pront": 1,
