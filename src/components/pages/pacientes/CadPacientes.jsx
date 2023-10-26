@@ -35,10 +35,9 @@ function CadPacientes() {
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
 
-  //handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
-  function handleSubmit(event){
-    event.preventDefault(); //Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
-    cadastrar(); //A função cadastrar() é chamada quando o evento de envio é tratado.
+  function handleSubmit(event){ // handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
+    event.preventDefault(); // Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
+    cadastrar(); // A função cadastrar() é chamada quando o evento de envio é tratado.
   }
 
   async function cadastrar(event){
@@ -67,10 +66,10 @@ function CadPacientes() {
       }
 
       // API
-      const response = await api.post('#####', dados); //Nesta parte, uma chamada assíncrona de API é feita usando o objeto api. O código usa await para esperar a conclusão da chamada antes de continuar. A URL da API para a qual a solicitação é enviada é '#####' (que deve ser substituída pela URL real da API). Os dados do formulário (dados) são enviados no corpo da solicitação.
+      const response = await api.post('/pacientes', dados); //Nesta parte, uma chamada assíncrona de API é feita usando o objeto api. O código usa await para esperar a conclusão da chamada antes de continuar. A URL da API para a qual a solicitação é enviada é '#####' (que deve ser substituída pela URL real da API). Os dados do formulário (dados) são enviados no corpo da solicitação.
 
       if (response.data.confirma == true){
-        ////Aqui, o código verifica a resposta da API. Se a propriedade confirma no objeto de dados da resposta for true, o código dentro desse bloco será executado. Isso sugere que a API confirmou com sucesso o cadastro.
+        //Aqui, o código verifica a resposta da API. Se a propriedade confirma no objeto de dados da resposta for true, o código dentro desse bloco será executado. Isso sugere que a API confirmou com sucesso o cadastro.
 
         const objLogado = {
           "id": response.data.id,
@@ -82,12 +81,14 @@ function CadPacientes() {
         localStorage.setItem('user', JSON.stringify(objLogado));
         //Dentro do bloco de código acima, um objeto objLogado é criado com informações da resposta da API, como o id, nome e tipo. Essas informações são armazenadas localmente usando o localStorage. Isso permite que o usuário seja "logado" ou suas informações sejam armazenadas no navegador para uso futuro.
 
-        navigate('/'); //Se o cadastro for confirmado com sucesso pela API, o código usa a função navigate para redirecionar o usuário para a rota /. Isso provavelmente representa o redirecionamento para a página principal ou alguma outra ação após o login bem-sucedido.
+        navigate('/');
+        //Se o cadastro for confirmado com sucesso pela API, o código usa a função navigate para redirecionar o usuário para a rota /. Isso provavelmente representa o redirecionamento para a página principal ou alguma outra ação após o login bem-sucedido.
 
       } else {
-        alert('Erro: ' + response.data.message) //O bloco else trata o cenário em que a API não confirma o cadastro com confirma igual a true. Um alerta é exibido com a mensagem de erro da API ou uma mensagem de erro padrão.
+        alert('Erro: ' + response.data.message) // O bloco else trata o cenário em que a API não confirma o cadastro com confirma igual a true. Um alerta é exibido com a mensagem de erro da API ou uma mensagem de erro padrão.
       }
-    } catch (error){ //O bloco catch trata exceções que podem ocorrer durante a chamada da API. Ele verifica se há um objeto de resposta de erro e exibe a mensagem de erro, ou exibe o erro em si se não houver uma resposta de erro específica.
+    } catch (error){ // O bloco catch trata exceções que podem ocorrer durante a chamada da API. Ele verifica se há um objeto de resposta de erro e exibe a mensagem de erro, ou exibe o erro em si se não houver uma resposta de erro específica.
+
       if (error.response){
         alert(error.response.data.message);
       } else {
@@ -197,11 +198,12 @@ function CadPacientes() {
                   value={pct_bpc}
                 />
               </label>
-              <label className='lblFormAposent'>
+              <label className='lblForm'>
                 Aposentado:
                 <input
-                  className='inputcheckbox'
-                  type='checkbox'
+                  className='inputForm'
+                  type='text'
+                  placeholder='É aposentado? Sim ou Não'
                   onChange={v => setpct_aposent(v.target.value)}
                   value={pct_aposent}
                 />
