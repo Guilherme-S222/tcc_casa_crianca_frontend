@@ -36,40 +36,40 @@ function CadPacientes() {
   const [pct_dtcad, setpct_dtcad] = useState('');
 
   // VALIDAÇÕES
-  const [ValPront, setValPront] = useState('form-control');
-  const [ErrPront, setErrPront] = useState('');
-  const [ValCpf, setValCpf] = useState('form-control');
-  const [ErrCpf, setErrCpf] = useState('');
-  const [ValNome, setValNome] = useState('form-control');
-  const [ErrNome, setErrNome] = useState('');
-  const [ValSexo, setValSexo] = useState('form-control');
-  const [ErrSexo, setErrSexo] = useState('');
-  const [ValSus, setValSus] = useState('form-control');
-  const [ErrSus, setErrSus] = useState('');
-  const [ValCns, setValCns] = useState('form-control');
-  const [ErrCns, setErrCns] = useState('');
-  const [ValDtnasc, setValDtnasc] = useState('form-control');
-  const [ErrDtnasc, setErrDtnasc] = useState('');
-  const [ValAih, setValAih] = useState('form-control');
-  const [ErrAih, setErrAih] = useState('');
-  const [ValBpc, setValBpc] = useState('form-control');
-  const [ErrBpc, setErrBpc] = useState('');
-  const [ValAposent, setValAposent] = useState('form-control');
-  const [ErrAposent, setErrAposent] = useState('');
-  const [ValFilia, setValFilia] = useState('form-control');
-  const [ErrFilia, setErrFilia] = useState('');
-  const [ValNatu, setValNatu] = useState('form-control');
-  const [ErrNatu, setErrNatu] = useState('');
-  const [ValCor, setValCor] = useState('form-control');
-  const [ErrCor, setErrCor] = useState('');
-  const [ValRg, setValRg] = useState('form-control');
-  const [ErrRg, setErrRg] = useState('');
-  const [ValDatExp, setValDatExp] = useState('form-control');
-  const [ErrDatExp, setErrDatExp] = useState('');
-  const [ValOrg, setValOrg] = useState('form-control');
-  const [ErrOrg, setErrOrg] = useState('');
-  const [ValDatCad, setValDatCad] = useState('form-control');
-  const [ErrDatCad, setErrDatCad] = useState('');
+  const [Val_pront, setVal_pront] = useState('form-control');
+  const [Err_pront, setErr_pront] = useState('');
+  const [Val_cpf, setVal_cpf] = useState('form-control');
+  const [Err_cpf, setErr_cpf] = useState('');
+  const [Val_nome, setVal_nome] = useState('form-control');
+  const [Err_nome, setErr_nome] = useState('');
+  const [Val_sexo, setVal_sexo] = useState('form-control');
+  const [Err_sexo, setErr_sexo] = useState('');
+  const [Val_sus, setVal_sus] = useState('form-control');
+  const [Err_sus, setErr_sus] = useState('');
+  const [Val_cns, setVal_cns] = useState('form-control');
+  const [Err_cns, setErr_cns] = useState('');
+  const [Val_dtnasc, setVal_dtnasc] = useState('form-control');
+  const [Err_dtnasc, setErr_dtnasc] = useState('');
+  const [Val_aih, setVal_aih] = useState('form-control');
+  const [Err_aih, setErr_aih] = useState('');
+  const [Val_bpc, setVal_bpc] = useState('form-control');
+  const [Err_bpc, setErr_bpc] = useState('');
+  const [Val_aposent, setVal_aposent] = useState('form-control');
+  const [Err_aposent, setErr_aposent] = useState('');
+  const [Val_filiacao, setVal_filiacao] = useState('form-control');
+  const [Err_filiacao, setErr_filiacao] = useState('');
+  const [Val_natural, setVal_natural] = useState('form-control');
+  const [Err_natural, setErr_natural] = useState('');
+  const [Val_cor, setVal_cor] = useState('form-control');
+  const [Err_cor, setErr_cor] = useState('');
+  const [Val_rg, setVal_rg] = useState('form-control');
+  const [Err_rg, setErr_rg] = useState('');
+  const [Val_datExp, setVal_datExp] = useState('form-control');
+  const [Err_datExp, setErr_datExp] = useState('');
+  const [Val_orgemissor, setVal_orgemissor] = useState('form-control');
+  const [Err_orgemissor, setErr_orgemissor] = useState('');
+  const [Val_dtcad, setVal_dtcad] = useState('form-control');
+  const [Err_dtcad, setErr_dtcad] = useState('');
 
   function handleSubmit(event){ // handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
     event.preventDefault(); // Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
@@ -81,19 +81,19 @@ function CadPacientes() {
     let validado = true;
 
     if (pct_cpf === '' || pct_cpf.length !== 11){
-      setValCpf('form-control error');
-      setErrCpf('O CPF deve conter 11 dígitos!!');
+      setVal_cpf('form-control error');
+      setErr_cpf('O CPF deve conter 11 dígitos!!');
       validado = false;
     } else {
-      setValCpf('form-control success!')
+      setVal_cpf('form-control success!')
     }
     
     if (pct_nome === ''){
-      setValNome('form-control error');
-      setErrNome('Preencha o nome do paciente!');
+      setVal_nome('form-control error');
+      setErr_nome('Preencha o nome do paciente!');
       validado = false;
     } else {
-      setValNome('form-control success!')
+      setVal_nome('form-control success!')
     }
     // parei aqui
 
