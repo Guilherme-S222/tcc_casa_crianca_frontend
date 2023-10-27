@@ -71,7 +71,6 @@ function CadPacientes() {
   const [ValDatCad, setValDatCad] = useState('form-control');
   const [ErrDatCad, setErrDatCad] = useState('');
 
-
   function handleSubmit(event){ // handler (manipulador) de eventos em um aplicativo React. A função handleSubmit é usada para lidar com o evento de envio do formulário.
     event.preventDefault(); // Esta linha de código é usada para evitar o comportamento padrão de envio de um formulário, que normalmente resultaria em uma recarga da página. O método preventDefault() é chamado no evento passado como argumento (provavelmente um evento de envio de formulário) para impedir que o navegador recarregue a página quando o formulário for enviado. Isso é útil quando você deseja controlar o comportamento de envio do formulário por meio de JavaScript.
     valida();
@@ -80,6 +79,24 @@ function CadPacientes() {
 
   function valida(){
     let validado = true;
+
+    if (pct_cpf === '' || pct_cpf.length !== 11){
+      setValCpf('form-control error');
+      setErrCpf('O CPF deve conter 11 dígitos!!');
+      validado = false;
+    } else {
+      setValCpf('form-control success!')
+    }
+    
+    if (pct_nome === ''){
+      setValNome('form-control error');
+      setErrNome('Preencha o nome do paciente!');
+      validado = false;
+    } else {
+      setValNome('form-control success!')
+    }
+    // parei aqui
+
   }
 
   async function cadastrar(){
