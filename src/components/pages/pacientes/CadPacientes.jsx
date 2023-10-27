@@ -64,8 +64,8 @@ function CadPacientes() {
   const [Err_cor, setErr_cor] = useState('');
   const [Val_rg, setVal_rg] = useState('form-control');
   const [Err_rg, setErr_rg] = useState('');
-  const [Val_datExp, setVal_datExp] = useState('form-control');
-  const [Err_datExp, setErr_datExp] = useState('');
+  const [Val_dataExp, setVal_dataExp] = useState('form-control');
+  const [Err_dataExp, setErr_dataExp] = useState('');
   const [Val_orgemissor, setVal_orgemissor] = useState('form-control');
   const [Err_orgemissor, setErr_orgemissor] = useState('');
   const [Val_dtcad, setVal_dtcad] = useState('form-control');
@@ -77,6 +77,7 @@ function CadPacientes() {
     cadastrar(); // A função cadastrar() é chamada quando o evento de envio é tratado.
   }
 
+  // VALIDAÇÕES
   function valida(){
     let validado = true;
 
@@ -95,8 +96,119 @@ function CadPacientes() {
     } else {
       setVal_nome('form-control success!')
     }
-    // parei aqui
+    
+    if (pct_sexo === ''){
+      setVal_sexo('form-control error');
+      setErr_sexo('Preencha o sexo do paciente!');
+      validado = false;
+    } else {
+      setVal_sexo('form-control success!')
+    }
 
+    if (pct_sus === ''){
+      setVal_sus('form-control error');
+      setErr_sus('Preencha o SUS do paciente!');
+      validado = false;
+    } else {
+      setVal_sus('form-control success!')
+    }
+
+    if (pct_cns === ''){
+      setVal_cns('form-control error');
+      setErr_cns('Preencha o CNS do paciente!');
+      validado = false;
+    } else {
+      setVal_cns('form-control success!')
+    }
+
+    if (pct_dtnasc === ''){
+      setVal_dtnasc('form-control error');
+      setErr_dtnasc('Preencha a data de nascimento do paciente!');
+      validado = false;
+    } else {
+      setVal_dtnasc('form-control success!')
+    }
+
+    if (pct_aih === ''){
+      setVal_aih('form-control error');
+      setErr_aih('Preencha o AIH do paciente!');
+      validado = false;
+    } else {
+      setVal_aih('form-control success!')
+    }
+
+    if (pct_bpc === ''){
+      setVal_bpc('form-control error');
+      setErr_bpc('Preencha o BPC do paciente!');
+      validado = false;
+    } else {
+      setVal_bpc('form-control success!')
+    }
+
+    if (pct_aposent === ''){
+      setVal_aposent('form-control error');
+      setErr_aposent('Preencha se o paciente é aposentado (sim ou não)');
+      validado = false;
+    } else {
+      setVal_aposent('form-control success!')
+    }
+
+    if (pct_filiacao === ''){
+      setVal_filiacao('form-control error');
+      setErr_filiacao('Preencha a filiação do paciente!');
+      validado = false;
+    } else {
+      setVal_filiacao('form-control success!')
+    }
+
+    if (pct_natural === ''){
+      setVal_natural('form-control error');
+      setErr_natural('Preencha a naturalidade do paciente!');
+      validado = false;
+    } else {
+      setVal_natural('form-control success!')
+    }
+
+    if (pct_cor === ''){
+      setVal_cor('form-control error');
+      setErr_cor('Preencha a cor do paciente!');
+      validado = false;
+    } else {
+      setVal_cor('form-control success!')
+    }
+
+    if (pct_rg === '' || pct_rg.length > 9){
+      setVal_rg('form-control error');
+      setErr_rg('O RG não é válido!!');
+      validado = false;
+    } else {
+      setVal_rg('form-control success!')
+    }
+
+    if (pct_dataexp === ''){
+      setVal_dataexp('form-control error');
+      setErr_dataexp('Preencha a data de expedição do RG!');
+      validado = false;
+    } else {
+      setVal_dataexp('form-control success!')
+    }
+
+    if (pct_orgemissor === ''){
+      setVal_orgemissor('form-control error');
+      setErr_orgemissor('Preencha o orgão emissor do RG!');
+      validado = false;
+    } else {
+      setVal_orgemissor('form-control success!')
+    }
+
+    if (pct_dtcad === ''){
+      setVal_dtcad('form-control error');
+      setErr_dtcad('Preencha a data do cadastro do paciente!');
+      validado = false;
+    } else {
+      setVal_dtcad('form-control success!')
+    }
+    
   }
 
   async function cadastrar(){
