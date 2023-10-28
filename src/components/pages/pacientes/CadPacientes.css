@@ -12,7 +12,7 @@
 }
 .lblForm {
   margin: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 
 }
 /* .lblFormAposent {
@@ -26,7 +26,7 @@
 .inputForm {
   background-color: #f0f0f0;
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 15px;
   margin: 10px 0;
   box-sizing: border-box;
   font-size: 1.2rem;
@@ -72,6 +72,11 @@
   background-color: red;
   border: red solid 2px;
   color: white;
+}
+.small {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 1rem;
 }
 
 
