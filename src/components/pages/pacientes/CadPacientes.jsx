@@ -32,7 +32,7 @@ function CadPacientes() {
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
 
-  // VALIDAÇÕES
+  //Validações
   const [Val_pront, setVal_pront] = useState('form-control');
   const [Err_pront, setErr_pront] = useState('');
   const [Val_cpf, setVal_cpf] = useState('form-control');
@@ -75,12 +75,12 @@ function CadPacientes() {
     }
   }
 
-  // VALIDAÇÕES
+  // Validações
   function valida(){
     let validado = true;
 
     if (pct_pront === ''){
-      setVal_pront('form-contrl error');
+      setVal_pront('form-control error');
       setErr_pront("Preencha o prontuário do paciente!");
       validado = false;
     } else {
@@ -127,7 +127,7 @@ function CadPacientes() {
       setVal_cns('form-control success!')
     }
 
-    if (pct_dtnasc === ''){
+    if (pct_dtnasc === '' || pct_dtnasc.length !== 8){
       setVal_dtnasc('form-control error');
       setErr_dtnasc('Preencha a data de nascimento do paciente!');
       validado = false;
@@ -191,7 +191,7 @@ function CadPacientes() {
       setVal_rg('form-control success!')
     }
 
-    if (pct_dataexp === ''){
+    if (pct_dataexp === '' || pct_dataexp.length !== 8){
       setVal_dataexp('form-control error');
       setErr_dataexp('Preencha a data de expedição do RG!');
       validado = false;
@@ -207,7 +207,7 @@ function CadPacientes() {
       setVal_orgemissor('form-control success!')
     }
 
-    if (pct_dtcad === ''){
+    if (pct_dtcad === '' || pct_dtcad.length !== 8){
       setVal_dtcad('form-control error');
       setErr_dtcad('Preencha a data do cadastro do paciente!');
       validado = false;
@@ -280,11 +280,12 @@ function CadPacientes() {
               Cadastro de Pacientes
             </h1>
           </div>
+
           <div className='divForm'>
 
             <form className='cadForm' onSubmit={handleSubmit}>
 
-              <div className={Val_pront} id="Val_pront" style={{marginBottom: "1rem"}}>
+              <div className={Val_pront} id="Val_pront" >
                 <label className='lblForm'>
                   Prontuário:
                   <input
@@ -298,7 +299,7 @@ function CadPacientes() {
                 <small className='small' id="pct_pront">{Err_pront}</small>
               </div>
 
-              <div className={Val_cpf} id='Val_cpf' style={{marginBottom: "1rem"}}>
+              <div className={Val_cpf} id='Val_cpf'>
                 <label className='lblForm'>
                   CPF:
                   <input
@@ -312,7 +313,7 @@ function CadPacientes() {
                 <small className='small' id="pct_cpf">{Err_cpf}</small>
               </div>
 
-              <div className={Val_nome} id='Val_nome' style={{marginBottom: "1rem"}}>
+              <div className={Val_nome} id='Val_nome'>
                 <label className='lblForm'>
                   Nome do(a) Paciente:
                   <input
@@ -326,7 +327,7 @@ function CadPacientes() {
                 <small className='small' id="pct_nome">{Err_nome}</small>
               </div>
 
-              <div className={Val_sexo} id='Val_sexo' style={{marginBottom: "1rem"}}>
+              <div className={Val_sexo} id='Val_sexo'>
                 <label className='lblForm'>
                   Sexo:
                   <input
@@ -340,7 +341,7 @@ function CadPacientes() {
                 <small className='small' id="pct_sexo">{Err_sexo}</small>
               </div>
 
-              <div className={Val_sus} id='Val_sus' style={{marginBottom: "1rem"}}>
+              <div className={Val_sus} id='Val_sus'>
                 <label className='lblForm'>
                   SUS:
                   <input
@@ -354,7 +355,7 @@ function CadPacientes() {
                 <small className='small' id="pct_sus">{Err_sus}</small>
               </div>
 
-              <div className={Val_cns} id='Val_cns' style={{marginBottom: "1rem"}}>
+              <div className={Val_cns} id='Val_cns'>
                 <label className='lblForm'>
                   CNS:
                   <input
@@ -368,7 +369,7 @@ function CadPacientes() {
                 <small className='small' id="pct_cns">{Err_cns}</small>
               </div>
 
-              <div className={Val_dtnasc} id='Val_dtnasc' style={{marginBottom: "1rem"}}>
+              <div className={Val_dtnasc} id='Val_dtnasc'>
                 <label className='lblForm'>
                   Data de Nascimento:
                   <input
@@ -381,7 +382,7 @@ function CadPacientes() {
                 <small className='small' id="pct_dtnasc">{Err_dtnasc}</small>
               </div>
 
-              <div className={Val_aih} id='Val_aih' style={{marginBottom: "1rem"}}>
+              <div className={Val_aih} id='Val_aih'>
                 <label className='lblForm'>
                   AIH:
                   <input
@@ -395,7 +396,7 @@ function CadPacientes() {
                 <small className='small' id="pct_aih">{Err_aih}</small>
               </div>
 
-              <div className={Val_bpc} id='Val_bpc' style={{marginBottom: "1rem"}}>
+              <div className={Val_bpc} id='Val_bpc'>
                 <label className='lblForm'>
                   BPC:
                   <input
@@ -409,7 +410,7 @@ function CadPacientes() {
                 <small className='small' id="pct_bpc">{Err_bpc}</small>
               </div>
 
-              <div className={Val_aposent} id='Val_aposent' style={{marginBottom: "1rem"}}>
+              <div className={Val_aposent} id='Val_aposent'>
                 <label className='lblForm'>
                   Aposentado:
                   <input
@@ -424,7 +425,7 @@ function CadPacientes() {
                 <small className='small' id="pct_aposent">{Err_aposent}</small>
               </div>
 
-              <div className={Val_filiacao} id='Val_filiacao' style={{marginBottom: "1rem"}}>
+              <div className={Val_filiacao} id='Val_filiacao'>
                 <label className='lblForm'>
                   Filiação:
                   <input
@@ -438,7 +439,7 @@ function CadPacientes() {
                 <small className='small' id="pct_filiacao">{Err_filiacao}</small>
               </div>
 
-              <div className={Val_natural} id='Val_natural' style={{marginBottom: "1rem"}}>
+              <div className={Val_natural} id='Val_natural'>
                 <label className='lblForm'>
                   Naturalidade:
                   <input
@@ -452,7 +453,7 @@ function CadPacientes() {
                 <small className='small' id="pct_natural">{Err_natural}</small>
               </div>
 
-              <div className={Val_cor} id='Val_cor' style={{marginBottom: "1rem"}}>
+              <div className={Val_cor} id='Val_cor'>
                 <label className='lblForm'>
                   Cor:
                   <input
@@ -466,7 +467,7 @@ function CadPacientes() {
                 <small className='small' id="pct_cor">{Err_cor}</small>
               </div>
 
-              <div className={Val_rg} id='Val_rg' style={{marginBottom: "1rem"}}>
+              <div className={Val_rg} id='Val_rg'>
                 <label className='lblForm'>
                   RG:
                   <input
@@ -480,7 +481,7 @@ function CadPacientes() {
                 <small className='small' id="pct_rg">{Err_rg}</small>
               </div>
 
-              <div className={Val_dataexp} id='Val_dataexp' style={{marginBottom: "1rem"}}>
+              <div className={Val_dataexp} id='Val_dataexp'>
                 <label className='lblForm'>
                   Data de Expedição:
                   <input
@@ -493,7 +494,7 @@ function CadPacientes() {
                 <small className='small' id="pct_dataexp">{Err_dataexp}</small>
               </div>
 
-              <div className={Val_orgemissor} id='Val_orgemissor' style={{marginBottom: "1rem"}}>
+              <div className={Val_orgemissor} id='Val_orgemissor'>
                 <label className='lblForm'>
                   Orgão Emissor:
                   <input
@@ -507,7 +508,7 @@ function CadPacientes() {
                 <small className='small' id="pct_orgemissor">{Err_orgemissor}</small>
               </div>
 
-              <div className={Val_dtcad} id='Val_dtcad' style={{marginBottom: "1rem"}}>
+              <div className={Val_dtcad} id='Val_dtcad'>
                 <label className='lblForm'>
                   Data de Cadastro:
                   <input
@@ -528,6 +529,7 @@ function CadPacientes() {
             </form>
 
           </div>
+
         <Footer />
     </div>
   );
