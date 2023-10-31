@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 function CadInternacao() {
 
-  let  navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [intern_id, setintern_id] = useState('');
   const [intern_data, setintern_data] = useState('');
@@ -139,9 +139,8 @@ function CadInternacao() {
 
         <div className='divForm'>
 
-          <form className='cadForm'>
+          <form className='cadForm' onSubmit={handleSubmit}>
 
-            {/* parei aqui */}
             <div className={Val_id} id="Val_id">
               <label className='lblForm'>
                 Internação:
@@ -162,7 +161,6 @@ function CadInternacao() {
                 <input
                   className='inputForm'
                   type='date'
-                  placeholder= "Digite a data da internação"
                   onChange={v => setintern_data(v.target.value)}
                   value={intern_data}
                 />
@@ -176,7 +174,6 @@ function CadInternacao() {
                 <input
                   className='inputForm'
                   type='date'
-                  placeholder= "Digite a data de saída"
                   onChange={v => setintern_dtsaida(v.target.value)}
                   value={intern_dtsaida}
                 />
@@ -190,7 +187,7 @@ function CadInternacao() {
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite o tipo de saída"
+                  placeholder= "Digite o tipo de saída: (alta médica ou transferência)"
                   onChange={v => setintern_tpsaida(v.target.value)}
                   value={intern_tpsaida}
                 />
@@ -212,33 +209,32 @@ function CadInternacao() {
               <small className='small' id='medic_crm_intern'>{Err_medic_crm_intern}</small>
             </div>
 
-{/* parei aqui */}
             <div className={Val_user_id_intern} id="Val_user_id_intern">
               <label className='lblForm'>
-                Internação:
+                Usuário:
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite a internação"
-                  onChange={v => setintern_id(v.target.value)}
-                  value={intern_id}
+                  placeholder= "Digite o identificador do usuário"
+                  onChange={v => setuser_id_intern(v.target.value)}
+                  value={user_id_intern}
                 />
               </label>
-              <small className='small' id='intern_id'>{Err_id}</small>
+              <small className='small' id='user_id_intern'>{Err_user_id_intern}</small>
             </div>
 
             <div className={Val_pct_pront_intern} id="Val_pct_pront_intern">
               <label className='lblForm'>
-                Internação:
+                Prontuário do Paciente:
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite a internação"
-                  onChange={v => setintern_id(v.target.value)}
-                  value={intern_id}
+                  placeholder= "Digite o prontuário do paciente"
+                  onChange={v => setpct_pront_intern(v.target.value)}
+                  value={pct_pront_intern}
                 />
               </label>
-              <small className='small' id='intern_id'>{Err_id}</small>
+              <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
             </div>
 
               <div className='divbtn'>
