@@ -114,14 +114,46 @@ function CadCid() {
       <div className='divForm'>
           <form className='cadForm' onSubmit={handleSubmit}>
 
-            <div>
+            <div className={Val_id} id="Val_id">
               <label className="lblForm">
                 Id do CID:
                 <input
-                className='inputFom'
-                type="text" />
-                {/* parei aqui */}
+                  className='inputFom'
+                  type="text"
+                  placeholder="Digite o ID do CID"
+                  onChange={v => setcid_id(v.target.value)}
+                  value={cid_id}
+                />
               </label>
+              <small className='small' id='cid_id'>{Err_id}</small>
+            </div>
+
+            <div className={Val_cid} id="Val_cid">
+              <label className="lblForm">
+                Númeração do CID:
+                <input
+                  className='inputFom'
+                  type="text"
+                  placeholder="Digite a numeração do CID"
+                  onChange={v => setcid_cid(v.target.value)}
+                  value={cid_cid}
+                />
+              </label>
+              <small className='small' id='cid_cid'>{Err_cid}</small>
+            </div>
+
+            <div className={Val_descri} id="Val_descri">
+              <label className="lblForm">
+                Descrição do CID:
+                <input
+                  className='inputFom'
+                  type="text"
+                  placeholder="Digite a descrição do CID"
+                  onChange={v => setcid_descri(v.target.value)}
+                  value={cid_descri}
+                />
+              </label>
+              <small className='small' id='cid_descri'>{Err_descri}</small>
             </div>
 
             <div className='divbtn'>
