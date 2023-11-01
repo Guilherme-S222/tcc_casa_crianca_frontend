@@ -118,7 +118,7 @@ function CadCid() {
               <label className="lblForm">
                 Id do CID:
                 <input
-                  className='inputFom'
+                  className='inputForm'
                   type="text"
                   placeholder="Digite o ID do CID"
                   onChange={v => setcid_id(v.target.value)}
@@ -132,7 +132,7 @@ function CadCid() {
               <label className="lblForm">
                 Númeração do CID:
                 <input
-                  className='inputFom'
+                  className='inputForm'
                   type="text"
                   placeholder="Digite a numeração do CID"
                   onChange={v => setcid_cid(v.target.value)}
@@ -146,7 +146,7 @@ function CadCid() {
               <label className="lblForm">
                 Descrição do CID:
                 <input
-                  className='inputFom'
+                  className='inputForm'
                   type="text"
                   placeholder="Digite a descrição do CID"
                   onChange={v => setcid_descri(v.target.value)}
