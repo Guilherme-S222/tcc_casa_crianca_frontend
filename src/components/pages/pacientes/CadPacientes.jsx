@@ -274,7 +274,7 @@ function CadPacientes() {
 
   return (
     <div>
-        <Header />
+        <Header pag={'CadPacientes'} />
           <div className='listarTitulo'>
             <h1>
               Cadastro de Pacientes

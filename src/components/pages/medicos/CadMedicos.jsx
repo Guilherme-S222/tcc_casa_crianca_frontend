@@ -41,42 +41,42 @@ function CadMedicos() {
 
     if (medic_crm === ''){
       setVal_crm('form_control error');
-      setErr_crm('Preencha o CRM do Médico!')
+      setErr_crm('Preencha o CRM do Médico!');
       validado = false;
     } else {
-      setVal_crm('form-control success!')
+      setVal_crm('form-control success!');
     }
 
     if (medic_cpf === '' || medic_cpf !== 11){
       setVal_cpf('form_control error');
-      setErr_cpf('Preencha o CPF do Médico!')
+      setErr_cpf('Preencha o CPF do Médico!');
       validado = false;
     } else {
-      setVal_cpf('form-control success!')
+      setVal_cpf('form-control success!');
     }
 
     if (medic_nome === ''){
       setVal_nome('form_control error');
-      setErr_nome('Preencha o nome do Médico!')
+      setErr_nome('Preencha o nome do Médico!');
       validado = false;
     } else {
-      setVal_nome('form-control success!')
+      setVal_nome('form-control success!');
     }
     
     if (medic_especi === ''){
       setVal_especi('form_control error');
-      setErr_especi('Preencha a especialidade do Médico!')
+      setErr_especi('Preencha a especialidade do Médico!');
       validado = false;
     } else {
-      setVal_especi('form-control success!')
+      setVal_especi('form-control success!');
     }
 
     if (medic_tel === ''){
       setVal_tel('form_control error');
-      setErr_tel('Preencha o telefone do Médico!')
+      setErr_tel('Preencha o telefone do Médico!');
       validado = false;
     } else {
-      setVal_tel('form-control success!')
+      setVal_tel('form-control success!');
     }
 
     return validado;
@@ -105,7 +105,7 @@ function CadMedicos() {
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
 
-        alert('Médico cadastrado com sucesso!')
+        alert('Médico cadastrado com sucesso!');
         navigate('/menu');
 
       } else {
