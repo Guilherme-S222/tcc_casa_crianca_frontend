@@ -1,4 +1,4 @@
-import React, { useState, Button } from 'react'; //adicionar hook useState
+import React from 'react'; //adicionar hook useState
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import { FaHandsHoldingChild } from "react-icons/fa6";
@@ -83,17 +83,7 @@ function Menu(menu) {
             <Link className='link' to='../usuarios'>Alterar</Link>
           </div>
         </div>
-
-        <div className='dropdown'>
-          <button className='dropbtn'>Endereços
-            <i className='fa fa-caret-down'></i>
-          </button>
-          <div className='dropcontent'>
-            <Link className='link' to='../cadendereco'>Cadastro</Link>
-            <Link className='link' to='../endereco'>Alterar</Link>
-          </div>
-        </div>
-
+        
         <div className='dropdown'>
           <button className='dropbtn'> <Link className='sair' to='/'>Sair</Link>
             <i className='fa fa-caret-down'></i>

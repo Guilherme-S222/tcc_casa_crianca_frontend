@@ -303,7 +303,7 @@ function CadEndereco() {
                 <input 
                   className='inputForm' 
                   type='text' 
-                  placeholder= "Digite o prontuário do pacientes vinculado a esse endereço"
+                  placeholder= "Digite o prontuário do paciente vinculado a esse endereço"
                   onChange={v => setpct_pront_enderec(v.target.value)}
                   value={pct_pront_enderec}
                 />
@@ -312,7 +312,7 @@ function CadEndereco() {
           </div>
         
           <div className='divbtn'>
-            <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+            <Link className='linkbtn' to='../cadpacientes'><button className='cancbtn' >Cancelar</button></Link>
             <button type="submit" className='cadbtn' >Cadastrar</button>
           </div>
 

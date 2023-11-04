@@ -23,10 +23,10 @@ function CadInternacao() {
   const [Err_id, setErr_id] = useState('');
   const [Val_data, setVal_data] = useState('form-control');
   const [Err_data, setErr_data] = useState('');
-  const [Val_dtsaida, setVal_dtsaida] = useState('form-control');
-  const [Err_dtsaida, setErr_dtsaida] = useState('');
-  const [Val_tpsaida, setVal_tpsaida] = useState('form-control');
-  const [Err_tpsaida, setErr_tpsaida] = useState('');
+  const [Val_dtsaida, /*setVal_dtsaida*/] = useState('form-control');
+  const [Err_dtsaida, /*setErr_dtsaida*/] = useState('');
+  const [Val_tpsaida, /*setVal_tpsaida*/] = useState('form-control');
+  const [Err_tpsaida, /*setErr_tpsaida*/] = useState('');
   const [Val_medic_crm_intern, setVal_medic_crm_intern] = useState('form-control');
   const [Err_medic_crm_intern, setErr_medic_crm_intern] = useState('');
   const [Val_user_id_intern, setVal_user_id_intern] = useState('form-control');
@@ -239,6 +239,7 @@ function CadInternacao() {
 
               <div className='divbtn'>
                 <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+                <Link className='linkbtn' to='../internacaocid'><button className='cadbtn' >Cadastrar Cid</button></Link>
                 <button type="submit" className='cadbtn' >Cadastrar</button>
               </div>
 

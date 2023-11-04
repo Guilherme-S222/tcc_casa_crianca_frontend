@@ -9,6 +9,7 @@ import Cid from './pages/cid/Cid';
 import CadCid from './pages/cid/CadCid';
 import Internacao from './pages/internacao/Internacao';
 import CadInternacao from './pages/internacao/CadInternacao';
+import InternacaoCid from './pages/internacao/InternacaoCid';
 import Medicos from './pages/medicos/Medicos';
 import CadMedicos from './pages/medicos/CadMedicos';
 import Prorrogacao from './pages/prorrogacao/Prorrogacao';
@@ -35,6 +36,7 @@ function App() {
         <Route path='/cadcid' element={<CadCid/>} />
         <Route path='/internacao' element={<Internacao/>} />
         <Route path='/cadinternacao' element={<CadInternacao/>} />
+        <Route path='/internacaocid' element={<InternacaoCid/>}/>
         <Route path='/medicos' element={<Medicos/>} />
         <Route path='/cadmedicos' element={<CadMedicos/>} />
         <Route path='/prorrogacao' element={<Prorrogacao/>} />
