@@ -22,8 +22,8 @@
   background-color: ghostwhite;
   border: solid 0.2rem #06a180;
   border-radius: 0.5rem;
-  font-size: 1.4rem;
-  height: 3rem;
+  font-size: 20px;
+  height: 2.5rem;
   width: 8rem;
   margin: 1rem;
 }
@@ -113,3 +113,26 @@
   font-weight: 500;
   padding: 0.5rem;
 }
+
+/* FILTRO DE BUSCA */
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 7rem;
+}
+.inputSearch{
+  width: 20rem;
+  height: 1.5rem;
+  margin: 10px;
+  border: 0.2rem solid #06a180;
+  border-radius: 0.3rem;
+  font-size: 15px;
+}
+.labelSearch{
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+

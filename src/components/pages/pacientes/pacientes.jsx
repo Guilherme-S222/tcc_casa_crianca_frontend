@@ -5,7 +5,6 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
-
 import './Pacientes.css';
 
 function Pacientes() {
@@ -139,18 +138,20 @@ function Pacientes() {
     <div >
       <Header pag={'Pacientes'}/>
       <h1 className='listarTitulo'>
-        Listar Pacientes
+        Pesquisar Pacientes
       </h1>
 
       <div className='botoesDiv'>
         <Link to='/cadpacientes'><button className='buttonCad' type="button">Cadastrar</button></Link>
+        <Link to='/menu'><button className='buttonCad' type="button">Voltar</button></Link>
       </div>
 
       <div className='search'>
         <label className='labelSearch'>Buscar Prontuário:</label>
         <input 
         className='inputSearch' 
-        type='text' 
+        type='text'
+        placeholder='Digite o prontuário aqui' 
         value={busca}
         onChange={(event) => setBusca(event.target.value) } />
       </div>

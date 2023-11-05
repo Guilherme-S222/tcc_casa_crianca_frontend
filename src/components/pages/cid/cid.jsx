@@ -1,13 +1,14 @@
-import React, { useState, Button } from 'react'; //adicionar hook useState
+import React, { useState, useMemo } from 'react'; //adicionar hook useState
+import { Link } from 'react-router-dom';
+
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
-import { Link } from 'react-router-dom';
 
-function Cid({ Cid }) {
+function Cid() {
 
-  const [cid, setCid] = useState(
+  const [cid] = useState(
     [
       {
         "cid_id": 1,
@@ -62,19 +63,40 @@ function Cid({ Cid }) {
     ]
   );
 
+  const [busca, setBusca] = useState('');
+
+  const cidFiltrado = useMemo (() => {
+    const lowerBusca = busca.toLowerCase();
+    return cid.filter((cid) => cid.cid_descri.toLowerCase().includes(lowerBusca));
+  }, [busca, cid]);
+
   return (
     <div >
       <Header pag={'Cid'} />
+
       <div className='listarTitulo'>
         <h1>
-          Lista de CID
+          Pesquisar CID
         </h1>
       </div>
+
       <div className='botoesDiv'>
         <Link to='/cadcid'><button className='buttonCad' type="button">Cadastrar</button></Link>
+        <Link to='/menu'><button className='buttonCad' type="button">Voltar</button></Link>
       </div>
+
+      <div className='search'>
+        <label className='labelSearch'>Descrição do CID:</label>
+        <input
+        className='inputSearch'
+        type='text'
+        placeholder='Digite a descrição do CID aqui'
+        value={busca}
+        onChange={(event) => setBusca(event.target.value)} />
+      </div>
+
       <div className='listarContainer'>
-        {cid.map(item => (
+        {cidFiltrado.map(item => (
           <div className='listarDiv' key={item.cid_id}>
             <span className='item'>ID: {item.cid_id}</span>
             <span className='item'>CID: {item.cid_cid}</span>
