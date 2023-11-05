@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
+import { Link, useNavigate } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import '../pacientes/CadPacientes.css';
 
-import api from '../../services/api';
+import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 function CadPacientes() {
 
@@ -14,6 +14,7 @@ function CadPacientes() {
 
   let navigate = useNavigate();
 
+  //definindo variáveis de estado e uma função SET para atualiza-las. useState('') define a variável inicialmente vázia.
   const [pct_pront, setpct_pront] = useState('');
   const [pct_cpf, setpct_cpf] = useState('');
   const [pct_nome, setpct_nome] = useState('');
@@ -32,7 +33,7 @@ function CadPacientes() {
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
 
-  //Validações
+  //definindo variáveis de estado e uma função SET para atualiza-las. Serão usadas para validações.
   const [Val_pront, setVal_pront] = useState('form-control');
   const [Err_pront, setErr_pront] = useState('');
   const [Val_cpf, setVal_cpf] = useState('form-control');
@@ -68,16 +69,17 @@ function CadPacientes() {
   const [Val_dtcad, setVal_dtcad] = useState('form-control');
   const [Err_dtcad, setErr_dtcad] = useState('');
 
+  //A função handleSubmit é uma manipulador de eventos em componentes React.
   function handleSubmit(event){
-    event.preventDefault();
-    if (valida()) {
-      cadastrar()
+    event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
+    if (valida()) { //se a função valida retornar TRUE os dados estão validados e prontos para cadastro.
+      cadastrar() //envia os dados do formulário para o servidor(api)
     }
   }
 
-  // Validações
+  // Validações dos campos do formulário.
   function valida(){
-    let validado = true;
+    let validado = true; //iniciando como true.
 
     if (pct_pront === ''){
       setVal_pront('form-control error');
@@ -215,14 +217,15 @@ function CadPacientes() {
       setVal_dtcad('form-control success!')
     }
 
-    return validado;
+    return validado; //retornando a variável que será true se passar na validações, ou false se falhar na validação.
 
   }
 
+  //função assíncrona responsável por enviar os dados para a API e realizar o cadastro, comunicação com o servidor, armazenamento das informações do usuário e redirecionamento do usuário com base nas ações.
   async function cadastrar(){
 
-    try {
-      const dados = {
+    try { //A instrução try marca o início de um bloco onde você tentará executar o código, e capturar quaisquer erros que possam ocorrer durante a execução.
+      const dados = { //Objeto "dados" criado com os campos que serão extraídos das variáveis abaixo para serem enviados para o servidor(API).
         pct_pront,
         pct_cpf,
         pct_nome,
@@ -243,32 +246,32 @@ function CadPacientes() {
       }
 
       // API
-      const response = await api.post('/pacientes', dados);
+      const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.
       console.log(response);
-      if (response.data.confirma === true){
+      if (response.data.confirma === true){ //verifica se a resposta contém uma prop 'confirma' igual a 'true', indicando que o paciente foi cadastrado.
 
-        const objLogado = {
+        const objLogado = { //se o cadastro foi feito 'objLogado' armazena as informações id, nome e acesso.
           "id": response.data.id,
           "nome": response.data.nome,
           "acesso": response.data.tipo
         };
 
-        localStorage.clear();
-        localStorage.setItem('user', JSON.stringify(objLogado));
+        localStorage.clear(); //limpa os dados anteriores no armazenamento local do navegador (localStorage).
+        localStorage.setItem('user', JSON.stringify(objLogado));//armazena o objeto logado em formato JSON com a chave USER.
 
-        const confirmacao = window.confirm("Paciente cadastrado com sucesso! Deseja cadastrar o endereço?");
+        const confirmacao = window.confirm("Paciente cadastrado com sucesso! Deseja cadastrar o endereço?"); //exibe um janela ao usuário perguntando se deseja cadastro o endereço do paciente que foi cadastrado.
 
-        if (confirmacao){
+        if (confirmacao){ //Com base na resposta do usuário, você redireciona o usuário para a página de cadastro de endereço ou para o menu principal.
           navigate('/cadendereco');
         } else {
           navigate('/menu');
         }
       
       } else {
-        alert('Erro: ' + response.data.message)
+        alert('Erro: ' + response.data.message) //Se a resposta do servidor não tiver a propriedade confirma definida como true, você exibe uma mensagem de erro ao usuário, incluindo a mensagem de erro retornada pelo servidor.
       }
     } catch (error){
-
+      //O bloco catch lida com erros que podem ocorrer durante a execução do código dentro do bloco try. Se ocorrer um erro, você verifica se ele tem uma resposta (error.response.data.message) para exibir a mensagem de erro do servidor. Caso contrário, você exibe o próprio erro.
       if (error.response){
         alert(error.response.data.message);
       } else {
@@ -297,8 +300,8 @@ function CadPacientes() {
                     className='inputForm'
                     type='text'
                     placeholder= "Digite o prontuário"
-                    onChange={v => setpct_pront(v.target.value)}
-                    value={pct_pront}
+                    onChange={v => setpct_pront(v.target.value)} //Define uma função a ser executada quando o valor do campo muda. Essa função atualiza a variável de estado pct_pront com o valor inserido no campo.
+                    value={pct_pront} //Define o valor do campo como o valor da variável de estado pct_pront. Isso permite que o campo seja controlado pelo estado do componente.
                   />
                 </label>
                 <small className='small' id="pct_pront">{Err_pront}</small>
