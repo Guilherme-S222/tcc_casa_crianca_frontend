@@ -20,7 +20,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadpacientes'>Cadastro</Link>
-            <Link className='link' to='../pacientes'>Alterar</Link>
+            <Link className='link' to='../pacientes'>Pesquisar</Link>
           </div>
         </div>
 
@@ -30,7 +30,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadinternacao'>Cadastro</Link>
-            <Link className='link' to='../internacao'>Alterar</Link>
+            <Link className='link' to='../internacao'>Pesquisar</Link>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadprorrogacao'>Cadastro</Link>
-            <Link className='link' to='../prorrogacao'>Alterar</Link>
+            <Link className='link' to='../prorrogacao'>Pesquisar</Link>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadtransferencia'>Cadastro</Link>
-            <Link className='link' to='../transferencia'>Alterar</Link>
+            <Link className='link' to='../transferencia'>Pesquisar</Link>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadcid'>Cadastro</Link>
-            <Link className='link' to='../cid'>Alterar</Link>
+            <Link className='link' to='../cid'>Pesquisar</Link>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadmedicos'>Cadastro</Link>
-            <Link className='link' to='../medicos'>Alterar</Link>
+            <Link className='link' to='../medicos'>Pesquisar</Link>
           </div>
         </div>
 
@@ -80,7 +80,7 @@ function Menu(menu) {
           </button>
           <div className='dropcontent'>
             <Link className='link' to='../cadusuarios'>Cadastro</Link>
-            <Link className='link' to='../usuarios'>Alterar</Link>
+            <Link className='link' to='../usuarios'>Pesquisar</Link>
           </div>
         </div>
         

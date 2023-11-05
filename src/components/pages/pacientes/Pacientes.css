@@ -12,4 +12,20 @@
   overflow: hidden;
   margin: 1rem 1rem;
 }
-/* parei aqui */
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.inputSearch{
+  width: 30rem;
+  height: 1.5rem;
+  margin: 15px;
+}
+.labelSearch{
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+

@@ -1,11 +1,10 @@
-import React, { useState } from 'react'; //adicionar hook useState
+import React, { useState, useMemo } from 'react'; //adicionar hook useState
+import { Link } from 'react-router-dom';
+
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
-import { Link } from 'react-router-dom';
-
-
 
 import './Pacientes.css';
 
@@ -107,9 +106,34 @@ function Pacientes() {
         "pct_dataexp": "2020-03-15T03:00:00.000Z",
         "pct_orgemissor": "SSP",
         "pct_dtcad": "2023-08-10T22:00:00.000Z"
+      },
+      {
+        "pct_pront": 1000,
+        "pct_cpf": "23456789012",
+        "pct_nome": "Carlos Ferreira",
+        "pct_sexo": "Masculino",
+        "pct_sus": "234567890123456",
+        "pct_cns": "234567890123456",
+        "pct_dtnasc": "2000-11-02T02:00:00.000Z",
+        "pct_aih": "2345678901234",
+        "pct_bpc": "Não",
+        "pct_aposent": "Não",
+        "pct_filiacao": "Lucia Ferreira",
+        "pct_natural": "Porto Alegre",
+        "pct_cor": "Branco",
+        "pct_rg": "34567890",
+        "pct_dataexp": "2020-03-15T03:00:00.000Z",
+        "pct_orgemissor": "SSP",
+        "pct_dtcad": "2023-08-10T22:00:00.000Z"
       }
     ]
   );
+
+  const [busca, setBusca] = useState('');
+  
+  const prontuariosFiltrados = useMemo(() => {
+    return pacientes.filter((pacientes) => pacientes.pct_pront.toString().includes(busca));
+  }, [busca, pacientes]); 
 
   return (
     <div >
@@ -117,11 +141,22 @@ function Pacientes() {
       <h1 className='listarTitulo'>
         Listar Pacientes
       </h1>
+
       <div className='botoesDiv'>
         <Link to='/cadpacientes'><button className='buttonCad' type="button">Cadastrar</button></Link>
       </div>
+
+      <div className='search'>
+        <label className='labelSearch'>Buscar Prontuário:</label>
+        <input 
+        className='inputSearch' 
+        type='text' 
+        value={busca}
+        onChange={(event) => setBusca(event.target.value) } />
+      </div>
+      
       <div className='listarContainer'>
-        {pacientes.map(item => (
+        {prontuariosFiltrados.map(item => (
           <div className='listarDiv' key={item.pct_pront}>
             <span className='item'>Prontuário Nº: {item.pct_pront}</span>
             <span className='item'>CPF: {item.pct_cpf}</span>
@@ -140,6 +175,7 @@ function Pacientes() {
             <span className='item'>Data de Expedição: {item.pct_dataexp}</span>
             <span className='item'>Orgão Emissor: {item.pct_orgemissor}</span>
             <span className='item'>Data do Cadastro: {item.pct_dtcad}</span>
+
             <div>
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
               <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
