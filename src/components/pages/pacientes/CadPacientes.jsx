@@ -256,9 +256,14 @@ function CadPacientes() {
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
 
-        alert("Paciente cadastrado com sucesso!")
-        navigate('/menu');
+        const confirmacao = window.confirm("Paciente cadastrado com sucesso! Deseja cadastrar o endereço?");
 
+        if (confirmacao){
+          navigate('/cadendereco');
+        } else {
+          navigate('/menu');
+        }
+      
       } else {
         alert('Erro: ' + response.data.message)
       }
@@ -523,7 +528,6 @@ function CadPacientes() {
 
               <div className='divbtn'>
                 <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
-                <Link className='linkbtn' to='../Cadendereco'><button className='cadbtn' >Endereço</button></Link>
                 <button type="submit" className='cadbtn' >Cadastrar</button>
               </div>
 

@@ -112,8 +112,13 @@ function CadInternacao() {
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
 
-        alert("Internação cadastrada com sucesso!")
-        navigate('/menu');
+        const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o CID dessa internação?");
+
+        if (confirmacao){
+          navigate('/internacaocid');
+        } else {
+          navigate('/menu');
+        }
 
       } else {
         alert('Erro: ' + response.data.message)
@@ -239,7 +244,6 @@ function CadInternacao() {
 
               <div className='divbtn'>
                 <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
-                <Link className='linkbtn' to='../internacaocid'><button className='cadbtn' >Cadastrar Cid</button></Link>
                 <button type="submit" className='cadbtn' >Cadastrar</button>
               </div>
 
