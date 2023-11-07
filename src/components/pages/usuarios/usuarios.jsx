@@ -47,7 +47,7 @@ function Usuarios() {
 
     const usuarioFiltrado = useMemo(() => {
       const lowerBusca = busca.toLowerCase();
-      return usuarios.filter((usuarios) => usuarios.user_nome.toLowerCase().includes(lowerBusca));
+      return usuarios.filter((usuarios) => usuarios.user_nome.toLowerCase().startsWith(lowerBusca));
     }, [busca, usuarios]);
 
   return (

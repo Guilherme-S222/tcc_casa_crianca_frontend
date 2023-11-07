@@ -86,7 +86,7 @@ function Medicos() {
   const [busca, setBusca] = useState('');
 
   const medicoFiltrado = useMemo(() => {
-    return medicos.filter((medicos) => medicos.medic_crm.toString().includes(busca));
+    return medicos.filter((medicos) => medicos.medic_crm.toString().startsWith(busca));
   }, [busca, medicos]);
 
   return (

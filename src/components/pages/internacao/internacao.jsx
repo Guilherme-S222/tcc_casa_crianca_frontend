@@ -61,7 +61,7 @@ function Internação() {
   const [busca, setBusca] = useState('');
 
   const internacoesFiltradas = useMemo(() => {
-    return internacao.filter((internacao) => internacao.pct_pront_intern.toString().includes(busca));
+    return internacao.filter((internacao) => internacao.pct_pront_intern.toString() === (busca));
   }, [busca, internacao]);
 
   return (
