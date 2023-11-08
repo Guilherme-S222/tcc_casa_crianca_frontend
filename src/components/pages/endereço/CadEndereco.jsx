@@ -83,14 +83,6 @@ function CadEndereco() {
       setVal_bairro('form-control success!')
     }
 
-    if(enderec_complem === ''){
-      setVal_complem('form-control error')
-      setErr_complem('Preencha o complemento do endereço!')
-      validado = false;
-    } else {
-      setVal_complem('form-control success!')
-    }
-
     if(enderec_cidade === ''){
       setVal_cidade('form-control error')
       setErr_cidade('Preencha a cidade!')
@@ -187,10 +179,10 @@ function CadEndereco() {
 
           <div className={Val_id} id="Val_id">
             <label className='lblForm'>
-              ID do endereço: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              ID do endereço:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o ID do endereço"
                   onChange={v => setenderec_id(v.target.value)}
                   value={enderec_id}
@@ -198,13 +190,13 @@ function CadEndereco() {
             </label>
             <small className='small' id='enderec_id'>{Err_id}</small>
           </div>
-        
+
           <div className={Val_rua} id="Val_rua">
             <label className='lblForm'>
-              Nome da rua: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Nome da rua:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite a rua"
                   onChange={v => setenderec_rua(v.target.value)}
                   value={enderec_rua}
@@ -215,10 +207,10 @@ function CadEndereco() {
 
           <div className={Val_num} id="Val_num">
             <label className='lblForm'>
-              Número: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Número:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o número"
                   onChange={v => setenderec_num(v.target.value)}
                   value={enderec_num}
@@ -229,10 +221,10 @@ function CadEndereco() {
 
           <div className={Val_bairro} id="Val_bairro">
             <label className='lblForm'>
-              Bairro: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Bairro:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o bairro"
                   onChange={v => setenderec_bairro(v.target.value)}
                   value={enderec_bairro}
@@ -243,10 +235,10 @@ function CadEndereco() {
 
           <div className={Val_complem} id="Val_complem">
             <label className='lblForm'>
-              Complemento: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Complemento:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o complemento"
                   onChange={v => setenderec_complem(v.target.value)}
                   value={enderec_complem}
@@ -257,10 +249,10 @@ function CadEndereco() {
 
           <div className={Val_cidade} id="Val_cidade">
             <label className='lblForm'>
-              Cidade: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Cidade:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite a cidade"
                   onChange={v => setenderec_cidade(v.target.value)}
                   value={enderec_cidade}
@@ -271,10 +263,10 @@ function CadEndereco() {
 
           <div className={Val_cep} id="Val_cep">
             <label className='lblForm'>
-              CEP: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              CEP:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o CEP"
                   onChange={v => setenderec_cep(v.target.value)}
                   value={enderec_cep}
@@ -285,10 +277,10 @@ function CadEndereco() {
 
           <div className={Val_estado} id="Val_estado">
             <label className='lblForm'>
-              Estado: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Estado:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o Estado"
                   onChange={v => setenderec_estado(v.target.value)}
                   value={enderec_estado}
@@ -299,10 +291,10 @@ function CadEndereco() {
 
           <div className={Val_pct_pront} id="Val_pct_pront">
             <label className='lblForm'>
-              Prontuário do paciente vinculado: 
-                <input 
-                  className='inputForm' 
-                  type='text' 
+              Prontuário do paciente vinculado:
+                <input
+                  className='inputForm'
+                  type='text'
                   placeholder= "Digite o prontuário do paciente vinculado a esse endereço"
                   onChange={v => setpct_pront_enderec(v.target.value)}
                   value={pct_pront_enderec}
@@ -310,7 +302,7 @@ function CadEndereco() {
             </label>
             <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>
           </div>
-        
+
           <div className='divbtn'>
             <Link className='linkbtn' to='../cadpacientes'><button className='cancbtn' >Cancelar</button></Link>
             <button type="submit" className='cadbtn' >Cadastrar</button>

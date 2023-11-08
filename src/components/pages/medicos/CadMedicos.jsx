@@ -47,7 +47,7 @@ function CadMedicos() {
       setVal_crm('form-control success!');
     }
 
-    if (medic_cpf === '' || medic_cpf !== 11){
+    if (medic_cpf === ''){
       setVal_cpf('form_control error');
       setErr_cpf('Preencha o CPF do Médico!');
       validado = false;
@@ -62,7 +62,7 @@ function CadMedicos() {
     } else {
       setVal_nome('form-control success!');
     }
-    
+
     if (medic_especi === ''){
       setVal_especi('form_control error');
       setErr_especi('Preencha a especialidade do Médico!');
@@ -81,7 +81,7 @@ function CadMedicos() {
 
     return validado;
   }
-  
+
   async function cadastrar(){
 
     try {
@@ -130,17 +130,17 @@ function CadMedicos() {
           Cadastro de Médico
         </h1>
       </div>
-      
+
       <div className='divForm'>
-        
+
         <form className='cadForm' onSubmit={handleSubmit}>
 
         <div className={Val_crm} id='Val_crm'>
           <label className='lblForm'>
-            CRM do Médico: 
-            <input 
-              className='inputForm' 
-              type='text' 
+            CRM do Médico:
+            <input
+              className='inputForm'
+              type='text'
               placeholder= "Digite o CRM do médico"
               onChange={v => setmedic_crm(v.target.value)}
               value={medic_crm}
@@ -148,13 +148,13 @@ function CadMedicos() {
           </label>
           <small className='small' id='medic_crm'>{Err_crm}</small>
         </div>
-        
+
         <div className={Val_nome} id='Val_nome'>
           <label className='lblForm'>
-            Nome do Médico: 
-            <input 
-              className='inputForm' 
-              type='text' 
+            Nome do Médico:
+            <input
+              className='inputForm'
+              type='text'
               placeholder= "Digite o nome do médico"
               onChange={v => setmedic_nome(v.target.value)}
               value={medic_nome}
@@ -162,13 +162,13 @@ function CadMedicos() {
           </label>
           <small className='small' id='medic_nome'>{Err_nome}</small>
         </div>
-        
+
         <div className={Val_cpf} id='Val_cpf'>
           <label className='lblForm'>
-            CPF do Médico: 
-            <input 
-              className='inputForm' 
-              type='text' 
+            CPF do Médico:
+            <input
+              className='inputForm'
+              type='text'
               placeholder= "Digite o CPF do médico"
               onChange={v => setmedic_cpf(v.target.value)}
               value={medic_cpf}
@@ -176,13 +176,13 @@ function CadMedicos() {
           </label>
           <small className='small' id='medic_cpf'>{Err_cpf}</small>
         </div>
-        
+
         <div className={Val_especi} id='Val_especi'>
           <label className='lblForm'>
-            Especialidade do Médico: 
-            <input 
-              className='inputForm' 
-              type='text' 
+            Especialidade do Médico:
+            <input
+              className='inputForm'
+              type='text'
               placeholder= "Digite a especialidade do médico"
               onChange={v => setmedic_especi(v.target.value)}
               value={medic_especi}
@@ -190,13 +190,13 @@ function CadMedicos() {
           </label>
           <small className='small' id='medic_especi'>{Err_especi}</small>
         </div>
-        
+
         <div className={Val_tel} id='Val_tel'>
           <label className='lblForm'>
-            Telefone do Médico: 
-            <input 
-              className='inputForm' 
-              type='text' 
+            Telefone do Médico:
+            <input
+              className='inputForm'
+              type='text'
               placeholder= "Digite o telefone do médico"
               onChange={v => setmedic_tel(v.target.value)}
               value={medic_tel}
@@ -204,7 +204,7 @@ function CadMedicos() {
           </label>
           <small className='small' id='medic_tel'>{Err_tel}</small>
         </div>
-          
+
           <div className='divbtn'>
             <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
             <button type="submit" className='cadbtn' >Cadastrar</button>

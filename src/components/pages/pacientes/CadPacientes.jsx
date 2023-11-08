@@ -129,7 +129,7 @@ function CadPacientes() {
       setVal_cns('form-control success!')
     }
 
-    if (pct_dtnasc === '' || pct_dtnasc.length !== 8){
+    if (pct_dtnasc === ''){
       setVal_dtnasc('form-control error');
       setErr_dtnasc('Preencha a data de nascimento do paciente!');
       validado = false;
@@ -193,7 +193,7 @@ function CadPacientes() {
       setVal_rg('form-control success!')
     }
 
-    if (pct_dataexp === '' || pct_dataexp.length !== 8){
+    if (pct_dataexp === ''){
       setVal_dataexp('form-control error');
       setErr_dataexp('Preencha a data de expedição do RG!');
       validado = false;
@@ -209,7 +209,7 @@ function CadPacientes() {
       setVal_orgemissor('form-control success!')
     }
 
-    if (pct_dtcad === '' || pct_dtcad.length !== 8){
+    if (pct_dtcad === ''){
       setVal_dtcad('form-control error');
       setErr_dtcad('Preencha a data do cadastro do paciente!');
       validado = false;
@@ -259,14 +259,14 @@ function CadPacientes() {
         localStorage.clear(); //limpa os dados anteriores no armazenamento local do navegador (localStorage).
         localStorage.setItem('user', JSON.stringify(objLogado));//armazena o objeto logado em formato JSON com a chave USER.
 
-        const confirmacao = window.confirm("Paciente cadastrado com sucesso! Deseja cadastrar o endereço?"); //exibe um janela ao usuário perguntando se deseja cadastro o endereço do paciente que foi cadastrado.
+        const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o endereço desse paciente?");
 
-        if (confirmacao){ //Com base na resposta do usuário, você redireciona o usuário para a página de cadastro de endereço ou para o menu principal.
+        if (confirmacao){
           navigate('/cadendereco');
         } else {
           navigate('/menu');
         }
-      
+
       } else {
         alert('Erro: ' + response.data.message) //Se a resposta do servidor não tiver a propriedade confirma definida como true, você exibe uma mensagem de erro ao usuário, incluindo a mensagem de erro retornada pelo servidor.
       }

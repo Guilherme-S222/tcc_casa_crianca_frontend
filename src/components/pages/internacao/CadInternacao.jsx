@@ -102,13 +102,11 @@ function CadInternacao() {
       const response = await api.post('/internacao', dados);
       console.log(response);
       if (response.data.confirma === true){
-
         const objLogado = {
           "id": response.data.id,
           "nome": response.data.nome,
           "acesso": response.data.tipo
         };
-
         localStorage.clear();
         localStorage.setItem('user', JSON.stringify(objLogado));
 
