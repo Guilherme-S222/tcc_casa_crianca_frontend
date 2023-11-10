@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react'; //adicionar hook useState
+import api from '../../services/api';
+import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
 import { Link } from 'react-router-dom';
 
 import Header from '../../header/header';
@@ -8,66 +9,31 @@ import "../listar_modelo/listar.css";
 
 function Cid() {
 
-  const [cid] = useState(
-    [
-      {
-        "cid_id": 1,
-        "cid_cid": "A01",
-        "cid_descri": "Febre tifoide"
-      },
-      {
-        "cid_id": 2,
-        "cid_cid": "B20",
-        "cid_descri": "Infecção pelo HIV"
-      },
-      {
-        "cid_id": 3,
-        "cid_cid": "C50",
-        "cid_descri": "Tumor maligno da mama"
-      },
-      {
-        "cid_id": 4,
-        "cid_cid": "D64",
-        "cid_descri": "Anemia por def. de ferro"
-      },
-      {
-        "cid_id": 5,
-        "cid_cid": "E11",
-        "cid_descri": "Diabetes mellitus tipo 2"
-      },
-      {
-        "cid_id": 6,
-        "cid_cid": "F41",
-        "cid_descri": "Transtornos de ansiedade"
-      },
-      {
-        "cid_id": 7,
-        "cid_cid": "G20",
-        "cid_descri": "Doença de Parkinson"
-      },
-      {
-        "cid_id": 8,
-        "cid_cid": "I10",
-        "cid_descri": "Hipertensão essencial"
-      },
-      {
-        "cid_id": 9,
-        "cid_cid": "J44",
-        "cid_descri": "Doença pulmonar obst crônica"
-      },
-      {
-        "cid_id": 10,
-        "cid_cid": "K21",
-        "cid_descri": "Doença do refluxo gastro"
+  const [cid, setCid] = useState ([])
+
+  const getCid = async() => {
+    try {
+      const response = await api.get("/cid");
+      const data = response.data;
+      if (Array.isArray(data.Itens)){
+        setCid(data.Itens);
+      } else {
+        console.error("Os dados recebidos não são um array válido");
       }
-    ]
-  );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCid()
+  }, []);
 
   const [busca, setBusca] = useState('');
 
   const cidFiltrado = useMemo (() => {
     const lowerBusca = busca.toLowerCase();
-    return cid.filter((cid) => cid.cid_descri.toLowerCase().includes(lowerBusca));
+    return cid.filter((cids) => cids.cid_descri.toLowerCase().includes(lowerBusca));
   }, [busca, cid]);
 
   return (

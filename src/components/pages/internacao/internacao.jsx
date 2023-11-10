@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react'; //adicionar hook useState
+import api from '../../services/api';
+import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
+
 import { Link } from 'react-router-dom';
 
 import Header from '../../header/header';
@@ -8,65 +10,36 @@ import "../listar_modelo/listar.css";
 
 function Internação() {
 
-  const [internacao] = useState (
-    [
-      {
-        "intern_id": 1,
-        "intern_data": "2023-08-01T11:00:00.000Z",
-        "intern_dtsaida": null,
-        "intern_tpsaida": null,
-        "medic_crm_intern": "12345",
-        "user_id_intern": 1,
-        "pct_pront_intern": 1
-      },
-      {
-        "intern_id": 2,
-        "intern_data": "2023-08-01T11:30:00.000Z",
-        "intern_dtsaida": null,
-        "intern_tpsaida": null,
-        "medic_crm_intern": "54321",
-        "user_id_intern": 1,
-        "pct_pront_intern": 2
-      },
-      {
-        "intern_id": 3,
-        "intern_data": "2023-08-03T12:15:00.000Z",
-        "intern_dtsaida": null,
-        "intern_tpsaida": null,
-        "medic_crm_intern": "67890",
-        "user_id_intern": 2,
-        "pct_pront_intern": 3
-      },
-      {
-        "intern_id": 4,
-        "intern_data": "2023-08-05T12:00:00.000Z",
-        "intern_dtsaida": null,
-        "intern_tpsaida": null,
-        "medic_crm_intern": "23456",
-        "user_id_intern": 5,
-        "pct_pront_intern": 4
-      },
-      {
-        "intern_id": 5,
-        "intern_data": "2023-08-08T18:00:00.000Z",
-        "intern_dtsaida": null,
-        "intern_tpsaida": null,
-        "medic_crm_intern": "67890",
-        "user_id_intern": 4,
-        "pct_pront_intern": 5
+  const [internacao, setInternacao] = useState ([])
+
+  const getInternacao = async() => {
+    try {
+      const response = await api.get("/internacao");
+      const data = response.data;
+      if (Array.isArray(data.Itens)){
+        setInternacao(data.Itens);
+      } else {
+        console.error("Os dados recebidos não são um array válido");
       }
-    ]
-  );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getInternacao()
+  }, []);
 
   const [busca, setBusca] = useState('');
 
   const internacoesFiltradas = useMemo(() => {
-    return internacao.filter((internacao) => internacao.pct_pront_intern.toString() === (busca));
+    return internacao.filter((internacoes) => internacoes.pct_pront_intern.toString() === (busca));
   }, [busca, internacao]);
 
   return (
     <div >
       <Header pag={'Internacao'}/>
+
       <h1 className='listarTitulo'>
         Pesquisar Internações
       </h1>

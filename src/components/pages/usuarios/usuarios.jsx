@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react'; //adicionar hook useState
+import api from '../../services/api';
+import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
 import { Link } from 'react-router-dom';
 
 import Header from '../../header/header';
@@ -8,46 +9,31 @@ import "../listar_modelo/listar.css";
 
 function Usuarios() {
 
-  const [usuarios] = useState (
-    [
-      {
-        "user_id": 1,
-        "user_nome": "Japones",
-        "user_senha": "senha123",
-        "insti_id_user": 1
-      },
-      {
-        "user_id": 2,
-        "user_nome": "Maria",
-        "user_senha": "senha123",
-        "insti_id_user": 1
-      },
-      {
-        "user_id": 3,
-        "user_nome": "Lucas",
-        "user_senha": "senha123",
-        "insti_id_user": 1
-      },
-      {
-        "user_id": 4,
-        "user_nome": "Pedro",
-        "user_senha": "senha123",
-        "insti_id_user": 1
-      },
-      {
-        "user_id": 5,
-        "user_nome": "Admin",
-        "user_senha": "senha123",
-        "insti_id_user": 1
-      },
-    ]
-  );
+  const [usuarios, setUsuarios] = useState ([])
+
+  const getUsuarios = async() => {
+    try {
+      const response = await api.get("/usuario");
+      const data = response.data;
+      if (Array.isArray(data.Itens)){
+        setUsuarios(data.Itens);
+      } else {
+        console.error("Os dados recebidos não são um array válido");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getUsuarios()
+  }, []);
 
     const [busca, setBusca] = useState('');
 
     const usuarioFiltrado = useMemo(() => {
       const lowerBusca = busca.toLowerCase();
-      return usuarios.filter((usuarios) => usuarios.user_nome.toLowerCase().startsWith(lowerBusca));
+      return usuarios.filter((usuario) => usuario.user_nome.toLowerCase().startsWith(lowerBusca));
     }, [busca, usuarios]);
 
   return (
