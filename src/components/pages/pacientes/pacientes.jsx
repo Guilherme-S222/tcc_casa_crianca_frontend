@@ -28,6 +28,17 @@ function Pacientes() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const deletePacientes = async(pct_pront) => {
+    try {
+      await api.delete(`/pacientes/${pct_pront}`);
+      const filteredPacientes = pacientes.filter((item) => item.pct_pront !== pct_pront);
+      setPacientes(filteredPacientes);
+    } catch (error) {
+      console.error(`Erro ao excluir o paciente: ${error}`);
+
+    }
   }
 
   useEffect(() => {
@@ -87,7 +98,7 @@ function Pacientes() {
             <div>
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
               <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
-              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
+              <button className='buttonExc' type="button" onClick={() => deletePacientes(item.pct_pront)}>Remover</button>
             </div>
 
           </div>
