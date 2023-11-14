@@ -13,7 +13,8 @@ import './Pacientes.css';
 
 function Pacientes() {
 
-  const [pacientes, setPacientes] = useState([])
+  const [pacientes, setPacientes] = useState([]);
+  const [busca, setBusca] = useState('');
 
   const getPacientes = async() => {
 
@@ -26,15 +27,13 @@ function Pacientes() {
         console.error("Os dados recebidos não são um array valido");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getPacientes();
   }, [])
-
-  const [busca, setBusca] = useState('');
 
   const prontuariosFiltrados = useMemo(() => {
     return pacientes.filter((paciente) => paciente.pct_pront.toString() === (busca));
@@ -56,11 +55,11 @@ function Pacientes() {
       <div className='search'>
         <label className='labelSearch'>Buscar Prontuário:</label>
         <input
-        className='inputSearch'
-        type='text'
-        placeholder='Digite o prontuário aqui'
-        value={busca}
-        onChange={(event) => setBusca(event.target.value) } />
+          className='inputSearch'
+          type='text'
+          placeholder='Digite o prontuário aqui'
+          value={busca}
+          onChange={(event) => setBusca(event.target.value) } />
       </div>
 
       <div className='listarContainer'>
@@ -87,18 +86,15 @@ function Pacientes() {
             <span className='item'>Telefone do Paciente: {item.pct_tel}</span>
             
             <div>
-              <button 
-                className='buttonEdt' 
-                type="button">
-                  <Link className='link' to={`/cadpacientes/${item.pct_pront}`}>Editar</Link>
-              </button>
+              <Link className='link' to={`/cadpacientes/${item.pct_pront}`}>
+                <button className='buttonEdt' type="button">Editar</button>
+              </Link>
             </div>
 
           </div>
 
         ))}
       </div>
-
       <Footer/>
     </div>
   );

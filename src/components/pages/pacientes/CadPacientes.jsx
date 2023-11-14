@@ -81,7 +81,7 @@ function CadPacientes() {
   function handleSubmit(event){
     event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
     if (valida()) { //se a função valida retornar TRUE os dados estão validados e prontos para cadastro.
-      cadastrar() //envia os dados do formulário para o servidor(api)
+      enviarDados();//envia os dados do formulário para o servidor(api)
     }
   }
 
@@ -94,7 +94,7 @@ function CadPacientes() {
       setErr_pront("Preencha o prontuário do paciente!");
       validado = false;
     } else {
-      setVal_pront('form-control success!')
+      setVal_pront('form-control success!');
     }
 
     if (pct_cpf === '' || pct_cpf.length !== 11){
@@ -102,7 +102,7 @@ function CadPacientes() {
       setErr_cpf('O CPF deve conter 11 dígitos!!');
       validado = false;
     } else {
-      setVal_cpf('form-control success!')
+      setVal_cpf('form-control success!');
     }
 
     if (pct_nome === ''){
@@ -110,7 +110,7 @@ function CadPacientes() {
       setErr_nome('Preencha o nome do paciente!');
       validado = false;
     } else {
-      setVal_nome('form-control success!')
+      setVal_nome('form-control success!');
     }
 
     if (pct_sexo === ''){
@@ -118,7 +118,7 @@ function CadPacientes() {
       setErr_sexo('Preencha o sexo do paciente!');
       validado = false;
     } else {
-      setVal_sexo('form-control success!')
+      setVal_sexo('form-control success!');
     }
 
     if (pct_sus === ''){
@@ -126,7 +126,7 @@ function CadPacientes() {
       setErr_sus('Preencha o SUS do paciente!');
       validado = false;
     } else {
-      setVal_sus('form-control success!')
+      setVal_sus('form-control success!');
     }
 
     if (pct_cns === ''){
@@ -134,7 +134,7 @@ function CadPacientes() {
       setErr_cns('Preencha o CNS do paciente!');
       validado = false;
     } else {
-      setVal_cns('form-control success!')
+      setVal_cns('form-control success!');
     }
 
     if (pct_dtnasc === ''){
@@ -142,7 +142,7 @@ function CadPacientes() {
       setErr_dtnasc('Preencha a data de nascimento do paciente!');
       validado = false;
     } else {
-      setVal_dtnasc('form-control success!')
+      setVal_dtnasc('form-control success!');
     }
 
     if (pct_aih === ''){
@@ -150,7 +150,7 @@ function CadPacientes() {
       setErr_aih('Preencha o AIH do paciente!');
       validado = false;
     } else {
-      setVal_aih('form-control success!')
+      setVal_aih('form-control success!');
     }
 
     if (pct_bpc === ''){
@@ -158,7 +158,7 @@ function CadPacientes() {
       setErr_bpc('Preencha o BPC do paciente!');
       validado = false;
     } else {
-      setVal_bpc('form-control success!')
+      setVal_bpc('form-control success!');
     }
 
     if (pct_aposent === ''){
@@ -166,7 +166,7 @@ function CadPacientes() {
       setErr_aposent('Preencha se o paciente é aposentado (sim ou não)');
       validado = false;
     } else {
-      setVal_aposent('form-control success!')
+      setVal_aposent('form-control success!');
     }
 
     if (pct_filiacao === ''){
@@ -174,7 +174,7 @@ function CadPacientes() {
       setErr_filiacao('Preencha a filiação do paciente!');
       validado = false;
     } else {
-      setVal_filiacao('form-control success!')
+      setVal_filiacao('form-control success!');
     }
 
     if (pct_natural === ''){
@@ -182,7 +182,7 @@ function CadPacientes() {
       setErr_natural('Preencha a naturalidade do paciente!');
       validado = false;
     } else {
-      setVal_natural('form-control success!')
+      setVal_natural('form-control success!');
     }
 
     if (pct_cor === ''){
@@ -190,7 +190,7 @@ function CadPacientes() {
       setErr_cor('Preencha a cor do paciente!');
       validado = false;
     } else {
-      setVal_cor('form-control success!')
+      setVal_cor('form-control success!');
     }
 
     if (pct_rg === '' || pct_rg.length > 9){
@@ -198,7 +198,7 @@ function CadPacientes() {
       setErr_rg('O RG não é válido!!');
       validado = false;
     } else {
-      setVal_rg('form-control success!')
+      setVal_rg('form-control success!');
     }
 
     if (pct_dataexp === ''){
@@ -206,7 +206,7 @@ function CadPacientes() {
       setErr_dataexp('Preencha a data de expedição do RG!');
       validado = false;
     } else {
-      setVal_dataexp('form-control success!')
+      setVal_dataexp('form-control success!');
     }
 
     if (pct_orgemissor === ''){
@@ -214,7 +214,7 @@ function CadPacientes() {
       setErr_orgemissor('Preencha o orgão emissor do RG!');
       validado = false;
     } else {
-      setVal_orgemissor('form-control success!')
+      setVal_orgemissor('form-control success!');
     }
 
     if (pct_dtcad === ''){
@@ -222,7 +222,7 @@ function CadPacientes() {
       setErr_dtcad('Preencha a data do cadastro do paciente!');
       validado = false;
     } else {
-      setVal_dtcad('form-control success!')
+      setVal_dtcad('form-control success!');
     }
 
     if (pct_status === ''){
@@ -230,7 +230,7 @@ function CadPacientes() {
       setErr_status('Indique o status do paciente!');
       validado = false;
     } else {
-      setVal_status('form-control success!')
+      setVal_status('form-control success!');
     }
 
     if (pct_tel === ''){
@@ -238,7 +238,7 @@ function CadPacientes() {
       setErr_tel('Indique o telefone o cadastro do paciente!');
       validado = false;
     } else {
-      setVal_tel('form-control success!')
+      setVal_tel('form-control success!');
     }
 
     return validado; //retornando a variável que será true se passar na validações, ou false se falhar na validação.
@@ -246,7 +246,7 @@ function CadPacientes() {
   }
 
   //função assíncrona responsável por enviar os dados para a API e realizar o cadastro, comunicação com o servidor, armazenamento das informações do usuário e redirecionamento do usuário com base nas ações.
-  async function cadastrar(){
+  async function enviarDados(){
 
     try { //A instrução try marca o início de um bloco onde você tentará executar o código, e capturar quaisquer erros que possam ocorrer durante a execução.
       const dados = { //Objeto "dados" criado com os campos que serão extraídos das variáveis abaixo para serem enviados para o servidor(API).
@@ -269,39 +269,43 @@ function CadPacientes() {
         pct_dtcad,
         pct_status,
         pct_tel
-      }
+      };
 
-      // API
-      const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.
-      console.log(response);
-      if (response.data.confirma === true){ //verifica se a resposta contém uma prop 'confirma' igual a 'true', indicando que o paciente foi cadastrado.
-
-        const objLogado = { //se o cadastro foi feito 'objLogado' armazena as informações id, nome e acesso.
-          "id": response.data.id,
-          "nome": response.data.nome,
-          "acesso": response.data.tipo
-        };
-
-        localStorage.clear(); //limpa os dados anteriores no armazenamento local do navegador (localStorage).
-        localStorage.setItem('user', JSON.stringify(objLogado));//armazena o objeto logado em formato JSON com a chave USER.
-
-        const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o endereço desse paciente?");
-
-        if (confirmacao){
-          navigate('/cadendereco');
-        } else {
-          navigate('/menu');
-        }
-
+      if (id) {
+        await api.patch(`/pacientes/${id}`, dados);
       } else {
-        alert('Erro: ' + response.data.message) //Se a resposta do servidor não tiver a propriedade confirma definida como true, você exibe uma mensagem de erro ao usuário, incluindo a mensagem de erro retornada pelo servidor.
-      }
+        // API
+        const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.
+        console.log(response);
+        
+        if (response.data.confirma === true){ //verifica se a resposta contém uma prop 'confirma' igual a 'true', indicando que o paciente foi cadastrado.
+          const objLogado = { //se o cadastro foi feito 'objLogado' armazena as informações id, nome e acesso.
+            "id": response.data.id,
+            "nome": response.data.nome,
+            "acesso": response.data.tipo
+          };
+
+          localStorage.clear(); //limpa os dados anteriores no armazenamento local do navegador (localStorage).
+          localStorage.setItem('user', JSON.stringify(objLogado));//armazena o objeto logado em formato JSON com a chave USER.
+
+          const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o endereço desse paciente?");
+
+          if (confirmacao){
+            navigate('/cadendereco');
+          } else {
+            navigate('/menu');
+          }
+
+        } else {
+          alert('Erro: ' + response.data.message); //Se a resposta do servidor não tiver a propriedade confirma definida como true, você exibe uma mensagem de erro ao usuário, incluindo a mensagem de erro retornada pelo servidor.
+        }
+      }      
     } catch (error){
       //O bloco catch lida com erros que podem ocorrer durante a execução do código dentro do bloco try. Se ocorrer um erro, você verifica se ele tem uma resposta (error.response.data.message) para exibir a mensagem de erro do servidor. Caso contrário, você exibe o próprio erro.
       if (error.response){
-        alert(error.response.data.message);
+        alert("Erro ao processar a requisição: " + error.response.data.message);
       } else {
-        alert(error);
+        alert("Erro inesperado:" + error);
       }
     }
   }
@@ -336,6 +340,7 @@ function CadPacientes() {
       setpct_dtcad(paciente.pct_dtcad);
       setpct_status(paciente.pct_status);
       setpct_tel(paciente.pct_tel);
+
     } catch (error) {
       console.log("Erro ao carregar informações do paciente:", error);
     }
@@ -632,6 +637,6 @@ function CadPacientes() {
         <Footer />
     </div>
   );
-}
+};
 
 export default CadPacientes;
