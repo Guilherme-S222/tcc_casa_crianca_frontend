@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
 import { Link, useNavigate, useParams } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
+import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import '../pacientes/CadPacientes.css';
 
-import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 function CadPacientes() {
 
