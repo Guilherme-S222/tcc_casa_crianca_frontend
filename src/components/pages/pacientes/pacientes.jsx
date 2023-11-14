@@ -30,16 +30,6 @@ function Pacientes() {
     }
   };
 
-  const deletePacientes = async(pct_pront) => {
-    try {
-      await api.delete(`/pacientes/${pct_pront}`);
-      const filteredPacientes = pacientes.filter((item) => item.pct_pront !== pct_pront);
-      setPacientes(filteredPacientes);
-    } catch (error) {
-      console.error(`Erro ao excluir o paciente: ${error}`);
-    }
-  };
-
   useEffect(() => {
     getPacientes();
   }, [])
@@ -93,11 +83,11 @@ function Pacientes() {
             <span className='item'>Data de Expedição: {item.pct_dataexp}</span>
             <span className='item'>Orgão Emissor: {item.pct_orgemissor}</span>
             <span className='item'>Data do Cadastro: {item.pct_dtcad}</span>
-
+            <span className='item'>Status do Paciente: {item.pct_status}</span>
+            <span className='item'>Telefone do Paciente: {item.pct_tel}</span>
+            
             <div>
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
-              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
-              <button className='buttonExc' type="button" onClick={() => deletePacientes(item.pct_pront)}>Remover</button>
             </div>
 
           </div>

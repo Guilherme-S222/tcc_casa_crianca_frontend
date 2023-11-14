@@ -32,7 +32,8 @@ function CadPacientes() {
   const [pct_dataexp, setpct_dataexp] = useState('');
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
-  
+  const [pct_status, setpct_status] = useState('');
+  const [pct_tel, setpct_tel] = useState('');
 
   //definindo variáveis de estado e uma função SET para atualiza-las. Serão usadas para validações.
   const [Val_pront, setVal_pront] = useState('form-control');
@@ -69,6 +70,10 @@ function CadPacientes() {
   const [Err_orgemissor, setErr_orgemissor] = useState('');
   const [Val_dtcad, setVal_dtcad] = useState('form-control');
   const [Err_dtcad, setErr_dtcad] = useState('');
+  const [Val_status, setVal_status] = useState('form-control');
+  const [Err_status, setErr_status] = useState('');
+  const [Val_tel, setVal_tel] = useState('form-control');
+  const [Err_tel, setErr_tel] = useState('');
 
   //A função handleSubmit é uma manipulador de eventos em componentes React.
   function handleSubmit(event){
@@ -218,6 +223,22 @@ function CadPacientes() {
       setVal_dtcad('form-control success!')
     }
 
+    if (pct_status === ''){
+      setVal_status('form-control error');
+      setErr_status('Indique o status do paciente!');
+      validado = false;
+    } else {
+      setVal_status('form-control success!')
+    }
+
+    if (pct_tel === ''){
+      setVal_tel('form-control error');
+      setErr_tel('Indique o telefone o cadastro do paciente!');
+      validado = false;
+    } else {
+      setVal_tel('form-control success!')
+    }
+
     return validado; //retornando a variável que será true se passar na validações, ou false se falhar na validação.
 
   }
@@ -243,7 +264,9 @@ function CadPacientes() {
         pct_rg,
         pct_dataexp,
         pct_orgemissor,
-        pct_dtcad
+        pct_dtcad,
+        pct_status,
+        pct_tel
       }
 
       // API
@@ -528,6 +551,36 @@ function CadPacientes() {
                   />
                 </label>
                 <small className='small' id="pct_dtcad">{Err_dtcad}</small>
+              </div>
+
+              <div className={Val_status} id='Val_status'>
+                <label className='lblForm'>
+                  Status do Paciente:
+                  <select
+                    className='inputForm'
+                    onChange={v => setpct_status(v.target.value)}
+                    value={pct_status}
+                  >
+                    <option value='' disabled>Escolha uma opção</option>
+                    <option value='1' >Ativo</option>
+                    <option value='0' >Inativo</option>
+                  </select>
+                </label>
+                <small className='small' id="pct_status">{Err_status}</small>
+              </div>
+
+              <div className={Val_tel} id='Val_tel'>
+                <label className='lblForm'>
+                  Telefone útil:
+                  <input
+                    className='inputForm'
+                    type='text'
+                    placeholder= "Digite um telefone no cadastro"
+                    onChange={v => setpct_tel(v.target.value)}
+                    value={pct_tel}
+                  />
+                </label>
+                <small className='small' id="pct_tel">{Err_tel}</small>
               </div>
 
               <div className='divbtn'>
