@@ -77,14 +77,6 @@ function CadPacientes() {
   const [Err_tel, setErr_tel] = useState('');
   // ####
 
-  // #### A função handleSubmit é um manipulador de eventos em componentes React.
-  function handleSubmit(event){
-    event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
-    if (valida()) { //se a função valida retornar TRUE os dados estão validados e prontos para cadastro.
-      enviarDados();//envia os dados do formulário para o servidor(api)
-    }
-  }
-
   // #### VALIDAÇÕES DOS CAMPOS DO FORM
   function valida(){
     let validado = true; //iniciando como true.
@@ -243,10 +235,10 @@ function CadPacientes() {
 
     return validado; //retornando a variável que será true se passar na validações, ou false se falhar na validação.
 
-  }
-  // #### FIM VALIDAÇÕES
+  } // #### FIM VALIDAÇÕES
 
-  // #### ENVIO DOS DADOS
+
+  // #### INÍCIO ENVIO DOS DADOS
   //função assíncrona responsável por enviar os dados para a API e realizar o cadastro, comunicação com o servidor, armazenamento das informações do usuário e redirecionamento do usuário com base nas ações.
   async function enviarDados(){
 
@@ -309,9 +301,18 @@ function CadPacientes() {
         alert("Erro inesperado:" + error);
       }
     }
+  } // #### FIM ENVIO DOS DADOS
+
+  
+  // #### A função handleSubmit é um manipulador de eventos em componentes React.
+  function handleSubmit(event){
+    event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
+    if (valida()) { //se a função valida retornar TRUE os dados estão validados e prontos para cadastro.
+      enviarDados();//envia os dados do formulário para o servidor(api)
+    }
   }
   
-  // ####
+  // #### INFORMAÇÕES RECEBIDAS DA CONSULTAS (PATCH)
   const carregarInfoPacientes = async (id) => {
     try {
       const response = await api.get(`/pacientes/${id}`);
