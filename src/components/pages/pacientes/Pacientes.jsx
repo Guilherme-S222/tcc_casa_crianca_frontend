@@ -1,8 +1,6 @@
-import api from '../../services/api';
-
 import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
-
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
