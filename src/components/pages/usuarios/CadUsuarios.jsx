@@ -182,7 +182,7 @@ function CadUsuarios() {
 
             <div className='divbtn'>
               <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
-              <button type="submit" className='cadbtn' >Cadastrar</button>
+              <button type="submit" className='cadbtn' >Salvar</button>
             </div>
 
           </form>

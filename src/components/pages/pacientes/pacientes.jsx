@@ -37,9 +37,8 @@ function Pacientes() {
       setPacientes(filteredPacientes);
     } catch (error) {
       console.error(`Erro ao excluir o paciente: ${error}`);
-
     }
-  }
+  };
 
   useEffect(() => {
     getPacientes();

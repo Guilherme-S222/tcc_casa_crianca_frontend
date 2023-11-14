@@ -32,6 +32,7 @@ function CadPacientes() {
   const [pct_dataexp, setpct_dataexp] = useState('');
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
+  
 
   //definindo variáveis de estado e uma função SET para atualiza-las. Serão usadas para validações.
   const [Val_pront, setVal_pront] = useState('form-control');
@@ -531,7 +532,7 @@ function CadPacientes() {
 
               <div className='divbtn'>
                 <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
-                <button type="submit" className='cadbtn' >Cadastrar</button>
+                <button type="submit" className='cadbtn' >Salvar</button>
               </div>
 
             </form>

@@ -305,7 +305,7 @@ function CadEndereco() {
 
           <div className='divbtn'>
             <Link className='linkbtn' to='../cadpacientes'><button className='cancbtn' >Cancelar</button></Link>
-            <button type="submit" className='cadbtn' >Cadastrar</button>
+            <button type="submit" className='cadbtn'>Salvar</button>
           </div>
 
         </form>
