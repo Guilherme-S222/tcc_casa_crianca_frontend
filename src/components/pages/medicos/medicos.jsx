@@ -62,6 +62,7 @@ function Medicos() {
       <div className='listarContainer'>
         {medicoFiltrado.map(item => (
           <div className='listarDiv' key={item.medic_crm}>
+            <span className='item'>Identificador: {item.medic_id}</span>
             <span className='item'>CRM: {item.medic_crm}</span>
             <span className='item'>Nome: {item.medic_nome}</span>
             <span className='item'>CPF: {item.medic_cpf}</span>
@@ -70,8 +71,6 @@ function Medicos() {
 
             <div>
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
-              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
-              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
             </div>
           </div>
         ))}

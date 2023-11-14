@@ -87,7 +87,11 @@ function Pacientes() {
             <span className='item'>Telefone do Paciente: {item.pct_tel}</span>
             
             <div>
-              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+              <button 
+                className='buttonEdt' 
+                type="button">
+                  <Link className='link' to={`/cadpacientes/${item.pct_pront}`}>Editar</Link>
+              </button>
             </div>
 
           </div>

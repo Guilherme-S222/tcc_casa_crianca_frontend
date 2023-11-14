@@ -10,6 +10,7 @@ function CadMedicos() {
 
   let navigate = useNavigate();
 
+  const [medic_id, setmedic_id] = useState('');
   const [medic_crm, setmedic_crm] = useState('');
   const [medic_nome, setmedic_nome] = useState('');
   const [medic_cpf, setmedic_cpf] = useState('');
@@ -17,6 +18,9 @@ function CadMedicos() {
   const [medic_tel, setmedic_tel] = useState('');
 
   //validações
+
+  const [Val_id, setVal_id] = useState('form-control');
+  const [Err_id, setErr_id] = useState('');
   const [Val_crm, setVal_crm] = useState('form-control');
   const [Err_crm, setErr_crm] = useState('');
   const [Val_nome, setVal_nome] = useState('form-control');
@@ -38,6 +42,14 @@ function CadMedicos() {
   //validações
   function valida(){
     let validado = true;
+
+    if (medic_id === ''){
+      setVal_id('form_control error');
+      setErr_id('Preencha o ID do Médico!');
+      validado = false;
+    } else {
+      setVal_id('form-control success!');
+    }
 
     if (medic_crm === ''){
       setVal_crm('form_control error');
@@ -86,6 +98,7 @@ function CadMedicos() {
 
     try {
       const dados = {
+        medic_id,
         medic_crm,
         medic_nome,
         medic_cpf,
@@ -134,6 +147,20 @@ function CadMedicos() {
       <div className='divForm'>
 
         <form className='cadForm' onSubmit={handleSubmit}>
+
+        <div className={Val_id} id='Val_id'>
+          <label className='lblForm'>
+            ID do Médico:
+            <input
+              className='inputForm'
+              type='text'
+              placeholder= "Digite o ID do médico"
+              onChange={v => setmedic_id(v.target.value)}
+              value={medic_id}
+            />
+          </label>
+          <small className='small' id='medic_crm'>{Err_crm}</small>
+        </div>
 
         <div className={Val_crm} id='Val_crm'>
           <label className='lblForm'>

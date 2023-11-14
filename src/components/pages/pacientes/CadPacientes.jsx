@@ -1,5 +1,5 @@
-import React, { useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
-import { Link, useNavigate } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
+import React, { useEffect, useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
+import { Link, useNavigate, useParams } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
@@ -9,6 +9,8 @@ import '../pacientes/CadPacientes.css';
 import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 function CadPacientes() {
+
+  const { id } = useParams(); // Obtém o ID da URL
 
   //informações que serão cadastradas
 
@@ -303,6 +305,41 @@ function CadPacientes() {
       }
     }
   }
+
+  useEffect(() => {
+    if (id) {
+      carregarInfoPacientes(id);
+    }
+  }, [id]);
+
+  const carregarInfoPacientes = async (id) => {
+    try {
+      const response = await api.get(`/pacientes/${id}`);
+      const paciente = response.data;
+
+      setpct_pront(paciente.pct_pront);
+      setpct_cpf(paciente.pct_cpf);
+      setpct_nome(paciente.pct_nome);
+      setpct_sexo(paciente.pct_sexo);
+      setpct_sus(paciente.pct_sus);
+      setpct_cns(paciente.pct_cns);
+      setpct_dtnasc(paciente.pct_dtnasc);
+      setpct_aih(paciente.pct_aih);
+      setpct_bpc(paciente.pct_bpc);
+      setpct_aposent(paciente.pct_aposent);
+      setpct_filiacao(paciente.pct_filiacao);
+      setpct_natural(paciente.pct_natural);
+      setpct_cor(paciente.pct_cor);
+      setpct_rg(paciente.pct_rg);
+      setpct_dataexp(paciente.pct_dataexp);
+      setpct_orgemissor(paciente.pct_orgemissor);
+      setpct_dtcad(paciente.pct_dtcad);
+      setpct_status(paciente.pct_status);
+      setpct_tel(paciente.pct_tel);
+    } catch (error) {
+      console.log("Erro ao carregar informações do paciente:", error);
+    }
+  };
 
   return (
     <div>
