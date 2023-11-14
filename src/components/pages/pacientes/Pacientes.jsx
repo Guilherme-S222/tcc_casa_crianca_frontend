@@ -14,6 +14,7 @@ function Pacientes() {
   const [pacientes, setPacientes] = useState([]);
   const [busca, setBusca] = useState('');
 
+  // #### INÍCIO GET PACIENTES
   const getPacientes = async() => {
 
     try {
@@ -28,11 +29,13 @@ function Pacientes() {
       console.error(error);
     }
   };
-
+  
   useEffect(() => {
     getPacientes();
   }, [])
+  // #### FIM GET PACIENTES
 
+  // #### BUSCA DE PACIENTES
   const prontuariosFiltrados = useMemo(() => {
     return pacientes.filter((paciente) => paciente.pct_pront.toString() === (busca));
   }, [busca, pacientes]);
@@ -63,6 +66,7 @@ function Pacientes() {
       <div className='listarContainer'>
         {prontuariosFiltrados.map(item => (
           <div className='listarDiv' key={item.pct_pront}>
+            
             <span className='item'>Prontuário Nº: {item.pct_pront}</span>
             <span className='item'>CPF: {item.pct_cpf}</span>
             <span className='item'>Nome: {item.pct_nome}</span>
