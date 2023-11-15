@@ -29,7 +29,7 @@ function Pacientes() {
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
     getPacientes();
   }, [])
@@ -66,7 +66,7 @@ function Pacientes() {
       <div className='listarContainer'>
         {prontuariosFiltrados.map(item => (
           <div className='listarDiv' key={item.pct_pront}>
-            
+
             <span className='item'>Prontuário Nº: {item.pct_pront}</span>
             <span className='item'>CPF: {item.pct_cpf}</span>
             <span className='item'>Nome: {item.pct_nome}</span>
@@ -84,9 +84,9 @@ function Pacientes() {
             <span className='item'>Data de Expedição: {item.pct_dataexp}</span>
             <span className='item'>Orgão Emissor: {item.pct_orgemissor}</span>
             <span className='item'>Data do Cadastro: {item.pct_dtcad}</span>
-            <span className='item'>Status do Paciente: {item.pct_status}</span>
+            <span className='item'>Status do Paciente: {item.pct_status = 1 ? 'Ativo' : 'Inativo'}</span>
             <span className='item'>Telefone do Paciente: {item.pct_tel}</span>
-            
+
             <div>
               <Link className='link' to={`/cadpacientes/${item.pct_pront}`}>
                 <button className='buttonEdt' type="button">Editar</button>
