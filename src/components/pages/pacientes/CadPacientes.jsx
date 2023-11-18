@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
 import { Link, useNavigate, useParams } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
+// import { useSearchParams } from "react-router-native";
 import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 import Header from '../../header/header';
@@ -10,7 +11,7 @@ import '../pacientes/CadPacientes.css';
 
 function CadPacientes() {
 
-  const { id } = useParams(); // Obtém o ID da URL
+  const params = useParams(); // Obtém o ID da URL
 
   let navigate = useNavigate();
 
@@ -32,7 +33,7 @@ function CadPacientes() {
   const [pct_dataexp, setpct_dataexp] = useState('');
   const [pct_orgemissor, setpct_orgemissor] = useState('');
   const [pct_dtcad, setpct_dtcad] = useState('');
-  const [pct_status, setpct_status] = useState('');
+  const [pct_status, setpct_status] = useState('-1');
   const [pct_tel, setpct_tel] = useState('');
   // ####
 
@@ -217,10 +218,10 @@ function CadPacientes() {
       setVal_dtcad('form-control success!');
     }
 
-    if (pct_status === ''){
+    if (pct_status === '-1'){
       setVal_status('form-control error');
       setErr_status('Indique o status do paciente!');
-      validado = false;
+      validado = 0;
     } else {
       setVal_status('form-control success!');
     }
@@ -265,12 +266,12 @@ function CadPacientes() {
         pct_tel
       };
 
-      if (id) {
-        await api.patch(`/pacientes/${id}`, dados);
+      if (params.id) {
+        await api.patch(`/pacientes/${params.id}`, dados);
       } else {
         const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.
         console.log(response);
-        
+
         if (response.data.confirma === true){ //verifica se a resposta contém uma prop 'confirma' igual a 'true', indicando que o paciente foi cadastrado.
           const objLogado = { //se o cadastro foi feito 'objLogado' armazena as informações id, nome e acesso.
             "id": response.data.id,
@@ -292,8 +293,9 @@ function CadPacientes() {
         } else {
           alert('Erro: ' + response.data.message); //Se a resposta do servidor não tiver a propriedade confirma definida como true, você exibe uma mensagem de erro ao usuário, incluindo a mensagem de erro retornada pelo servidor.
         }
-      }      
+      }
     } catch (error){
+      console.log(error);
       //O bloco catch lida com erros que podem ocorrer durante a execução do código dentro do bloco try. Se ocorrer um erro, você verifica se ele tem uma resposta (error.response.data.message) para exibir a mensagem de erro do servidor. Caso contrário, você exibe o próprio erro.
       if (error.response){
         alert("Erro ao processar a requisição: " + error.response.data.message);
@@ -303,7 +305,7 @@ function CadPacientes() {
     }
   } // #### FIM ENVIO DOS DADOS
 
-  
+
   // #### A função handleSubmit é um manipulador de eventos em componentes React.
   function handleSubmit(event){
     event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
@@ -311,19 +313,20 @@ function CadPacientes() {
       enviarDados();//envia os dados do formulário para o servidor(api)
     }
   }
-  
+
   // #### INFORMAÇÕES RECEBIDAS DA CONSULTAS (PATCH)
-  const carregarInfoPacientes = async (id) => {
+  async function carregarInfoPacientes() {
     try {
-      const response = await api.get(`/pacientes/${id}`);
-      const paciente = response.data;
+      const response = await api.get(`/pacientes?pct_pront=${params.id}`);
+      const paciente = response.data.itens[0];
+
       setpct_pront(paciente.pct_pront);
       setpct_cpf(paciente.pct_cpf);
       setpct_nome(paciente.pct_nome);
       setpct_sexo(paciente.pct_sexo);
       setpct_sus(paciente.pct_sus);
       setpct_cns(paciente.pct_cns);
-      setpct_dtnasc(paciente.pct_dtnasc);
+      setpct_dtnasc(converteData(paciente.pct_dtnasc));
       setpct_aih(paciente.pct_aih);
       setpct_bpc(paciente.pct_bpc);
       setpct_aposent(paciente.pct_aposent);
@@ -331,9 +334,9 @@ function CadPacientes() {
       setpct_natural(paciente.pct_natural);
       setpct_cor(paciente.pct_cor);
       setpct_rg(paciente.pct_rg);
-      setpct_dataexp(paciente.pct_dataexp);
+      setpct_dataexp(converteData(paciente.pct_dataexp));
       setpct_orgemissor(paciente.pct_orgemissor);
-      setpct_dtcad(paciente.pct_dtcad);
+      setpct_dtcad(converteData(paciente.pct_dtcad));
       setpct_status(paciente.pct_status);
       setpct_tel(paciente.pct_tel);
 
@@ -341,13 +344,25 @@ function CadPacientes() {
       console.log("Erro ao carregar informações do paciente:", error);
     }
   };
-  
+  console.log(pct_status);
   // ####
   useEffect(() => {
-    if (id) {
-      carregarInfoPacientes(id);
+    if (params.id) {
+      carregarInfoPacientes();
     }
-  }, [id]);
+  }, []);
+
+  function converteData(dtBd) {
+    let data = new Date(dtBd);
+    return data.getFullYear() + '-' + pad(data.getUTCMonth() + 1) + '-' + pad(data.getDate());
+  }
+
+  function pad(number) {
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number;
+  }
 
   return (
     <div>
@@ -604,11 +619,10 @@ function CadPacientes() {
                   <select
                     className='inputForm'
                     onChange={v => setpct_status(v.target.value)}
-                    value={pct_status}
                   >
-                    <option value='' disabled>Escolha uma opção</option>
-                    <option value='1' >Ativo</option>
-                    <option value='0' >Inativo</option>
+                    <option value={-1} key={0} disabled>Escolha uma opção</option>
+                    <option value={1} key={1} >Ativo</option>
+                    <option value={0} key={2}>Inativo</option>
                   </select>
                 </label>
                 <small className='small' id="pct_status">{Err_status}</small>

@@ -20,8 +20,8 @@ function Pacientes() {
     try {
       const response = await api.get("/pacientes");
       const data = response.data;
-      if (Array.isArray(data.Itens)) {
-        setPacientes(data.Itens);
+      if (Array.isArray(data.itens)) {
+        setPacientes(data.itens);
       } else {
         console.error("Os dados recebidos não são um array valido");
       }
@@ -88,7 +88,8 @@ function Pacientes() {
             <span className='item'>Telefone do Paciente: {item.pct_tel}</span>
 
             <div>
-              <Link className='link' to={`/cadpacientes/${item.pct_pront}`}>
+              {/* <Link className='link' to={`/cadpacientes/${item.pct_pront}`}> */}
+              <Link className='link' to={`/cadpacientes?id=${item.pct_pront}`}>
                 <button className='buttonEdt' type="button">Editar</button>
               </Link>
             </div>
