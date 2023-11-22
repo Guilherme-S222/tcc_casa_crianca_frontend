@@ -218,7 +218,7 @@ function CadPacientes() {
       setVal_dtcad('form-control success!');
     }
 
-    if (pct_status === '-1'){
+    if (pct_status === -1){
       setVal_status('form-control error');
       setErr_status('Indique o status do paciente!');
       validado = 0;
@@ -618,11 +618,11 @@ function CadPacientes() {
                   Status do Paciente:
                   <select
                     className='inputForm'
-                    onChange={v => setpct_status(v.target.value)}
+                    onChange={v => setpct_status(parseInt(v.target.value))}
                   >
-                    <option value={-1} key={0} disabled>Escolha uma opção</option>
-                    <option value={1} key={1} >Ativo</option>
-                    <option value={0} key={2}>Inativo</option>
+                    <option value={-1} key={'-1'} disabled>Escolha uma opção</option>
+                    <option value={1} key={'1'}>Ativo</option>
+                    <option value={0} key={'2'}>Inativo</option>
                   </select>
                 </label>
                 <small className='small' id="pct_status">{Err_status}</small>
