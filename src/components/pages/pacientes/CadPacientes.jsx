@@ -268,6 +268,11 @@ function CadPacientes() {
 
       if (params.id) {
         await api.patch(`/pacientes/${params.id}`, dados);
+
+        const alteracao = alert("Cadastro do paciente alterado com sucesso!");
+        navigate('/menu')
+
+
       } else {
         const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.
         console.log(response);

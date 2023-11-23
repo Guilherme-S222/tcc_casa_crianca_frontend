@@ -48,17 +48,17 @@
   color: white;
   animation-delay: 100s;
 }
-.buttonViz{
+.buttonEdtEnderec{
   color: #06a180;
   background-color: ghostwhite;
   border: solid 0.2rem #06a180;
   border-radius: 0.5rem;
   font-size: 1rem;
   height: 2rem;
-  width: 6rem;
+  width: 10rem;
   margin: 0.5rem;
 }
-.buttonViz:hover{
+.buttonEdtEnderec:hover{
   background-color: #06a180;
   color: white;
   animation-delay: 100s;
