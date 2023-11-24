@@ -32,6 +32,7 @@ function App() {
         <Route path='/cadpacientes/:id' element={<CadPacientes/>} />
         <Route path='/cadpacientes' element={<CadPacientes/>} />
         <Route path='/endereco' element={<Endereco/>} />
+        <Route path='/cadendereco/:id' element={<CadEndereco/>} />
         <Route path='/cadendereco' element={<CadEndereco/>} />
         <Route path='/cid' element={<Cid/>} />
         <Route path='/cadcid' element={<CadCid/>} />

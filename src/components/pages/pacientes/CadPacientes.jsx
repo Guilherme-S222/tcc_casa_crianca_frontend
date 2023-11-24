@@ -268,8 +268,7 @@ function CadPacientes() {
 
       if (params.id) {
         await api.patch(`/pacientes/${params.id}`, dados);
-
-        const alteracao = alert("Cadastro do paciente alterado com sucesso!");
+        alert("Cadastro do paciente alterado com sucesso!");
         navigate('/menu')
 
 

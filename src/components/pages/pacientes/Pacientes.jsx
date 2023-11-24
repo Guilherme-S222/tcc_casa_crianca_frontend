@@ -16,7 +16,6 @@ function Pacientes() {
 
   // #### INÍCIO GET PACIENTES
   const getPacientes = async() => {
-
     try {
       const response = await api.get("/pacientes");
       const data = response.data;
@@ -30,6 +29,7 @@ function Pacientes() {
     }
   };
 
+  // #### useEffecté um React Hook que permite sincronizar um componente com um sistema externo.
   useEffect(() => {
     getPacientes();
   }, [])
@@ -92,7 +92,7 @@ function Pacientes() {
               {/* <Link className='link' to={`/cadpacientes?id=${item.pct_pront}`}> */}
                 <button className='buttonEdt' type="button">Editar</button>
               </Link>
-              <Link className='link' to={`/cadendereco/${item.enderec_id}`}>
+              <Link className='link' to={`/cadendereco/${item.pct_pront}`} >
                 <button className='buttonEdtEnderec' type='button'>Editar Endereço</button>
               </Link>
             </div>

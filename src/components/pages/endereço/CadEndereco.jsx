@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
@@ -7,6 +7,8 @@ import Footer from '../../footer/footer';
 import api from '../../services/api';
 
 function CadEndereco() {
+
+  const params = useParams();
 
   let navigate = useNavigate();
 
@@ -39,13 +41,6 @@ function CadEndereco() {
   const [Err_estado, setErr_estado] = useState('');
   const [Val_pct_pront, setVal_pct_pront] = useState('form-control');
   const [Err_pct_pront, setErr_pct_pront] = useState('');
-
-  function handleSubmit(event){
-    event.preventDefault();
-    if (valida()){
-      cadastrar()
-    }
-  }
 
   //validações
   function valida(){
@@ -134,10 +129,16 @@ function CadEndereco() {
         pct_pront_enderec
       }
 
-      //API
-      const response = await api.post('/endereco', dados);
-      console.log(response);
-      if (response.data.confirma === true){
+      if (params.id){
+        await api.patch(`/endereco/${params.id}`, dados);
+        alert("Endereço alterado com sucesso!")
+        navigate('/menu')
+
+      } else{
+
+        const response = await api.post('/endereco', dados);
+        console.log(response);
+        if (response.data.confirma === true){
 
         const objLogado = {
           "id": response.data.id,
@@ -151,18 +152,51 @@ function CadEndereco() {
         alert("Endereço cadastrado com sucesso!")
         navigate('/menu');
 
-      } else {
-        alert('Error: ' + response.data.message)
+        } else {
+          alert('Error: ' + response.data.message)
+        }
       }
     } catch (error){
 
       if (error.message){
-        alert(error.response.data.message);
+        alert("Erro ao processar a requisição: " + error.response.data.message);
       } else {
-        alert(error);
+        alert("Erro inesperado: " + error);
       }
     }
   }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    if (valida()){
+      cadastrar()
+    }
+  }
+
+  async function carregarEndereco(){
+    try {
+      const response = await api.get(`/endereco?pct_pront_enderec=${params.id}`);
+      const endereco = response.data.Itens[0];
+      console.log(endereco);
+      setenderec_id(endereco.enderec_id);
+      setenderec_rua(endereco.enderec_rua);
+      setenderec_num(endereco.enderec_num);
+      setenderec_bairro(endereco.enderec_bairro);
+      setenderec_complem(endereco.enderec_complem);
+      setenderec_cidade(endereco.enderec_cidade);
+      setenderec_cep(endereco.enderec_cep);
+      setenderec_estado(endereco.enderec_estado);
+      setpct_pront_enderec(endereco.pct_pront_enderec);
+
+    } catch (error){
+      console.log("Error ao carregar informações do paciente: ", error);
+    }
+  }
+  useEffect(() => {
+    if (params.id){
+      carregarEndereco();
+    }
+  }, []);
 
   return (
     <div >
@@ -186,6 +220,7 @@ function CadEndereco() {
                   placeholder= "Digite o ID do endereço"
                   onChange={v => setenderec_id(v.target.value)}
                   value={enderec_id}
+                  readOnly
                 />
             </label>
             <small className='small' id='enderec_id'>{Err_id}</small>
@@ -298,6 +333,7 @@ function CadEndereco() {
                   placeholder= "Digite o prontuário do paciente vinculado a esse endereço"
                   onChange={v => setpct_pront_enderec(v.target.value)}
                   value={pct_pront_enderec}
+                  readOnly
                 />
             </label>
             <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>
