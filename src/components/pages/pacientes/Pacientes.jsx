@@ -7,6 +7,7 @@ import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
 import './Pacientes.css';
+// import {Animated} from "react-animated-css";
 
 
 function Pacientes() {
@@ -44,9 +45,11 @@ function Pacientes() {
     <div >
       <Header pag={'Pacientes'}/>
 
-      <h1 className='listarTitulo'>
-        Pesquisar Pacientes
-      </h1>
+      {/* <Animated animation="bounceInLeft"> */}
+        <h1 className='listarTitulo'>
+          Pesquisar Pacientes
+        </h1>
+      {/* </Animated> */}
 
       <div className='botoesDiv'>
         <Link to='/cadpacientes'><button className='buttonCad' type="button">Cadastrar</button></Link>
