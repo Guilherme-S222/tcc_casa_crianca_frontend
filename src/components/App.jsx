@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Gerencia a navegação entre diferente páginas
 
+//Importa os componentes que representam as diferentes páginas da aplicação. Cada componente está associado a uma rota específica.
 import Home from './pages/home/Home';
 import Pacientes from './pages/pacientes/Pacientes';
 import CadPacientes from './pages/pacientes/CadPacientes';
@@ -22,7 +23,7 @@ import Login from './pages/usuarios/Login';
 import Contato from './pages/home/Contato';
 import Menu from './pages/menu/Menu';
 
-
+//Define a função App, que retorna a estrutura da aplicação.
 function App() {
   return (
     <BrowserRouter>
@@ -54,5 +55,14 @@ function App() {
     </BrowserRouter>
   );
 }
+/*
+Envolve a aplicação com o componente BrowserRouter, que fornece a funcionalidade de roteamento baseada no navegador.
+Utiliza o componente Routes para agrupar as diferentes rotas da aplicação.
 
-export default App;
+Define rotas usando o componente Route. Cada rota está associada a um caminho (path) e especifica o componente a ser renderizado (element) quando a rota correspondente for acessada.
+
+Demonstra o uso de parâmetros na rota (:id). Isso permite que o componente CadPacientes acesse o valor do parâmetro id pela propriedade params do objeto de roteamento.
+
+Em resumo, este arquivo configura o roteamento da aplicação React usando o React Router. Ele define as diferentes rotas associadas a componentes específicos, permitindo a navegação entre essas páginas. 
+*/
+export default App; //Exporta o componente App, tornando-o disponível para ser usado em outros lugares da aplicação.

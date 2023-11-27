@@ -356,6 +356,7 @@ function CadPacientes() {
     }
   }, []);
 
+  // #### Função para conversão das datas
   function converteData(dtBd) {
     let data = new Date(dtBd);
     return data.getFullYear() + '-' + pad(data.getUTCMonth() + 1) + '-' + pad(data.getDate());

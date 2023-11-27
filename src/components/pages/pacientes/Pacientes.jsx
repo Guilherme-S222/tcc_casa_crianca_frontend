@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
+import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -7,8 +7,6 @@ import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
 import './Pacientes.css';
-// import {Animated} from "react-animated-css";
-
 
 function Pacientes() {
 
