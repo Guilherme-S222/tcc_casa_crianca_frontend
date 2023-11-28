@@ -66,14 +66,17 @@ function Internação() {
             <span className='item'>Data de internacão: {item.intern_data}</span>
             <span className='item'>Data de saída: {item.intern_dtsaida}</span>
             <span className='item'>Tipo de saída: {item.intern_tpsaida}</span>
-            <span className='item'>Crm do Médico: {item.medic_crm_intern}</span>
+            <span className='item'>ID do Médico: {item.medic_id_intern}</span>
             <span className='item'>Usuário: {item.user_id_intern}</span>
             <span className='item'>Prontuário do Paciente: {item.pct_pront_intern}</span>
 
             <div>
-              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
-              <button className='buttonViz' type="button"><Link className='link' to='#'>Visualizar</Link></button>
-              <button className='buttonExc' type="button"><Link className='link' to='#'>Remover</Link></button>
+              <Link 
+              className='link' 
+              to={`/cadinternacao/${item.intern_id}`}
+              >
+                <button className='buttonEdt' type="button">Editar</button>
+              </Link>
             </div>
           </div>
         ))}

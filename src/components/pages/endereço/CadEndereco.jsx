@@ -46,13 +46,13 @@ function CadEndereco() {
   function valida(){
     let validado = true;
 
-    if(enderec_id === ''){
-      setVal_id('form-control error')
-      setErr_id('Preencha o ID do endereço!')
-      validado = false;
-    } else {
-      setVal_id('form-control success!')
-    }
+    // if(enderec_id === ''){
+    //   setVal_id('form-control error')
+    //   setErr_id('Preencha o ID do endereço!')
+    //   validado = false;
+    // } else {
+    //   setVal_id('form-control success!')
+    // }
 
     if(enderec_rua === ''){
       setVal_rua('form-control error')
@@ -102,13 +102,13 @@ function CadEndereco() {
       setVal_estado('form-control success!')
     }
 
-    if(pct_pront_enderec === ''){
-      setVal_pct_pront('form-control error')
-      setErr_pct_pront('Preencha o prontuário do paciente vinculado a esse endereço!')
-      validado = false;
-    } else {
-      setVal_pct_pront('form-control success!')
-    }
+    // if(pct_pront_enderec === ''){
+    //   setVal_pct_pront('form-control error')
+    //   setErr_pct_pront('Preencha o prontuário do paciente vinculado a esse endereço!')
+    //   validado = false;
+    // } else {
+    //   setVal_pct_pront('form-control success!')
+    // }
 
     return validado;
 

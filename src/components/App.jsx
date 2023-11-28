@@ -38,6 +38,7 @@ function App() {
         <Route path='/cid' element={<Cid/>} />
         <Route path='/cadcid' element={<CadCid/>} />
         <Route path='/internacao' element={<Internacao/>} />
+        <Route path='/cadinternacao/:id' element={<CadInternacao/>} />
         <Route path='/cadinternacao' element={<CadInternacao/>} />
         <Route path='/internacaocid' element={<InternacaoCid/>}/>
         <Route path='/medicos' element={<Medicos/>} />

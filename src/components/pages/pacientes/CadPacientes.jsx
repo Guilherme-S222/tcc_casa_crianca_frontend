@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'; //importando biblioteca React (definir componentes), e a função useState (hook que permite gerenciar componentes).
 import { Link, useNavigate, useParams } from 'react-router-dom'; //importando componentes de navegação, Link (navegação entre paginas), useNavigate (navegação do react router).
-// import { useSearchParams } from "react-router-native";
 import api from '../../services/api'; //importando modulo api (configurações e interações com o servidor).
 
 import Header from '../../header/header';
@@ -146,13 +145,13 @@ function CadPacientes() {
       setVal_aih('form-control success!');
     }
 
-    if (pct_bpc === ''){
-      setVal_bpc('form-control error');
-      setErr_bpc('Preencha o BPC do paciente!');
-      validado = false;
-    } else {
-      setVal_bpc('form-control success!');
-    }
+    // if (pct_bpc === ''){
+    //   setVal_bpc('form-control error');
+    //   setErr_bpc('Preencha o BPC do paciente!');
+    //   validado = false;
+    // } else {
+    //   setVal_bpc('form-control success!');
+    // }
 
     if (pct_aposent === ''){
       setVal_aposent('form-control error');
@@ -270,7 +269,6 @@ function CadPacientes() {
         await api.patch(`/pacientes/${params.id}`, dados);
         alert("Cadastro do paciente alterado com sucesso!");
         navigate('/menu')
-
 
       } else {
         const response = await api.post('/pacientes', dados); //solicitação POST para a rota '/pacientes' usando a var API, enviando os dados para o servidor. A resposta do servidor é armazanada na var 'response'.

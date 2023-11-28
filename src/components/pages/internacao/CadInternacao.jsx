@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import api from '../../services/api';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
-import api from '../../services/api';
 
 function CadInternacao() {
+
+  const params = useParams();
 
   let navigate = useNavigate();
 
@@ -14,7 +16,7 @@ function CadInternacao() {
   const [intern_data, setintern_data] = useState('');
   const [intern_dtsaida, setintern_dtsaida] = useState('');
   const [intern_tpsaida, setintern_tpsaida] = useState('');
-  const [medic_crm_intern, setmedic_crm_intern] = useState('');
+  const [medic_id_intern, setmedic_id_intern] = useState('');
   const [user_id_intern, setuser_id_intern] = useState('');
   const [pct_pront_intern, setpct_pront_intern] = useState('');
 
@@ -27,19 +29,12 @@ function CadInternacao() {
   const [Err_dtsaida, /*setErr_dtsaida*/] = useState('');
   const [Val_tpsaida, /*setVal_tpsaida*/] = useState('form-control');
   const [Err_tpsaida, /*setErr_tpsaida*/] = useState('');
-  const [Val_medic_crm_intern, setVal_medic_crm_intern] = useState('form-control');
-  const [Err_medic_crm_intern, setErr_medic_crm_intern] = useState('');
+  const [Val_medic_id_intern, setVal_medic_id_intern] = useState('form-control');
+  const [Err_medic_id_intern, setErr_medic_id_intern] = useState('');
   const [Val_user_id_intern, setVal_user_id_intern] = useState('form-control');
   const [Err_user_id_intern, setErr_user_id_intern] = useState('');
   const [Val_pct_pront_intern, setVal_pct_pront_intern] = useState('form-control');
   const [Err_pct_pront_intern, setErr_pct_pront_intern] = useState('');
-
-  function handleSubmit(event){
-    event.preventDefault();
-    if (valida()){
-      cadastrar()
-    }
-  }
 
   //validações
   function valida(){
@@ -59,12 +54,12 @@ function CadInternacao() {
     } else {
       setVal_data('form-control success!')
     }
-    if (medic_crm_intern === ''){
-      setVal_medic_crm_intern('form-control error');
-      setErr_medic_crm_intern('Preencha o CRM do médico!')
+    if (medic_id_intern === ''){
+      setVal_medic_id_intern('form-control error');
+      setErr_medic_id_intern('Preencha o ID do médico!')
       validado = false;
     } else {
-      setVal_medic_crm_intern('form-control success!')
+      setVal_medic_id_intern('form-control success!')
     }
     if (user_id_intern === ''){
       setVal_user_id_intern('form-control error');
@@ -93,42 +88,94 @@ function CadInternacao() {
         intern_data,
         intern_dtsaida,
         intern_tpsaida,
-        medic_crm_intern,
+        medic_id_intern,
         user_id_intern,
         pct_pront_intern
       }
 
-      //API
-      const response = await api.post('/internacao', dados);
-      console.log(response);
-      if (response.data.confirma === true){
-        const objLogado = {
-          "id": response.data.id,
-          "nome": response.data.nome,
-          "acesso": response.data.tipo
-        };
-        localStorage.clear();
-        localStorage.setItem('user', JSON.stringify(objLogado));
-
-        const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o CID dessa internação?");
-
-        if (confirmacao){
-          navigate('/internacaocid');
-        } else {
-          navigate('/menu');
-        }
+      if (params.id){
+        await api.patch(`/internacao/${params.id}`, dados);
+        alert("Internação alterada com sucesso!");
+        navigate('/menu');
 
       } else {
-        alert('Erro: ' + response.data.message)
+        const response = await api.post('/internacao', dados);
+        console.log(response);
+
+        if (response.data.confirma === true){
+          const objLogado = {
+            "id": response.data.id,
+            "nome": response.data.nome,
+            "acesso": response.data.tipo
+          };
+
+          localStorage.clear();
+          localStorage.setItem('user', JSON.stringify(objLogado));
+
+          const confirmacao = window.confirm("Internação cadastrada com sucesso! Deseja cadastrar o CID dessa internação?");
+
+          if (confirmacao){
+            navigate('/internacaocid');
+          } else {
+            navigate('/menu');
+          }
+
+        } else {
+          alert('Erro: ' + response.data.message)
+        }
       }
     } catch (error){
 
       if (error.response){
-        alert(error.response.data.message);
+        alert("Erro ao processar a requisição: " + error.response.data.message);
       } else {
-        alert(error);
+        alert("Erro inesperado: " + error);
       }
     }
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    if (valida()){
+      cadastrar()
+    }
+  }
+
+  async function carregarInfoInternacao(){
+    try {
+      const response = await api.get(`/internacao?intern_id=${params.id}`);
+      const internEdit = response.data.itens[0];
+
+      setintern_id(internEdit.intern_id);
+      setintern_data(internEdit.intern_data);
+      setintern_dtsaida(internEdit.intern_dtsaida);
+      setintern_tpsaida(internEdit.intern_tpsaida);
+      setmedic_id_intern(internEdit.medic_id_intern);
+      setuser_id_intern(internEdit.user_id_intern);
+      setpct_pront_intern(internEdit.pct_pront_intern);
+
+    } catch (error) {
+      console.log("Erro ao carregar informações da internação:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (params.id){
+      carregarInfoInternacao();
+    }
+  }, []);
+
+  // #### Função para conversão das datas
+  function converteData(dtBd) {
+    let data = new Date(dtBd);
+    return data.getFullYear() + '-' + pad(data.getUTCMonth() + 1) + '-' + pad(data.getDate());
+  }
+
+  function pad(number) {
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number;
   }
 
   return (
@@ -198,18 +245,18 @@ function CadInternacao() {
               <small className='small' id='intern_tpsaida'>{Err_tpsaida}</small>
             </div>
 
-            <div className={Val_medic_crm_intern} id="Val_medic_crm_intern">
+            <div className={Val_medic_id_intern} id="Val_medic_id_intern">
               <label className='lblForm'>
-                CRM do Médico:
+                ID do Médico:
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite o CRM do médico"
-                  onChange={v => setmedic_crm_intern(v.target.value)}
-                  value={medic_crm_intern}
+                  placeholder= "Digite o ID do médico"
+                  onChange={v => setmedic_id_intern(v.target.value)}
+                  value={medic_id_intern}
                 />
               </label>
-              <small className='small' id='medic_crm_intern'>{Err_medic_crm_intern}</small>
+              <small className='small' id='medic_crm_intern'>{Err_medic_id_intern}</small>
             </div>
 
             <div className={Val_user_id_intern} id="Val_user_id_intern">
