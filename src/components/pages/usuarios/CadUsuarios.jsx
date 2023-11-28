@@ -181,7 +181,7 @@ function CadUsuarios() {
           </div>
 
             <div className='divbtn'>
-              <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+              <Link className='linkbtn' to='/'><button className='cancbtn' >Cancelar</button></Link>
               <button type="submit" className='cadbtn' >Salvar</button>
             </div>
 
