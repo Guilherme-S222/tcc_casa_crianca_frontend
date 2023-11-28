@@ -1,12 +1,12 @@
 import api from '../../services/api';
 import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
-
 import { Link } from 'react-router-dom';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
 import "../listar_modelo/listar.css";
+
 
 function Internação() {
 
@@ -71,12 +71,11 @@ function Internação() {
             <span className='item'>Prontuário do Paciente: {item.pct_pront_intern}</span>
 
             <div>
-              <Link 
-              className='link' 
-              to={`/cadinternacao/${item.intern_id}`}
-              >
+
+              <Link className='link' to={`/cadinternacao/${item.intern_id}`}>
                 <button className='buttonEdt' type="button">Editar</button>
               </Link>
+              
             </div>
           </div>
         ))}

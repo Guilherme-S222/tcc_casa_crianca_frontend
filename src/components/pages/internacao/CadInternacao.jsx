@@ -141,23 +141,27 @@ function CadInternacao() {
     }
   }
 
-  async function carregarInfoInternacao(){
+  async function carregarInfoInternacao() {
     try {
       const response = await api.get(`/internacao?intern_id=${params.id}`);
-      const internEdit = response.data.itens[0];
-
-      setintern_id(internEdit.intern_id);
-      setintern_data(internEdit.intern_data);
-      setintern_dtsaida(internEdit.intern_dtsaida);
-      setintern_tpsaida(internEdit.intern_tpsaida);
-      setmedic_id_intern(internEdit.medic_id_intern);
-      setuser_id_intern(internEdit.user_id_intern);
-      setpct_pront_intern(internEdit.pct_pront_intern);
-
+      
+      if (response.data.nItens === 1) {
+        const intern = response.data.Itens[0];
+  
+        setintern_id(intern.intern_id);
+        setintern_data(converteData(intern.intern_data));
+        setintern_dtsaida(intern.intern_dtsaida);
+        setintern_tpsaida(intern.intern_tpsaida);
+        setmedic_id_intern(intern.medic_id_intern);
+        setuser_id_intern(intern.user_id_intern);
+        setpct_pront_intern(intern.pct_pront_intern);
+      } else {
+        console.log("Nenhum item retornado na resposta da API");
+      }
     } catch (error) {
       console.log("Erro ao carregar informações da internação:", error);
     }
-  };
+  }
 
   useEffect(() => {
     if (params.id){
@@ -181,6 +185,7 @@ function CadInternacao() {
   return (
     <div >
       <Header pag={'CadIntercacao'}/>
+      
         <div className='listarTitulo'>
           <h1>
             Cadastro de Internação
@@ -256,7 +261,7 @@ function CadInternacao() {
                   value={medic_id_intern}
                 />
               </label>
-              <small className='small' id='medic_crm_intern'>{Err_medic_id_intern}</small>
+              <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
             </div>
 
             <div className={Val_user_id_intern} id="Val_user_id_intern">

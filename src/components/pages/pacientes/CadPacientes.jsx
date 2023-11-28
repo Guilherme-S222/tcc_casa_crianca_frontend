@@ -53,8 +53,8 @@ function CadPacientes() {
   const [Err_dtnasc, setErr_dtnasc] = useState('');
   const [Val_aih, setVal_aih] = useState('form-control');
   const [Err_aih, setErr_aih] = useState('');
-  const [Val_bpc, setVal_bpc] = useState('form-control');
-  const [Err_bpc, setErr_bpc] = useState('');
+  const [Val_bpc, /*setVal_bpc*/] = useState('form-control');
+  const [Err_bpc, /*setErr_bpc*/] = useState('');
   const [Val_aposent, setVal_aposent] = useState('form-control');
   const [Err_aposent, setErr_aposent] = useState('');
   const [Val_filiacao, setVal_filiacao] = useState('form-control');
@@ -307,7 +307,6 @@ function CadPacientes() {
     }
   } // #### FIM ENVIO DOS DADOS
 
-
   // #### A função handleSubmit é um manipulador de eventos em componentes React.
   function handleSubmit(event){
     event.preventDefault(); //o método preventDefault é usado para evitar que a página seja recarregada quando o form for enviado.
@@ -346,7 +345,7 @@ function CadPacientes() {
       console.log("Erro ao carregar informações do paciente:", error);
     }
   };
-  console.log(pct_status);
+
   // ####
   useEffect(() => {
     if (params.id) {
@@ -370,6 +369,7 @@ function CadPacientes() {
   return (
     <div>
         <Header pag={'CadPacientes'} />
+        
           <div className='listarTitulo'>
             <h1>
               Cadastro de Pacientes
