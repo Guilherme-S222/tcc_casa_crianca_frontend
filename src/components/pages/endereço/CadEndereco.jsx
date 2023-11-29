@@ -211,7 +211,7 @@ function CadEndereco() {
 
         <form className='cadForm' onSubmit={handleSubmit}>
 
-          <div className={Val_id} id="Val_id">
+          {/* <div className={Val_id} id="Val_id">
             <label className='lblForm'>
               ID do endereço:
                 <input
@@ -224,7 +224,7 @@ function CadEndereco() {
                 />
             </label>
             <small className='small' id='enderec_id'>{Err_id}</small>
-          </div>
+          </div> */}
 
           <div className={Val_rua} id="Val_rua">
             <label className='lblForm'>
@@ -324,7 +324,7 @@ function CadEndereco() {
             <small className='small' id='enderec_estado'>{Err_estado}</small>
           </div>
 
-          <div className={Val_pct_pront} id="Val_pct_pront">
+          {/* <div className={Val_pct_pront} id="Val_pct_pront">
             <label className='lblForm'>
               Prontuário do paciente vinculado:
                 <input
@@ -336,10 +336,10 @@ function CadEndereco() {
                 />
             </label>
             <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>
-          </div>
+          </div> */}
 
           <div className='divbtn'>
-            <Link className='linkbtn' to='../cadpacientes'><button className='cancbtn' >Cancelar</button></Link>
+            <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
             <button type="submit" className='cadbtn'>Salvar</button>
           </div>
 

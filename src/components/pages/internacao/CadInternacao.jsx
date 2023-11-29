@@ -19,6 +19,7 @@ function CadInternacao() {
   const [medic_id_intern, setmedic_id_intern] = useState('');
   const [user_id_intern, setuser_id_intern] = useState('');
   const [pct_pront_intern, setpct_pront_intern] = useState('');
+  const [pct_nome, setpct_nome] = useState('');
 
   //validações
   const [Val_id, setVal_id] = useState('form-control');
@@ -152,9 +153,10 @@ function CadInternacao() {
         setintern_data(converteData(intern.intern_data));
         setintern_dtsaida(intern.intern_dtsaida);
         setintern_tpsaida(intern.intern_tpsaida);
-        setmedic_id_intern(intern.medic_id_intern);
-        setuser_id_intern(intern.user_id_intern);
-        setpct_pront_intern(intern.pct_pront_intern);
+        setmedic_id_intern(intern.medic_nome);
+        setuser_id_intern(intern.user_nome);
+        setpct_pront_intern(intern.pct_pront);
+        setpct_nome(intern.pct_nome);
       } else {
         console.log("Nenhum item retornado na resposta da API");
       }
@@ -260,6 +262,7 @@ function CadInternacao() {
                   placeholder= "Digite o ID do médico"
                   onChange={v => setmedic_id_intern(v.target.value)}
                   value={medic_id_intern}
+                  readOnly
                 />
               </label>
               <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
@@ -274,6 +277,7 @@ function CadInternacao() {
                   placeholder= "Digite o identificador do usuário"
                   onChange={v => setuser_id_intern(v.target.value)}
                   value={user_id_intern}
+                  readOnly
                 />
               </label>
               <small className='small' id='user_id_intern'>{Err_user_id_intern}</small>
@@ -288,6 +292,22 @@ function CadInternacao() {
                   placeholder= "Digite o prontuário do paciente"
                   onChange={v => setpct_pront_intern(v.target.value)}
                   value={pct_pront_intern}
+                  readOnly
+                />
+              </label>
+              <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
+            </div>
+
+            <div className={Val_pct_pront_intern} id="Val_pct_pront_intern">
+              <label className='lblForm'>
+                Prontuário do Paciente:
+                <input
+                  className='inputForm'
+                  type='text'
+                  placeholder= "Digite o prontuário do paciente"
+                  onChange={v => setpct_pront_intern(v.target.value)}
+                  value={pct_nome}
+                  readOnly
                 />
               </label>
               <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
