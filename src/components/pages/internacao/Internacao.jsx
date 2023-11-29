@@ -81,6 +81,9 @@ function Internação() {
             <span className='item'>Data de internacão: {item.intern_data}</span>
             <span className='item'>Data de saída: {item.intern_dtsaida}</span>
             <span className='item'>Tipo de saída: {item.intern_tpsaida}</span>
+            <span className='item'>Cid: {item.cid_cid}</span>
+            <span className='item'>Descrição do Cid: {item.cid_descri}</span>
+            <span className='item'>Status do Cid: {item.intercid_status}</span>
             <span className='item'>Nome do Médico: {item.medic_nome}</span>
             <span className='item'>Usuário: {item.user_nome}</span>
 
@@ -90,9 +93,9 @@ function Internação() {
                 <button className='buttonEdt' type="button">Editar</button>
               </Link>
 
-              <Link className='link' to={`/internacaocid/${item.intern_id}`}>
+              {/* <Link className='link' to={`/internacaocid/${item.intern_id}`}>
                 <button className='buttonEdt' type="button">Cid</button>
-              </Link>
+              </Link> */}
 
             </div>
           </div>

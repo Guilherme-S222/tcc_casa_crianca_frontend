@@ -12,70 +12,126 @@ function CadInternacao() {
 
   let navigate = useNavigate();
 
+  const [pct_pront, setpct_pront] = useState('');
+  const [pct_nome, setpct_nome] = useState('');
   const [intern_id, setintern_id] = useState('');
   const [intern_data, setintern_data] = useState('');
   const [intern_dtsaida, setintern_dtsaida] = useState('');
   const [intern_tpsaida, setintern_tpsaida] = useState('');
-  const [medic_id_intern, setmedic_id_intern] = useState('');
-  const [user_id_intern, setuser_id_intern] = useState('');
-  const [pct_pront_intern, setpct_pront_intern] = useState('');
-  const [pct_nome, setpct_nome] = useState('');
+  const [cid_cid, setcid_cid] = useState('');
+  const [cid_descri, setcid_descri] = useState('');
+  const [intercid_status, setintercid_status] = useState('');
+  const [medic_nome, setmedic_nome] = useState('');
+  const [user_nome, setuser_nome] = useState('');
+  
 
   //validações
-  const [Val_id, setVal_id] = useState('form-control');
-  const [Err_id, setErr_id] = useState('');
-  const [Val_data, setVal_data] = useState('form-control');
-  const [Err_data, setErr_data] = useState('');
-  const [Val_dtsaida, /*setVal_dtsaida*/] = useState('form-control');
-  const [Err_dtsaida, /*setErr_dtsaida*/] = useState('');
-  const [Val_tpsaida, /*setVal_tpsaida*/] = useState('form-control');
-  const [Err_tpsaida, /*setErr_tpsaida*/] = useState('');
-  const [Val_medic_id_intern, setVal_medic_id_intern] = useState('form-control');
-  const [Err_medic_id_intern, setErr_medic_id_intern] = useState('');
-  const [Val_user_id_intern, setVal_user_id_intern] = useState('form-control');
-  const [Err_user_id_intern, setErr_user_id_intern] = useState('');
-  const [Val_pct_pront_intern, setVal_pct_pront_intern] = useState('form-control');
-  const [Err_pct_pront_intern, setErr_pct_pront_intern] = useState('');
+  const [Val_pct_pront, setVal_pct_pront] = useState('form-control');
+  const [Err_pct_pront, setErr_pct_pront] = useState('');
+  const [Val_pct_nome, setVal_pct_nome] = useState('form-control');
+  const [Err_pct_nome, setErr_pct_nome] = useState('');
+  const [Val_intern_id, setVal_intern_id] = useState('form-control');
+  const [Err_intern_id, setErr_intern_id] = useState('');
+  const [Val_intern_data, setVal_intern_data] = useState('form-control');
+  const [Err_intern_data, setErr_intern_data] = useState('');
+  const [Val_intern_dtsaida, setVal_intern_dtsaida] = useState('form-control');
+  const [Err_intern_dtsaida, setErr_intern_dtsaida] = useState('');
+  const [Val_intern_tpsaida, setVal_intern_tpsaida] = useState('form-control');
+  const [Err_intern_tpsaida, setErr_intern_tpsaida] = useState('');
+  const [Val_cid_cid, setVal_cid_cid] = useState('form-control');
+  const [Err_cid_cid, setErr_cid_cid] = useState('');
+  const [Val_cid_descri, setVal_cid_descri] = useState('form-control');
+  const [Err_cid_descri, setErr_cid_descri] = useState('');
+  const [Val_intercid_status, setVal_intercid_status] = useState('form-control');
+  const [Err_intercid_status, setErr_intercid_status] = useState('');
+  const [Val_medic_nome, setVal_medic_nome] = useState('form-control');
+  const [Err_medic_nome, setErr_medic_nome] = useState('');
+  const [Val_user_nome, setVal_user_nome] = useState('form-control');
+  const [Err_user_nome, setErr_user_nome] = useState('');
+  
 
   //validações
   function valida(){
     let validado = true;
 
-    // if (intern_id === ''){
-    //   setVal_id('form-control error');
-    //   setErr_id('Preencha o id da internação!')
-    //   validado = false;
-    // } else {
-    //   setVal_id('form-control success!')
-    // }
+    if (pct_pront === ''){
+      setVal_pct_pront('form-control error');
+      setErr_pct_pront('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_pct_pront('form-control success!')
+    }
+    if (pct_nome === ''){
+      setVal_pct_nome('form-control error');
+      setErr_pct_nome('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_pct_nome('form-control success!')
+    }
+    if (intern_id === ''){
+      setVal_intern_id('form-control error');
+      setErr_intern_id('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_intern_id('form-control success!')
+    }
     if (intern_data === ''){
-      setVal_data('form-control error');
-      setErr_data('Preencha a data da internação!')
+      setVal_intern_data('form-control error');
+      setErr_intern_data('Preencha o id da internação!')
       validado = false;
     } else {
-      setVal_data('form-control success!')
+      setVal_intern_data('form-control success!')
     }
-    if (medic_id_intern === ''){
-      setVal_medic_id_intern('form-control error');
-      setErr_medic_id_intern('Preencha o ID do médico!')
+    if (intern_dtsaida === ''){
+      setVal_intern_dtsaida('form-control error');
+      setErr_intern_dtsaida('Preencha o id da internação!')
       validado = false;
     } else {
-      setVal_medic_id_intern('form-control success!')
+      setVal_intern_dtsaida('form-control success!')
     }
-    if (user_id_intern === ''){
-      setVal_user_id_intern('form-control error');
-      setErr_user_id_intern('Preencha o id do usuário!')
+    if (intern_tpsaida === ''){
+      setVal_intern_tpsaida('form-control error');
+      setErr_intern_tpsaida('Preencha o id da internação!')
       validado = false;
     } else {
-      setVal_user_id_intern('form-control success!')
+      setVal_intern_tpsaida('form-control success!')
     }
-    if (pct_pront_intern === ''){
-      setVal_pct_pront_intern('form-control error');
-      setErr_pct_pront_intern('Preencha o prontuário do paciente!')
+    if (cid_cid === ''){
+      setVal_cid_cid('form-control error');
+      setErr_cid_cid('Preencha o id da internação!')
       validado = false;
     } else {
-      setVal_pct_pront_intern('form-control success!')
+      setVal_cid_cid('form-control success!')
     }
+    if (cid_descri === ''){
+      setVal_cid_descri('form-control error');
+      setErr_cid_descri('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_cid_descri('form-control success!')
+    }
+    if (intercid_status === ''){
+      setVal_intercid_status('form-control error');
+      setErr_intercid_status('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_intercid_status('form-control success!')
+    }
+    if (medic_nome === ''){
+      setVal_medic_nome('form-control error');
+      setErr_medic_nome('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_medic_nome('form-control success!')
+    }
+    if (user_nome === ''){
+      setVal_user_nome('form-control error');
+      setErr_user_nome('Preencha o id da internação!')
+      validado = false;
+    } else {
+      setVal_user_nome('form-control success!')
+    }
+    
 
     return validado;
 
@@ -149,14 +205,18 @@ function CadInternacao() {
       if (response.data.nItens === 1) {
         const intern = response.data.Itens[0];
 
+        setpct_pront(intern.pct_pront);
+        setpct_nome(intern.pct_nome);
         setintern_id(intern.intern_id);
         setintern_data(converteData(intern.intern_data));
-        setintern_dtsaida(intern.intern_dtsaida);
+        setintern_dtsaida(converteData(intern.intern_dtsaida));
         setintern_tpsaida(intern.intern_tpsaida);
-        setmedic_id_intern(intern.medic_nome);
-        setuser_id_intern(intern.user_nome);
-        setpct_pront_intern(intern.pct_pront);
-        setpct_nome(intern.pct_nome);
+        setcid_cid(intern.cid_cid);
+        setcid_descri(intern.cid_descri);
+        setintercid_status(intern.intercid_status);
+        setmedic_nome(intern.medic_nome);
+        setuser_nome(intern.user_nome);
+        
       } else {
         console.log("Nenhum item retornado na resposta da API");
       }
@@ -197,6 +257,8 @@ function CadInternacao() {
         <div className='divForm'>
 
           <form className='cadForm' onSubmit={handleSubmit}>
+
+          {/* PAREI AQUI */}
 
             <div className={Val_id} id="Val_id">
               <label className='lblForm'>
