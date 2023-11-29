@@ -40,13 +40,13 @@ function CadInternacao() {
   function valida(){
     let validado = true;
 
-    if (intern_id === ''){
-      setVal_id('form-control error');
-      setErr_id('Preencha o id da internação!')
-      validado = false;
-    } else {
-      setVal_id('form-control success!')
-    }
+    // if (intern_id === ''){
+    //   setVal_id('form-control error');
+    //   setErr_id('Preencha o id da internação!')
+    //   validado = false;
+    // } else {
+    //   setVal_id('form-control success!')
+    // }
     if (intern_data === ''){
       setVal_data('form-control error');
       setErr_data('Preencha a data da internação!')
@@ -144,10 +144,10 @@ function CadInternacao() {
   async function carregarInfoInternacao() {
     try {
       const response = await api.get(`/internacao?intern_id=${params.id}`);
-      
+
       if (response.data.nItens === 1) {
         const intern = response.data.Itens[0];
-  
+
         setintern_id(intern.intern_id);
         setintern_data(converteData(intern.intern_data));
         setintern_dtsaida(intern.intern_dtsaida);
@@ -159,7 +159,7 @@ function CadInternacao() {
         console.log("Nenhum item retornado na resposta da API");
       }
     } catch (error) {
-      console.log("Erro ao carregar informações da internação:", error);
+        console.log("Erro ao carregar informações da internação:", error);
     }
   }
 
@@ -185,7 +185,7 @@ function CadInternacao() {
   return (
     <div >
       <Header pag={'CadIntercacao'}/>
-      
+
         <div className='listarTitulo'>
           <h1>
             Cadastro de Internação
@@ -202,9 +202,10 @@ function CadInternacao() {
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite a internação"
+                  placeholder= "Preenchimento Automático"
                   onChange={v => setintern_id(v.target.value)}
                   value={intern_id}
+                  readOnly
                 />
               </label>
               <small className='small' id='intern_id'>{Err_id}</small>

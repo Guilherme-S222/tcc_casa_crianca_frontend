@@ -217,7 +217,7 @@ function CadEndereco() {
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite o ID do endereço"
+                  placeholder= "ID do endereço"
                   onChange={v => setenderec_id(v.target.value)}
                   value={enderec_id}
                   readOnly
@@ -333,7 +333,6 @@ function CadEndereco() {
                   placeholder= "Digite o prontuário do paciente vinculado a esse endereço"
                   onChange={v => setpct_pront_enderec(v.target.value)}
                   value={pct_pront_enderec}
-                  readOnly
                 />
             </label>
             <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>

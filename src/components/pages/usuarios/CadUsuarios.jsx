@@ -157,7 +157,7 @@ function CadUsuarios() {
               Senha do Usuário:
               <input
                 className='inputForm'
-                type='text'
+                type='password'
                 placeholder= "Digite a senha do usuário"
                 onChange={v => setuser_senha(v.target.value)}
                 value={user_senha}

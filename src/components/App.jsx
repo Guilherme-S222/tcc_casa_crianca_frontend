@@ -41,6 +41,7 @@ function App() {
         <Route path='/cadinternacao/:id' element={<CadInternacao/>} />
         <Route path='/cadinternacao' element={<CadInternacao/>} />
         <Route path='/internacaocid' element={<InternacaoCid/>}/>
+        <Route path='/internacaocid/:id' element={<InternacaoCid/>}/>
         <Route path='/medicos' element={<Medicos/>} />
         <Route path='/cadmedicos' element={<CadMedicos/>} />
         <Route path='/prorrogacao' element={<Prorrogacao/>} />
@@ -64,6 +65,6 @@ Define rotas usando o componente Route. Cada rota está associada a um caminho (
 
 Demonstra o uso de parâmetros na rota (:id). Isso permite que o componente CadPacientes acesse o valor do parâmetro id pela propriedade params do objeto de roteamento.
 
-Em resumo, este arquivo configura o roteamento da aplicação React usando o React Router. Ele define as diferentes rotas associadas a componentes específicos, permitindo a navegação entre essas páginas. 
+Em resumo, este arquivo configura o roteamento da aplicação React usando o React Router. Ele define as diferentes rotas associadas a componentes específicos, permitindo a navegação entre essas páginas.
 */
 export default App; //Exporta o componente App, tornando-o disponível para ser usado em outros lugares da aplicação.

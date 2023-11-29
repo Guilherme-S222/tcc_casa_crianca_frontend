@@ -24,13 +24,6 @@ function CadCid() {
   const [Val_descri, setVal_descri] = useState('form-control');
   const [Err_descri, setErr_descri] = useState('');
 
-  function handleSubmit(event){
-    event.preventDefault();
-    if (valida()){
-      cadastrar()
-    }
-  }
-
   //validações
   function valida(){
     let validado = true;
@@ -99,6 +92,13 @@ function CadCid() {
       } else {
         alert(error);
       }
+    }
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    if (valida()){
+      cadastrar()
     }
   }
 

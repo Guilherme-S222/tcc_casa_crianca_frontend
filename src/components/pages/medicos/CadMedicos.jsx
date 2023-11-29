@@ -43,13 +43,13 @@ function CadMedicos() {
   function valida(){
     let validado = true;
 
-    if (medic_id === ''){
-      setVal_id('form_control error');
-      setErr_id('Preencha o ID do Médico!');
-      validado = false;
-    } else {
-      setVal_id('form-control success!');
-    }
+    // if (medic_id === ''){
+    //   setVal_id('form_control error');
+    //   setErr_id('Preencha o ID do Médico!');
+    //   validado = false;
+    // } else {
+    //   setVal_id('form-control success!');
+    // }
 
     if (medic_crm === ''){
       setVal_crm('form_control error');
@@ -154,9 +154,9 @@ function CadMedicos() {
             <input
               className='inputForm'
               type='text'
-              placeholder= "Digite o ID do médico"
               onChange={v => setmedic_id(v.target.value)}
               value={medic_id}
+              readOnly
             />
           </label>
           <small className='small' id='medic_crm'>{Err_crm}</small>

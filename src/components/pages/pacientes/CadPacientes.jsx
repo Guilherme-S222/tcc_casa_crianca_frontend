@@ -81,13 +81,13 @@ function CadPacientes() {
   function valida(){
     let validado = true; //iniciando como true.
 
-    if (pct_pront === ''){
-      setVal_pront('form-control error');
-      setErr_pront("Preencha o prontuário do paciente!");
-      validado = false;
-    } else {
-      setVal_pront('form-control success!');
-    }
+    // if (pct_pront === ''){
+    //   setVal_pront('form-control error');
+    //   setErr_pront("Preencha o prontuário do paciente!");
+    //   validado = false;
+    // } else {
+    //   setVal_pront('form-control success!');
+    // }
 
     if (pct_cpf === '' || pct_cpf.length !== 11){
       setVal_cpf('form-control error');
@@ -369,7 +369,7 @@ function CadPacientes() {
   return (
     <div>
         <Header pag={'CadPacientes'} />
-        
+
           <div className='listarTitulo'>
             <h1>
               Cadastro de Pacientes
@@ -386,9 +386,10 @@ function CadPacientes() {
                   <input
                     className='inputForm'
                     type='text'
-                    placeholder= "Digite o prontuário"
+                    placeholder='Preenchimento Automático'
                     onChange={v => setpct_pront(v.target.value)} //Define uma função a ser executada quando o valor do campo muda. Essa função atualiza a variável de estado pct_pront com o valor inserido no campo.
                     value={pct_pront} //Define o valor do campo como o valor da variável de estado pct_pront. Isso permite que o campo seja controlado pelo estado do componente.
+                    readOnly
                   />
                 </label>
                 <small className='small' id="pct_pront">{Err_pront}</small>
