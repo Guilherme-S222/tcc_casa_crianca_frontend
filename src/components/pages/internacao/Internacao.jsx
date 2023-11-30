@@ -93,9 +93,9 @@ function Internação() {
                 <button className='buttonEdt' type="button">Editar</button>
               </Link>
 
-              {/* <Link className='link' to={`/internacaocid/${item.intern_id}`}>
+              <Link className='link' to={`/internacaocid/${item.intern_id}`}>
                 <button className='buttonEdt' type="button">Cid</button>
-              </Link> */}
+              </Link>
 
             </div>
           </div>

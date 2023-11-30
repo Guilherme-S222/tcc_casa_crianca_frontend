@@ -4,9 +4,9 @@ const api = axios.create({
 
   //baseURL: 'http://10.67.23.36:3333' // etec server
 
-  baseURL: 'http://10.67.23.52:3333' // etec server maquina 18
+  // baseURL: 'http://10.67.23.52:3333' // etec server maquina 18
 
-  //baseURL: 'http://localhost:3333' // local server
+  baseURL: 'http://localhost:3333' // local server
 });
 
 export default api;
