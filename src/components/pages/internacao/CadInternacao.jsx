@@ -219,7 +219,7 @@ function CadInternacao() {
     return number;
   }
 
-
+/*
   const [medico, setMedico] = useState([]);
   const getMedicos = async () => {
     try {
@@ -241,9 +241,19 @@ function CadInternacao() {
   useEffect(() => {
     getMedicos();
   }, []);
-
+*/
   
-
+/*
+  <div className={Val_medic_id_intern} id="Val_medic_id_intern">
+    <label className='lblForm'>Médico:</label>
+        {medico.length > 0 ? (
+    <Select className='inputForm' options={medico} />
+     ) : (
+    <p>Carregando médicos...</p>
+     )}
+    <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
+    </div>
+*/
 
   return (
     <div >
@@ -268,7 +278,6 @@ function CadInternacao() {
                   placeholder='Digite o número da internação'
                   onChange={v => setintern_id(v.target.value)}
                   value={intern_id}
-
                 />
               </label>
               <small className='small' id='intern_id'>{Err_intern_id}</small>
@@ -295,7 +304,6 @@ function CadInternacao() {
                   type='date'
                   onChange={v => setintern_dtsaida(v.target.value)}
                   value={intern_dtsaida}
-
                 />
               </label>
               <small className='small' id='intern_dtsaida'>{Err_intern_dtsaida}</small>
@@ -310,7 +318,6 @@ function CadInternacao() {
                   placeholder= "Digite o tipo de saída"
                   onChange={v => setintern_tpsaida(v.target.value)}
                   value={intern_tpsaida}
-
                 />
               </label>
               <small className='small' id='intern_tpsaida'>{Err_intern_tpsaida}</small>
@@ -325,19 +332,8 @@ function CadInternacao() {
                   placeholder= "Digite o identificados do médico"
                   onChange={v => setmedic_id_intern(v.target.value)}
                   value={medic_id_intern}
-
                 />
               </label>
-              <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
-            </div>
-
-            <div className={Val_medic_id_intern} id="Val_medic_id_intern">
-              <label className='lblForm'>Médico:</label>
-                {medico.length > 0 ? (
-              <Select className='inputForm' options={medico} />
-                ) : (
-                <p>Carregando médicos...</p>
-              )}
               <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
             </div>
 
@@ -350,7 +346,6 @@ function CadInternacao() {
                   placeholder= "Digite o identificador do usuário"
                   onChange={v => setuser_id_intern(v.target.value)}
                   value={user_id_intern}
-
                 />
               </label>
               <small className='small' id='user_id_intern'>{Err_user_id_intern}</small>
@@ -365,7 +360,6 @@ function CadInternacao() {
                   placeholder= "Digite o prontuário do paciente"
                   onChange={v => setpct_pront_intern(v.target.value)}
                   value={pct_pront_intern}
-
                 />
               </label>
               <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
