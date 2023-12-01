@@ -329,7 +329,7 @@ function CadInternacao() {
                 <input
                   className='inputForm'
                   type='text'
-                  placeholder= "Digite o identificados do médico"
+                  placeholder= "Digite o identificador do médico"
                   onChange={v => setmedic_id_intern(v.target.value)}
                   value={medic_id_intern}
                 />

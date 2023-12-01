@@ -102,13 +102,13 @@ function CadEndereco() {
       setVal_estado('form-control success!')
     }
 
-    // if(pct_pront_enderec === ''){
-    //   setVal_pct_pront('form-control error')
-    //   setErr_pct_pront('Preencha o prontuário do paciente vinculado a esse endereço!')
-    //   validado = false;
-    // } else {
-    //   setVal_pct_pront('form-control success!')
-    // }
+    if(pct_pront_enderec === ''){
+      setVal_pct_pront('form-control error')
+      setErr_pct_pront('Preencha o prontuário do paciente vinculado a esse endereço!')
+      validado = false;
+    } else {
+      setVal_pct_pront('form-control success!')
+    }
 
     return validado;
 
@@ -324,7 +324,7 @@ function CadEndereco() {
             <small className='small' id='enderec_estado'>{Err_estado}</small>
           </div>
 
-          {/* <div className={Val_pct_pront} id="Val_pct_pront">
+          <div className={Val_pct_pront} id="Val_pct_pront">
             <label className='lblForm'>
               Prontuário do paciente vinculado:
                 <input
@@ -336,7 +336,7 @@ function CadEndereco() {
                 />
             </label>
             <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>
-          </div> */}
+          </div>
 
           <div className='divbtn'>
             <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>

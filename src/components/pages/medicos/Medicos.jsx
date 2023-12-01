@@ -69,9 +69,9 @@ function Medicos() {
             <span className='item'>Especialidade: {item.medic_especi}</span>
             <span className='item'>Telefone: {item.medic_tel}</span>
 
-            <div>
+            {/* <div>
               <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

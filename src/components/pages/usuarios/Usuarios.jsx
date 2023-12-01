@@ -68,7 +68,7 @@ function Usuarios() {
               <span className='item'>Nome: {item.user_nome}</span>
               <span className='item'>Senha: {item.user_senha}</span>
               <span className='item'>Instituição: {item.insti_id_user}</span>
-              <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button>
+              {/* <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button> */}
             </div>
           ))}
         </div>

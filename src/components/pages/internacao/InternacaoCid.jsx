@@ -82,7 +82,6 @@ function InternacaoCid(){
 
     try {
       const dados = {
-        intercid_id,
         intercid_evento,
         intercid_status,
         intern_id_intercid,
@@ -170,7 +169,7 @@ function InternacaoCid(){
 
           <form className='cadForm' onSubmit={handleSubmit}>
 
-            <div className={Val_id} id="Val_id">
+            {/* <div className={Val_id} id="Val_id">
               <label className='lblForm'>
                 Id do cadastrado do CID:
                 <input
@@ -183,7 +182,7 @@ function InternacaoCid(){
                 />
               </label>
               <small className='small' id='intercid_id'>{Err_id}</small>
-            </div>
+            </div> */}
 
             <div className={Val_evento} id="Val_evento">
               <label className='lblForm'>
@@ -215,7 +214,7 @@ function InternacaoCid(){
 
             <div className={Val_intern} id="intern_id_intercid">
               <label className='lblForm'>
-                ID da internação:
+                Internação nº:
                 <input
                   className='inputForm'
                   type='text'
@@ -229,7 +228,7 @@ function InternacaoCid(){
 
             <div className={Val_cid} id="Val_cid">
               <label className='lblForm'>
-                ID do CID:
+                Identificador do CID:
                 <input
                   className='inputForm'
                   type='text'
