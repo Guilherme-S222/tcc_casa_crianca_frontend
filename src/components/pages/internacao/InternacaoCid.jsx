@@ -34,13 +34,13 @@ function InternacaoCid(){
   function valida(){
     let validado = true;
 
-    if (intercid_id === ''){
-      setVal_id('form-control error');
-      setErr_id('Preencha o id!')
-      validado = false;
-    } else {
-      setVal_id('form-control success!')
-    }
+    // if (intercid_id === ''){
+    //   setVal_id('form-control error');
+    //   setErr_id('Preencha o id!')
+    //   validado = false;
+    // } else {
+    //   setVal_id('form-control success!')
+    // }
 
     if (intercid_evento === ''){
       setVal_evento('form-control error');

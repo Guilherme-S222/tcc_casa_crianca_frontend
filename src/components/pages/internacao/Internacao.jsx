@@ -10,7 +10,9 @@ import "../listar_modelo/listar.css";
 
 function Internação() {
 
-  const [internacao, setInternacao] = useState ([])
+  const [internacao, setInternacao] = useState ([]);
+  const [busca, setBusca] = useState('');
+
 
   const getInternacao = async() => {
     try {
@@ -31,7 +33,6 @@ function Internação() {
     getInternacao()
   }, []);
 
-  const [busca, setBusca] = useState('');
 
   const internacoesFiltradas = useMemo(() => {
     return internacao.filter((internacoes) => internacoes.pct_pront.toString() === (busca));

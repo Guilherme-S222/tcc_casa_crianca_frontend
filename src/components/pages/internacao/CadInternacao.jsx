@@ -220,32 +220,29 @@ function CadInternacao() {
   }
 
 
-  // ##### parei aqui
-  // const [medico, setMedico] = useState ([])
+  const [medico, setMedico] = useState([]);
+  const getMedicos = async () => {
+    try {
+      const response = await api.get("/medico");
+      const data = response.data;
+      console.log("Dados recebidos da API:", data);
+      if (Array.isArray(data.Itens)) {
+        // Certifique-se de que cada objeto tenha 'label' e 'value'
+        const formattedData = data.Itens.map(item => ({ label: item.medic_nome, value: item.medic_id }));
+        setMedico(formattedData);
+      } else {
+        console.error("Os dados recebidos não são um array válido");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // const getMedicos = async() => {
-  //   try {
-  //     const response = await api.get("/medico");
-  //     const data = response.data;
-  //     console.log("Dados recebidos da API:", data);
-  //     if (Array.isArray(data.Itens)){
-  //       setMedico(data.Itens);
-  //     } else {
-  //       console.error("Os dados recebidos não são um array válido");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  useEffect(() => {
+    getMedicos();
+  }, []);
 
-  // useEffect(() => {
-  //   getMedicos()
-  // }, []);
-
-  // const options = getMedicos();
-
-  // ####### parei aqui
-
+  
 
 
   return (
@@ -334,11 +331,15 @@ function CadInternacao() {
               <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
             </div>
 
-            {/* <div className={Val_medic_id_intern} id="Val_medic_id_intern">
+            <div className={Val_medic_id_intern} id="Val_medic_id_intern">
               <label className='lblForm'>Médico:</label>
-              <Select className='' options={getMedicos} />
+                {medico.length > 0 ? (
+              <Select className='inputForm' options={medico} />
+                ) : (
+                <p>Carregando médicos...</p>
+              )}
               <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
-            </div> */}
+            </div>
 
             <div className={Val_user_id_intern} id="Val_user_id_intern">
               <label className='lblForm'>
