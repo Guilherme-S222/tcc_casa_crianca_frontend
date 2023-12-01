@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import Select from 'react-select';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
@@ -100,7 +101,6 @@ function CadInternacao() {
     } else {
       setVal_pct_pront_intern('form-control success!')
     }
-
 
     return validado;
 
@@ -219,6 +219,35 @@ function CadInternacao() {
     return number;
   }
 
+
+  // ##### parei aqui
+  // const [medico, setMedico] = useState ([])
+
+  // const getMedicos = async() => {
+  //   try {
+  //     const response = await api.get("/medico");
+  //     const data = response.data;
+  //     console.log("Dados recebidos da API:", data);
+  //     if (Array.isArray(data.Itens)){
+  //       setMedico(data.Itens);
+  //     } else {
+  //       console.error("Os dados recebidos não são um array válido");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getMedicos()
+  // }, []);
+
+  // const options = getMedicos();
+
+  // ####### parei aqui
+
+
+
   return (
     <div >
       <Header pag={'CadIntercacao'}/>
@@ -242,7 +271,7 @@ function CadInternacao() {
                   placeholder='Digite o número da internação'
                   onChange={v => setintern_id(v.target.value)}
                   value={intern_id}
-                  
+
                 />
               </label>
               <small className='small' id='intern_id'>{Err_intern_id}</small>
@@ -269,7 +298,7 @@ function CadInternacao() {
                   type='date'
                   onChange={v => setintern_dtsaida(v.target.value)}
                   value={intern_dtsaida}
-                  
+
                 />
               </label>
               <small className='small' id='intern_dtsaida'>{Err_intern_dtsaida}</small>
@@ -299,11 +328,17 @@ function CadInternacao() {
                   placeholder= "Digite o identificados do médico"
                   onChange={v => setmedic_id_intern(v.target.value)}
                   value={medic_id_intern}
-                  
+
                 />
               </label>
               <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
             </div>
+
+            {/* <div className={Val_medic_id_intern} id="Val_medic_id_intern">
+              <label className='lblForm'>Médico:</label>
+              <Select className='' options={getMedicos} />
+              <small className='small' id='medic_id_intern'>{Err_medic_id_intern}</small>
+            </div> */}
 
             <div className={Val_user_id_intern} id="Val_user_id_intern">
               <label className='lblForm'>
@@ -314,7 +349,7 @@ function CadInternacao() {
                   placeholder= "Digite o identificador do usuário"
                   onChange={v => setuser_id_intern(v.target.value)}
                   value={user_id_intern}
-                  
+
                 />
               </label>
               <small className='small' id='user_id_intern'>{Err_user_id_intern}</small>
@@ -322,14 +357,14 @@ function CadInternacao() {
 
             <div className={Val_pct_pront_intern} id="Val_pct_pront_intern">
               <label className='lblForm'>
-                Usuário:
+                Paciente:
                 <input
                   className='inputForm'
                   type='text'
                   placeholder= "Digite o prontuário do paciente"
                   onChange={v => setpct_pront_intern(v.target.value)}
                   value={pct_pront_intern}
-                  
+
                 />
               </label>
               <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
