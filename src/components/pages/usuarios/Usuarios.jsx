@@ -64,7 +64,7 @@ function Usuarios() {
         <div className='listarContainer'>
           {usuarioFiltrado.map(item => (
             <div className='listarDiv' key={item.user_id}>
-              <span className='item'>ID: {item.user_id}</span>
+              <span className='item'>Identificador: {item.user_id}</span>
               <span className='item'>Nome: {item.user_nome}</span>
               <span className='item'>Senha: {item.user_senha}</span>
               <span className='item'>Instituição: {item.insti_id_user}</span>

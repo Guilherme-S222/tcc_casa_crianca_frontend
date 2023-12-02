@@ -509,14 +509,14 @@ function CadPacientes() {
               <div className={Val_aposent} id='Val_aposent'>
                 <label className='lblForm'>
                   Aposentado:
-                  <input
+                  <select
                     className='inputForm'
-                    type='text'
-                    placeholder='É aposentado? Sim ou Não'
                     onChange={v => setpct_aposent(v.target.value)}
-                    value={pct_aposent}
-                  />
-                  <br />
+                  >
+                    <option value={-1} key={'-1'}>Escolha uma opção</option>
+                    <option value={'Sim'} key={'1'}>Sim</option>
+                    <option value={'Não'} key={'2'}>Não</option>
+                  </select>
                 </label>
                 <small className='small' id="pct_aposent">{Err_aposent}</small>
               </div>
@@ -552,13 +552,17 @@ function CadPacientes() {
               <div className={Val_cor} id='Val_cor'>
                 <label className='lblForm'>
                   Cor:
-                  <input
+                  <select
                     className='inputForm'
-                    type='text'
-                    placeholder= "Digite a cor"
                     onChange={v => setpct_cor(v.target.value)}
-                    value={pct_cor}
-                  />
+                  >
+                    <option value={-1} key={'-1'}>Escolha uma cor</option>
+                    <option value={'Branco'} key={'Branco'}>Branco</option>
+                    <option value={'Preto'} key={'Preto'}>Preto</option>
+                    <option value={'Pardo'} key={'Pardo'}>Pardo</option>
+                    <option value={'Indígena'} key={'Indígena'}>Indígena</option>
+                    <option value={'Amarelo'} key={'Amarelo'}>Amarelo</option>
+                  </select>
                 </label>
                 <small className='small' id="pct_cor">{Err_cor}</small>
               </div>
@@ -624,7 +628,7 @@ function CadPacientes() {
                     className='inputForm'
                     onChange={v => setpct_status(parseInt(v.target.value))}
                   >
-                    <option value={-1} key={'-1'} disabled>Escolha uma opção</option>
+                    <option value={-1} key={'-1'}>Escolha uma opção</option>
                     <option value={1} key={'1'}>Ativo</option>
                     <option value={0} key={'2'}>Inativo</option>
                   </select>

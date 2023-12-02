@@ -313,13 +313,40 @@ function CadEndereco() {
           <div className={Val_estado} id="Val_estado">
             <label className='lblForm'>
               Estado:
-                <input
+                <select
                   className='inputForm'
-                  type='text'
-                  placeholder= "Digite o Estado"
                   onChange={v => setenderec_estado(v.target.value)}
-                  value={enderec_estado}
-                />
+                >
+                  {/* ESTADOS BRASILEIROS */}
+                  <option value={-1} key={'-1'} >Escolha um Estado</option>
+                  <option value={'AC'} key={'AC'}>AC</option>
+                  <option value={'AL'} key={'AL'}>AL</option>
+                  <option value={'AL'} key={'AL'}>AL</option>
+                  <option value={'AP'} key={'AP'}>AP</option>
+                  <option value={'AM'} key={'AM'}>AM</option>
+                  <option value={'BA'} key={'BA'}>BA</option>
+                  <option value={'CE'} key={'CE'}>CE</option>
+                  <option value={'DF'} key={'DF'}>DF</option>
+                  <option value={'ES'} key={'ES'}>ES</option>
+                  <option value={'GO'} key={'GO'}>GO</option>
+                  <option value={'MA'} key={'MA'}>MA</option>
+                  <option value={'MT'} key={'MT'}>MT</option>
+                  <option value={'MS'} key={'MS'}>MS</option>
+                  <option value={'MG'} key={'MG'}>MG</option>
+                  <option value={'PA'} key={'PA'}>PA</option>
+                  <option value={'PB'} key={'PB'}>PB</option>
+                  <option value={'PR'} key={'PR'}>PR</option>
+                  <option value={'PE'} key={'PE'}>PE</option>
+                  <option value={'PI'} key={'PI'}>PI</option>
+                  <option value={'RJ'} key={'RJ'}>RJ</option>
+                  <option value={'RN'} key={'RN'}>RN</option>
+                  <option value={'RS'} key={'RS'}>RS</option>
+                  <option value={'RO'} key={'RO'}>RO</option>
+                  <option value={'RR'} key={'RR'}>RR</option>
+                  <option value={'SC'} key={'SC'}>SC</option>
+                  <option value={'SP'} key={'SP'}>SP</option>
+                  <option value={'TO'} key={'TO'}>TO</option>
+                </select>
             </label>
             <small className='small' id='enderec_estado'>{Err_estado}</small>
           </div>

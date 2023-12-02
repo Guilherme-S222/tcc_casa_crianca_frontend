@@ -201,13 +201,14 @@ function InternacaoCid(){
             <div className={Val_status} id="Val_status">
               <label className='lblForm'>
                 Status:
-                <input
+                <select
                   className='inputForm'
-                  type='text'
-                  placeholder="Digite o status do CID"
                   onChange={v => setintercid_status(v.target.value)}
-                  value={intercid_status}
-                />
+                >
+                  <option value={-1} key={'-1'} >Escolha uma opção</option>
+                  <option value={'Ativo'} key={'Ativo'}>Ativo</option>
+                  <option value={'Inativo'} key={'Inativo'}>Inativo</option>
+                </select>
               </label>
               <small className='small' id='intercid_status'>{Err_status}</small>
             </div>
@@ -229,13 +230,22 @@ function InternacaoCid(){
             <div className={Val_cid} id="Val_cid">
               <label className='lblForm'>
                 Identificador do CID:
-                <input
+                <select
                   className='inputForm'
-                  type='text'
-                  placeholder="Digite o ID do CID"
                   onChange={v => setcid_id_intercid(v.target.value)}
-                  value={cid_id_intercid}
-                />
+                >
+                  <option value={-1} key={'-1'} >Escolha um cid</option>
+                  <option value={1} key={'1'}>R50 - Febre de origem desconhecida e de outras origens</option>
+                  <option value={2} key={'2'}>R53 - Mal estar, fadiga</option>
+                  <option value={3} key={'3'}>R11 - Náusea e vômitos</option>
+                  <option value={4} key={'4'}>R10 - Dor abdominal e pélvica</option>
+                  <option value={5} key={'5'}>R05 - Tosse</option>
+                  <option value={6} key={'6'}>R06 - Anormalidades da respiração</option>
+                  <option value={7} key={'7'}>R07 - Dor de garganta e no peito</option>
+                  <option value={8} key={'8'}>R62 - Retardo do desenvolvimento fisiológico normal</option>
+                  <option value={9} key={'9'}>R56 - Convulsões, não classificadas em outra parte</option>
+                  <option value={10} key={'10'}>R51 - Cefaléia</option>
+                </select>
               </label>
               <small className='small' id='cid_id_intercid'>{Err_cid}</small>
             </div>

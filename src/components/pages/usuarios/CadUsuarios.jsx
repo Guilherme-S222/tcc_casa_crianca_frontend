@@ -13,7 +13,7 @@ function CadUsuarios() {
   const [user_id, setuser_id] = useState('');
   const [user_nome, setuser_nome] = useState('');
   const [user_senha, setuser_senha] = useState('');
-  const [insti_id_user, setinsti_id_user] = useState('');
+  const [insti_id_user, setinsti_id_user] = useState('1');
 
   //validações
   const [Val_id, setVal_id] = useState('form-control');
@@ -36,13 +36,13 @@ function CadUsuarios() {
   function valida(){
     let validado = true;
 
-    if (user_id === ''){
-      setVal_id('form-control error');
-      setErr_id('Preencha o ID do usuário');
-      validado = false;
-    } else {
-      setVal_id('form-control success!');
-    }
+    // if (user_id === ''){
+    //   setVal_id('form-control error');
+    //   setErr_id('Preencha o ID do usuário');
+    //   validado = false;
+    // } else {
+    //   setVal_id('form-control success!');
+    // }
 
     if (user_nome === ''){
       setVal_nome('form-control error');
@@ -126,13 +126,14 @@ function CadUsuarios() {
 
           <div className={Val_id} id='Val_id'>
             <label className='lblForm'>
-              ID do Usuário:
+              Identificador do Usuário:
               <input
                 className='inputForm'
                 type='text'
-                placeholder= "Digite o ID do usuário"
+                placeholder= "Preenchimento automático"
                 onChange={v => setuser_id(v.target.value)}
                 value={user_id}
+                readOnly
               />
             </label>
             <small className='small' id='user_id'>{Err_id}</small>
@@ -168,14 +169,14 @@ function CadUsuarios() {
 
           <div className={Val_insti} id='Val_insti'>
             <label className='lblForm'>
-              Instituição vinculada ao Usuário:
-              <input
+              Instituição:
+              <select
                 className='inputForm'
-                type='text'
-                placeholder= "Digite a instituição do usuário"
                 onChange={v => setinsti_id_user(v.target.value)}
-                value={insti_id_user}
-              />
+              >
+                <option value={-1} key={'-1'}>Escolha uma opção</option>
+                <option value={1} key={'1'}>Casa da Criança de Tupã</option>
+              </select>
             </label>
             <small className='small' id='insti_user_id'>{Err_insti}</small>
           </div>
