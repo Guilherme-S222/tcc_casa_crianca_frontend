@@ -37,8 +37,8 @@ function CadPacientes() {
   // ####
 
   // #### Definindo variáveis de estado e uma função SET para atualiza-las. Serão usadas para validações.
-  const [Val_pront, setVal_pront] = useState('form-control');
-  const [Err_pront, setErr_pront] = useState('');
+  const [Val_pront, /*setVal_pront*/] = useState('form-control');
+  const [Err_pront, /*setErr_pront*/] = useState('');
   const [Val_cpf, setVal_cpf] = useState('form-control');
   const [Err_cpf, setErr_cpf] = useState('');
   const [Val_nome, setVal_nome] = useState('form-control');

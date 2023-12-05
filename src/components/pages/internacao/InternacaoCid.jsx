@@ -17,7 +17,7 @@ function InternacaoCid(){
   const [intercid_status, setintercid_status] = useState('');
   const [intern_id_intercid, setintern_id_intercid] = useState('');
   const [cid_id_intercid, setcid_id_intercid] = useState('');
-
+  
   //validações
   const [Val_id, setVal_id] = useState('form-control');
   const [Err_id, setErr_id] = useState('');
@@ -82,15 +82,17 @@ function InternacaoCid(){
 
     try {
       const dados = {
+        intern_id_intercid,
+        cid_id_intercid,
         intercid_evento,
         intercid_status,
-        intern_id_intercid,
-        cid_id_intercid
+        intercid_id
       }
 
       if (params.id){
         await api.patch(`/internacao_cid/${params.id}`, dados);
         alert("Cid da Internação alterado com sucesso!");
+        console.log(dados);
         navigate('/menu');
 
       } else{
@@ -132,9 +134,12 @@ function InternacaoCid(){
 
   async function carregarCidIntern(){
     try {
-      const response = await api.get(`/internacao_cid?intercid_id=${params.id}`);
+      const response = await api.get(`/internacao_cid?intern_id_intercid=${params.id}`);
+
+      console.log("Resposta: ", response);
 
       if (response.data.nItens === 1){
+
         const internCid = response.data.Itens[0];
 
         setintercid_id(internCid.intercid_id);
@@ -142,6 +147,7 @@ function InternacaoCid(){
         setintercid_status(internCid.intercid_status);
         setintern_id_intercid(internCid.intern_id_intercid);
         setcid_id_intercid(internCid.cid_id_intercid);
+    
       } else {
         console.log("Nenhum item retornado na resposta da API");
       }
@@ -184,6 +190,20 @@ function InternacaoCid(){
               <small className='small' id='intercid_id'>{Err_id}</small>
             </div> */}
 
+            <div className={Val_intern} id="intern_id_intercid">
+              <label className='lblForm'>
+                Internação nº:
+                <input
+                  className='inputForm'
+                  type='text'
+                  placeholder="Digite o ID da internação"
+                  onChange={v => setintern_id_intercid(v.target.value)}
+                  value={intern_id_intercid}
+                />
+              </label>
+              <small className='small' id='intern_id_intercid'>{Err_intern}</small>
+            </div>
+
             <div className={Val_evento} id="Val_evento">
               <label className='lblForm'>
                 Evento:
@@ -200,7 +220,7 @@ function InternacaoCid(){
 
             <div className={Val_status} id="Val_status">
               <label className='lblForm'>
-                Status:
+                Status da internação:
                 <select
                   className='inputForm'
                   onChange={v => setintercid_status(v.target.value)}
@@ -213,23 +233,9 @@ function InternacaoCid(){
               <small className='small' id='intercid_status'>{Err_status}</small>
             </div>
 
-            <div className={Val_intern} id="intern_id_intercid">
-              <label className='lblForm'>
-                Internação nº:
-                <input
-                  className='inputForm'
-                  type='text'
-                  placeholder="Digite o ID da internação"
-                  onChange={v => setintern_id_intercid(v.target.value)}
-                  value={intern_id_intercid}
-                />
-              </label>
-              <small className='small' id='intern_id_intercid'>{Err_intern}</small>
-            </div>
-
             <div className={Val_cid} id="Val_cid">
               <label className='lblForm'>
-                Identificador do CID:
+                CID da internação:
                 <select
                   className='inputForm'
                   onChange={v => setcid_id_intercid(v.target.value)}
@@ -251,7 +257,7 @@ function InternacaoCid(){
             </div>
 
             <div className='divbtn'>
-              <Link className='linkbtn' to='../cadinternacao'><button className='cancbtn'>Cancelar</button></Link>
+              <Link className='linkbtn' to='../internacao'><button className='cancbtn'>Cancelar</button></Link>
               <button type="submit" className='cadbtn'>Cadastrar CID</button>
             </div>
 

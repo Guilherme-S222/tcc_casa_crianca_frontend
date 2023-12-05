@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
-import Select from 'react-select';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
@@ -356,20 +355,21 @@ function CadInternacao() {
 
             <div className={Val_pct_pront_intern} id="Val_pct_pront_intern">
               <label className='lblForm'>
-                Paciente:
+                Prontuário do Paciente:
                 <input
                   className='inputForm'
                   type='text'
                   placeholder= "Digite o prontuário do paciente"
                   onChange={v => setpct_pront_intern(v.target.value)}
                   value={pct_pront_intern}
+                  
                 />
               </label>
               <small className='small' id='pct_pront_intern'>{Err_pct_pront_intern}</small>
             </div>
 
               <div className='divbtn'>
-                <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+                <Link className='linkbtn' to='../internacao'><button className='cancbtn' >Cancelar</button></Link>
                 <button type="submit" className='cadbtn' >Salvar</button>
               </div>
 
