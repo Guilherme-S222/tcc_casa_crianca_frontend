@@ -64,7 +64,7 @@ function Cid() {
       <div className='listarContainer'>
         {cidFiltrado.map(item => (
           <div className='listarDiv' key={item.cid_id}>
-            <span className='item'>ID: {item.cid_id}</span>
+            {/* <span className='item'>ID: {item.cid_id}</span> */}
             <span className='item'>CID: {item.cid_cid}</span>
             <span className='item'>Descrição: {item.cid_descri}</span>
             {/* <button className='buttonEdt' type="button"><Link className='link' to='#'>Editar</Link></button> */}
