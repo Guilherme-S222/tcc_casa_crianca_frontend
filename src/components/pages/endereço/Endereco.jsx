@@ -1,74 +1,35 @@
-import React, { useState } from 'react'; //adicionar hook useState
+import React, { useState, useMemo, useEffect } from 'react'; //adicionar hook useState
+import { Link } from 'react-router-dom';
+import api from '../../services/api';
+
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
-
-import { Link } from 'react-router-dom';
 
 import "../listar_modelo/listar.css";
 
 
 function Endereco({ Endereco }) {
 
-  const [endereco, setEndereco] = useState (
-    [
-      {
-        "enderec_id": 1,
-        "enderec_rua": "Rua das Flores",
-        "enderec_num": 123,
-        "enderec_bairro": "Bairro X",
-        "enderec_complem": "Apto 101",
-        "enderec_cidade": "Tupa",
-        "enderec_cep": "12345678",
-        "enderec_estado": "SP",
-        "pct_pront_enderec": 1
-      },
-      {
-        "enderec_id": 2,
-        "enderec_rua": "Rua America",
-        "enderec_num": 456,
-        "enderec_bairro": "Bairro Y",
-        "enderec_complem": null,
-        "enderec_cidade": "Quata",
-        "enderec_cep": "23456789",
-        "enderec_estado": "SP",
-        "pct_pront_enderec": 2
-      },
-      {
-        "enderec_id": 3,
-        "enderec_rua": "Rua Central",
-        "enderec_num": 789,
-        "enderec_bairro": "Bairro Z",
-        "enderec_complem": "Casa 5",
-        "enderec_cidade": "Sao Paulo",
-        "enderec_cep": "34567890",
-        "enderec_estado": "SP",
-        "pct_pront_enderec": 3
-      },
-      {
-        "enderec_id": 4,
-        "enderec_rua": "Rua Caigangs",
-        "enderec_num": 101,
-        "enderec_bairro": "Bairro W",
-        "enderec_complem": null,
-        "enderec_cidade": "Bastos",
-        "enderec_cep": "45678901",
-        "enderec_estado": "SP",
-        "pct_pront_enderec": 4
-      },
-      {
-        "enderec_id": 5,
-        "enderec_rua": "Rua Pereiro Barreto",
-        "enderec_num": 20,
-        "enderec_bairro": "Bairro V",
-        "enderec_complem": "Bloco C",
-        "enderec_cidade": "Assis",
-        "enderec_cep": "56789012",
-        "enderec_estado": "SP",
-        "pct_pront_enderec": 5
-      }
-    ]
-  );
+  const [endereco, setEndereco] = useState([]);
 
+  const getEnderecos = async() => {
+    try {
+      const response = await api.get("/endereco");
+      const data = response.data;
+      if (data.itens){
+        setEndereco(data.itens);
+      } else {
+        console.error("Os dados recebidos não são um array válido");
+      }
+    } catch (error) {
+      console.error(error);
+    };
+  };
+
+  useEffect(() => {
+    getEnderecos();
+  }, []);
+    
   return (
     <div >
       <Header pag={'Endereco'}/>

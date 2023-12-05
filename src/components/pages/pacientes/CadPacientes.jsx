@@ -651,7 +651,7 @@ function CadPacientes() {
               </div>
 
               <div className='divbtn'>
-                <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+                <Link className='linkbtn' to='../pacientes'><button className='cancbtn' >Cancelar</button></Link>
                 <button type="submit" className='cadbtn' >Salvar</button>
               </div>
 

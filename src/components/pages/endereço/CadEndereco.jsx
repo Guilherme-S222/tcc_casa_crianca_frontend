@@ -1,15 +1,14 @@
+import api from '../../services/api';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 
-import api from '../../services/api';
 
 function CadEndereco() {
 
   const params = useParams();
-
   let navigate = useNavigate();
 
   const [enderec_id, setenderec_id] = useState('');
@@ -19,7 +18,7 @@ function CadEndereco() {
   const [enderec_complem, setenderec_complem] = useState('');
   const [enderec_cidade, setenderec_cidade] = useState('');
   const [enderec_cep, setenderec_cep] = useState('');
-  const [enderec_estado, setenderec_estado] = useState('');
+  const [enderec_estado, setenderec_estado] = useState('-1');
   const [pct_pront_enderec, setpct_pront_enderec] = useState('');
 
   //validações
@@ -128,16 +127,18 @@ function CadEndereco() {
         enderec_estado,
         pct_pront_enderec
       }
+      console.log("Dados a serem enviados: ", dados);
 
       if (params.id){
-        await api.patch(`/endereco/${params.id}`, dados);
+        await api.patch(`/endereco/${enderec_id}`, dados);
+        console.log("Resposta da API: ", dados);
         alert("Endereço alterado com sucesso!")
-        navigate('/menu')
+        navigate('/pacientes')
 
       } else{
 
         const response = await api.post('/endereco', dados);
-        console.log(response);
+        console.log("Resposta da API: ", response);
         if (response.data.confirma === true){
 
         const objLogado = {
@@ -157,6 +158,8 @@ function CadEndereco() {
         }
       }
     } catch (error){
+
+      console.log("Erro ao processar a requisição: ", error);
 
       if (error.message){
         alert("Erro ao processar a requisição: " + error.response.data.message);
@@ -197,6 +200,18 @@ function CadEndereco() {
       carregarEndereco();
     }
   }, []);
+
+  console.log("Dados enviados para a api: ", {
+    enderec_id,
+    enderec_rua,
+    enderec_num,
+    enderec_bairro,
+    enderec_complem,
+    enderec_cidade,
+    enderec_cep,
+    enderec_estado,
+    pct_pront_enderec
+  });
 
   return (
     <div >
@@ -313,42 +328,15 @@ function CadEndereco() {
           <div className={Val_estado} id="Val_estado">
             <label className='lblForm'>
               Estado:
-                <select
+                <input
                   className='inputForm'
+                  type='text'
+                  placeholder= "Digite o Estado"
                   onChange={v => setenderec_estado(v.target.value)}
-                >
-                  {/* ESTADOS BRASILEIROS */}
-                  <option value={-1} key={'-1'} >Escolha um Estado</option>
-                  <option value={'AC'} key={'AC'}>AC</option>
-                  <option value={'AL'} key={'AL'}>AL</option>
-                  <option value={'AL'} key={'AL'}>AL</option>
-                  <option value={'AP'} key={'AP'}>AP</option>
-                  <option value={'AM'} key={'AM'}>AM</option>
-                  <option value={'BA'} key={'BA'}>BA</option>
-                  <option value={'CE'} key={'CE'}>CE</option>
-                  <option value={'DF'} key={'DF'}>DF</option>
-                  <option value={'ES'} key={'ES'}>ES</option>
-                  <option value={'GO'} key={'GO'}>GO</option>
-                  <option value={'MA'} key={'MA'}>MA</option>
-                  <option value={'MT'} key={'MT'}>MT</option>
-                  <option value={'MS'} key={'MS'}>MS</option>
-                  <option value={'MG'} key={'MG'}>MG</option>
-                  <option value={'PA'} key={'PA'}>PA</option>
-                  <option value={'PB'} key={'PB'}>PB</option>
-                  <option value={'PR'} key={'PR'}>PR</option>
-                  <option value={'PE'} key={'PE'}>PE</option>
-                  <option value={'PI'} key={'PI'}>PI</option>
-                  <option value={'RJ'} key={'RJ'}>RJ</option>
-                  <option value={'RN'} key={'RN'}>RN</option>
-                  <option value={'RS'} key={'RS'}>RS</option>
-                  <option value={'RO'} key={'RO'}>RO</option>
-                  <option value={'RR'} key={'RR'}>RR</option>
-                  <option value={'SC'} key={'SC'}>SC</option>
-                  <option value={'SP'} key={'SP'}>SP</option>
-                  <option value={'TO'} key={'TO'}>TO</option>
-                </select>
+                  value={enderec_estado}
+                />
             </label>
-            <small className='small' id='enderec_estado'>{Err_estado}</small>
+            <small className='small' id='pct_pront_enderec'>{Err_pct_pront}</small>
           </div>
 
           <div className={Val_pct_pront} id="Val_pct_pront">
@@ -366,7 +354,7 @@ function CadEndereco() {
           </div>
 
           <div className='divbtn'>
-            <Link className='linkbtn' to='../menu'><button className='cancbtn' >Cancelar</button></Link>
+            <Link className='linkbtn' to='../pacientes'><button className='cancbtn' >Cancelar</button></Link>
             <button type="submit" className='cadbtn'>Salvar</button>
           </div>
 
