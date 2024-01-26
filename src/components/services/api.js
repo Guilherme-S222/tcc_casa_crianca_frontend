@@ -2,11 +2,11 @@ import axios from 'axios'; //Cliente HTTP baseado em promessas para o navegador 
 
 const api = axios.create({
 
-  baseURL: 'http://10.67.23.241:3333' // etec server
+  // baseURL: 'http://10.67.23.241:3333' // etec server
 
   // baseURL: 'http://10.67.23.52:3333' // etec server maquina 18
 
-  // baseURL: 'http://localhost:3333' // local server
+  baseURL: 'http://localhost:3333' // local server
 });
 
 export default api;
